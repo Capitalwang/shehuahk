@@ -1,0 +1,82 @@
+﻿<style type="text/css">
+	
+	.dil{
+		border-top:1px solid #cacaca;
+		border-right:1px solid #cacaca;
+		}
+	.dil th{
+		border-bottom:1px solid #cacaca;
+		border-left:1px solid #cacaca;}
+	.dil td{
+		border-left:1px solid #cacaca;
+		border-bottom:1px solid #cacaca;}
+	}
+
+</style>
+<table border="0" cellspacing="0" cellpadding="0" width="100%" class="dil">
+	<tr>
+		<th width="22%">编号</th>
+		<td width="33%">{brite_spot query =$get.info str=$show.ProID}</td>
+		<th width="22%">数量</th>
+		<td width="23%">{$show.amount}</td>
+	</tr>
+	<tr>
+		<th>形状</th>
+		<td>{$shape[$show.shape]} ({$show.shape})</td>
+		<th>重量</th>
+		<td>{$show.weight}</td>
+	</tr>
+	<tr>
+		<th>颜色</th>
+		<td>{$show.color}</td>
+		<th>净度</th>
+		<td>{$show.clarity}</td>
+	</tr>
+	<tr>
+		<th>切工</th>
+		<td>{$show.cut}</td>
+		<th>抛光</th>
+		<td>{$show.buffing}</td>
+	</tr>
+	<tr>
+		<th>对称</th>
+		<td>{$show.symmetry}</td>
+		<th>测量值</th>
+		<td>{$show.scalar_value}</td>
+	</tr>
+	<tr>
+		<th>荧光强度</th>
+		<td>{$show.Fent_Isity}</td>
+		<th></th>
+		<td></td>
+	</tr>
+	<tr>
+		<th>全身比</th>
+		<td>{$show.body_ratio} %</td>
+		<th>台宽比</th>
+		<td>{$show.table_width} %</td>
+	</tr>
+	<tr>
+		<th>证书</th>
+		<td colspan="3">
+			{Goto_diploma diploma=$show.diploma weight=$show.weight NO=$show.diplomaNO show={brite_spot query =$get.info str=$show.diploma|cat:' - '|cat:$show.diplomaNO}}
+			{if $show.diplomaPhoto}<a style="margin:0 0 0 2em" href="{$Domain}{$show.diplomaPhoto}" target="_{$show.ProID}">证书图</a>{/if}
+		</td>
+	</tr>
+	<tr>
+		<th>是否促销</th>
+		<td>
+			{if $show.is_promotion == 'N' or $show.promotion_start > $smarty.now or $smarty.now > $show.promotion_stop}否{else}
+				是
+				<span style="margin:0 0 0 2em">开始日期 {$show.promotion_start|date_format:"%Y-%m-%d %H:%M"}</span>
+				<span style="margin:0 0 0 2em">结束日期 {$show.promotion_stop|date_format:"%Y-%m-%d %H:%M"}</span>
+			{/if}
+		</td>
+		<th>国际报价</th>
+		<td>{$show.INTbid} 元 / ct</td>
+	</tr>
+	<tr>
+		<th>备注</th>
+		<td colspan="3">{$show.userRemark}</td>
+	</tr>
+</table>

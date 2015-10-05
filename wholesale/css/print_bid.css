@@ -1,0 +1,6 @@
+@charset "utf-8";
+/* CSS Document */
+div table{width:48%;float:left;margin:0.3em 0 0 5px;background-color:#999999}
+div table td,div table th{text-align:center}
+div table th{background-color:#FFFFFF;color:#000}
+div table td{background-color:#FFFFFF;color:#333}

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/cart.js"></script>
+<script type="text/javascript" src="Js/product.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+			{if $BTP.product.show}<li><a href="{write_url open='proxy'}">继续添加代理</a></li>{/if}
+			{if $BTP[$get.open].del}<li><a href="{write_url url=$thisurl action='del'}">清空缓存</a></li>{/if}
+			{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='ALL'}" {CLASS_COLOR show=$get.action CLASS='this'}>代理群发手机短信</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		{if $get.action == 'error'}
+			<div style="padding:5em 0; text-align:center">
+			{if $get.code == -1}
+				短信发送未成功 , <a href="{write_url open='proxy_sms' action='send' go='goto'}">点击重新发送</a>
+			{elseif $get.code == 1}
+				手机号码不正确 , <a href="{write_url open='proxy'}">请重新添加代理</a>
+			{/if}
+			</div>
+		{elseif $get.action == 'successful'}
+			<div style="padding:5em 0; text-align:center">
+			{if count($back.Pxy_SMS)}
+				<b style="color:#06F">{$back.Pxy_SMS_successful}</b> 部手机发送成功
+				<b style="color:#F00">{count($back.Pxy_SMS)}</b> 部手机发送失败<br />
+				<a href="{write_url open='proxy_sms' action='send' go='goto'}">点击重新发送</a>
+			{else}
+				<b style="color:#06F">{$back.Pxy_SMS_successful}</b> 部手机 已经全部 发送成功
+			{/if}
+			</div>
+		{else}
+		<div class="show">
+			<form action="{write_url url=$thisurl action='send'}" method="post">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+				<tr align="center">
+					<th>代理账号</th>
+					<th>真实姓名</th>
+					<th>昵称</th>
+					<th>编号</th>
+					<th>代理组</th>
+					<th>公司</th>
+					<th>手机号码</th>
+					<th width="5%">删除</th>
+				</tr>
+				{foreach item=pso from=$proxy_list}
+				<tr>
+					<td>{$pso.account}</td>
+					<td>{$pso.name}</td>
+					<td>{$pso.nickname}</td>
+					<td align="center">{$pso.number}</td>
+					<td>{$pso.group}</td>
+					<td>{$pso.company_name}</td>
+					<th>{$pso.content}</th>
+					<td align="center" class="action">{if $BTP.proxy_sms.del}<a href="{write_url url=$thisurl action='del' id=$pso.id}" class="act_1_5" title="删除"></a>{/if}</td>
+				</tr>
+				{foreachelse}
+				<tr><td colspan="8" class="else">缓存中没有代理 , <a href="{write_url url=$thisurl open='proxy' DEL='ALL'}">点击添加代理</a></td></tr>
+				{/foreach}
+				{if $proxy_list}
+				<tr><td colspan="8" align="center" style="color:#F00; height:25px">注意:如果添加的代理没有手机号码,或者号码不正确将不会被发送短信</td></tr>
+				<tr>
+					<td colspan="3" align="right" class="Need">短信内容</td>
+					<td colspan="5">
+						<textarea name="message" style="width:95%; height:100px;" onkeyup="Calculation(this , 'show_info');"></textarea>
+						<div id="show_info" style="margin:0.5em 0 0 0"></div>
+					</td>
+				</tr>
+				<tr><td colspan="8" align="center"><input type="submit" class="add_or" value="  发送短信  " /></td></tr>
+				{/if}
+			</table>
+			</form>
+		</div>
+		{/if}
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

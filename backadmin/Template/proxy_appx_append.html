@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				{if $BTP[$get.open].add}<li><a href="{write_url url=$thisurl action='add' DEL='ALL'}" {CLASS_COLOR add=$get.action CLASS='this'}>添加代理</a></li>{/if}
+				{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='ALL'}" {CLASS_COLOR show=$get.action CLASS='this'}>代理管理</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="append">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+				<tr class="NO_TAB_SHOW"><td colspan="9" class="Need padding">附件</td></tr>
+				<tr class="NO_TAB_SHOW">
+					<td align="right">代理账号</td>
+					<td>{$proxy.account}</td>
+					<td align="right">真实姓名</td>
+					<td>{$proxy.name}</td>
+					<td align="right">昵称</td>
+					<td>{$proxy.nickname}</td>
+					<td align="right">编号</td>
+					<td>{$proxy.number}</td>
+					<td width="20%">
+						<div class="Nav" style="margin:0; padding:0">
+							<ul>
+								{if $BTP[$get.open].proxy_appx_add}<li><a href="{write_url url=$thisurl action='proxy_appx_add' DEL='appxid'}" {CLASS_COLOR proxy_appx_add=$get.action CLASS='this'}>添加附件</a></li>{/if}
+								{if $BTP[$get.open].proxy_appx_show}<li><a href="{write_url url=$thisurl action='proxy_appx_show' DEL='appxid'}" {CLASS_COLOR proxy_appx_show=$get.action CLASS='this'}>附件管理</a></li>{/if}
+							</ul>
+							<span class="clear"></span>
+						</div>
+					</td>
+				</tr>
+				<tr class='NO_TAB_SHOW'>
+					<td colspan="9">
+						<form action="{write_url url=$thisurl go='append'}" method="post" enctype="multipart/form-data">
+							<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+								<tr><th colspan="2">{if $get.action == 'proxy_appx_add'}添加附件{else}编辑附件{/if}</th></tr>
+								<tr>
+									<td align="right" width="35%" class="Need">类型</td>
+									<td>
+										<select name="type">
+											<option value="0">请选择文件类型</option>
+											{foreach item=aon key=nabKey from=$Appendix}<option value="{$nabKey}" {selected val=$edit.type str=$nabKey}>{$aon}</option>{/foreach}
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td align="right" class="Need">名称</td>
+									<td><input type="text" name="name" value="{$edit.name}" style="width:85%" /></td>
+								</tr>
+								<tr>
+									<td align="right" {CLASS_COLOR proxy_appx_add=$get.action CLASS='Need'}>文件</td>
+									<td>
+										<input type="file" name="host" size="40" style="width:300px;height:23px" />
+										{if $get.action == 'proxy_appx_edit'}<span class="Hint"><b>不选择文件表示不改变原来的文件</b></span>{/if}
+										<div class="Hint">注：当前支持的文件大小为5M,文件类型 (图片:jpg , gif , bmp , png | Office文件 : doc , ppt , xls | 压缩文件 : rar , zip). </div>
+									</td>
+								</tr>
+								<tr>
+									<td align="right">简介</td>
+									<td><input type="text" name="into" value="{$edit.into}" style="width:85%" /></td>
+								</tr>
+								<tr>
+									<td align="right">说明</td>
+									<td><textarea name="show" style="width:85%;height:120px">{br_to_null str=$edit.show}</textarea></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="center">
+										<input type="submit" value=" 提 交 " style="height:25px" />
+										<input type="reset" value=" 重 填 " style="height:25px" />
+									</th>
+								</tr>
+							</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</div>	
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<table border="0" cellspacing="1" cellpadding="0" width="100%">
+	<tr>
+		<td width="40%" class="Need" align="right">国际报价</td>
+		<td>{$show.INTbid} (元/ct) × {$show.weight} (ct) = {($show.INTbid * $show.weight)|string_format:"%.2f"} (元)</td>
+	</tr>
+	<tr>
+		<td align="right" class="Need">进货价</td>
+		<td>{$show.infml} (元)</td>
+	</tr>
+	<tr>
+		<td align="right">退点</td>
+		<td>{$show.agio} %</td>
+	</tr>
+	<tr>
+		<td align="right">基准退点</td>
+		<td>{$show.baseAgio} %</td>
+	</tr>
+	{if $show.is_promotion == 'Y' and $show.promotion_start<=$smarty.now and $show.promotion_stop>=$smarty.now}
+	<tr>
+		<td align="right" class="Need">促销价</td>
+		<td>{sprintf('%.2f' , $show.INTbid*$show.weight*(100 + $show.agio+$show.baseAgio+$show.promotion_dot)/100)} (元)</td>
+	</tr>
+	<tr>
+		<td align="right">促销开始日期</td>
+		<td>{$show.promotion_start|date_format:"%Y-%m-%d %H:%M"}</td>
+	</tr>
+	<tr>
+		<td align="right">促销结束日期</td>
+		<td>{$show.promotion_stop|date_format:"%Y-%m-%d %H:%M"}</td>
+	</tr>
+	{/if}
+	{foreach item=ts from=$show.proxy_group}
+	<tr>
+		<td align="right" class="Need">{$ts.name}</td>
+		<td>
+			{($show.INTbid * $show.weight)|string_format:"%.2f"} (元) × 
+			(100% + {$show.agio} % + {$show.baseAgio} % + {$ts.rebate} % ) = 
+			{(($show.INTbid * $show.weight) * (100+{$show.agio}+{$show.baseAgio}+{$ts.rebate}) / 100)|string_format:"%.2f"} (元)
+			<div style="margin:0.5em 0 0 0; color:#09F">
+			得利：
+			{(($show.INTbid * $show.weight) * (100 + {$show.agio}+{$show.baseAgio}+{$ts.rebate}) / 100)|string_format:"%.2f"} (元) - 
+			{$show.infml} (元) = 
+			{(($show.INTbid * $show.weight) * (100 + {$show.agio}+{$show.baseAgio}+{$ts.rebate}) / 100)-$show.infml|string_format:"%.2f"} (元)
+			</div>
+		</td>
+	</tr>
+	{/foreach}
+</table>

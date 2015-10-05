@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>奢华</title>
+<link href="css/default1.css" rel="stylesheet" type="text/css" />
+<link href="css/me.css" rel="stylesheet" type="text/css" />
+<link href="css/kh-index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" scr="Js/hk.js"></script>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+<header>
+    <div class="box head-box">
+        <img class="index-img" src="images/logo1.jpg" alt="奢华国际钻石集团"/>
+        <span id="heid" style="background:url(images/anniu.png);"></span>
+        <div class="head">
+            {include file="nav.html"}
+       </div>
+   </div>
+</header>
+
+<!-- <!-- <div class="Pe">
+	
+	<div class="gray me">
+		<div class="let">
+			<div>您好！欢迎进入在线库存中心</div>
+		
+		</div>
+		
+		<div class="Ys">
+			<div class="foe">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" class="log">
+					<tr><th colspan="2" class="te">我的资讯</th></tr>
+					<tr><th width="45%">编号</th><td>{$show.number}</th></tr>
+					<tr><th>账号</th><td>{$show.account}</td></tr>
+					<tr><th>*真实姓名</th><td>{$show.name}</td></tr>
+					<tr><th>*昵称</th><td>{$show.nickname}</td></tr>
+					<tr><th>余款</th><td>{$show.money} 元</td></tr>
+					<!--<tr>
+						<th>手机短信</th>
+						<td>{if $show.is_SMS == 'Y'}开启<span style="color:#09F;margin:0 0 0 2em">{$proxy.sms_price} / 条</span>{else}关闭{/if}</td>
+					</tr>-->
+				  <!--  <tr><td colspan="2"></td></tr>
+					<tr><th>Logo</th><td><img src="{$show.company_logo}" width="320" height="140"/><br/>*建议高宽：140*320px<br/>{$show.company_logo}</td></tr>
+					<tr><th>*公司名称</th><td>{$show.company_name}</td></tr>
+					<tr><th>*公司地址</th><td>{$show.company_address}</td></tr>
+					<tr><th>*倍率</th><td>{$show.mag}</td></tr>
+					<tr>
+						<th>*通讯</th>
+						<td>
+							<ul class="NAB" id="NAB">
+								{foreach item=nB from=$Nab}
+								<li>{$nB.type_name} - {$nB.content} {if $nB.is_default == 'Y'}<span style="color:#F00">接收 手机短信 号码</span>{/if}</li>
+								{/foreach}
+							</ul>
+						</td>
+					</tr>
+					<tr><th>品牌名称</th><td>{$show.brand_name}</td></tr>
+					<tr><th>职务名称</th><td>{$show.position}</td></tr>
+					<tr><th>经营区域</th><td>{$show.business_zone}</td></tr>
+					<tr><th>经营范围</th><td>{$show.business_scope}</td></tr>
+					<tr><th>上级业务</th><td>{$show.salesman_write}</td></tr>
+					<tr><th>上级客服</th><td>{$show.service_write}</td></tr>
+					<tr><th>网站</th><td>{$show.home_page}</td></tr>
+					<tr><th>开户日期</th><td>{date('Y-m-d',$show.start_date)}</td></tr>
+					<tr><th>位置</th><td>{$show.province}{if $show.city} - {$show.city}{/if}</td></tr>
+					<tr><th>性别</th><td>{if $show.sex == 'privacy'}保密{elseif $show.sex == 'man'}男{else}女{/if}</td></tr>
+					<tr><th>上次登录时间</th><td>{date('Y-m-d',$show.login_time)}</td></tr> -->
+					
+					<!--<tr><td>备注</td><td>{$show.remark}</td></tr>-->
+	<!-- 			</table>
+			</div>
+		</div>
+		<i class="clear"></i>
+	</div>
+</div>  -->
+<div class="Pe">
+	<div class="gray me">
+    	<span id="left_hied" style="display:block;width:58px; height:50px; position:absolute;  left:0; z-index:1;"></span>
+		<div class="let">
+        <div>您好！欢迎进入在线库存中心</div>
+			{include file="me_nav.html"}
+		</div>
+		
+        
+        
+		<div class="Ys">
+			<div class="foe">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" class="log">
+					<tr><th colspan="2" class="te">我的资讯</th></tr>
+					<tr><th width="45%">编号</th><td>{$show.number}</th></tr>
+					<tr><th>账号</th><td>{$show.account}</td></tr>
+					<tr><th>*真实姓名</th><td>{$show.name}</td></tr>
+					<tr><th>*昵称</th><td>{$show.nickname}</td></tr>
+					<tr><th>余款</th><td>{$show.money} 元</td></tr>
+					<!--<tr>
+						<th>手机短信</th>
+						<td>{if $show.is_SMS == 'Y'}开启<span style="color:#09F;margin:0 0 0 2em">{$proxy.sms_price} / 条</span>{else}关闭{/if}</td>
+					</tr>-->
+				   <tr><td colspan="2"></td></tr>
+					<tr><th>Logo</th><td><img src="{$show.company_logo}" /><br/>*建议高宽：140*320px<br/>{$show.company_logo}</td></tr>
+					<tr><th>*公司名称</th><td>{$show.company_name}</td></tr>
+					<tr><th>*公司地址</th><td>{$show.company_address}</td></tr>
+					<tr><th>*倍率</th><td>{$show.mag}</td></tr>
+					<tr>
+						<th>*通讯</th>
+						<td>
+							<ul class="NAB" id="NAB">
+								{foreach item=nB from=$Nab}
+								<li>{$nB.type_name} - {$nB.content} {if $nB.is_default == 'Y'}<span style="color:#F00"><br>接收 手机短信 号码</span>{/if}</li>
+								{/foreach}
+							</ul>
+						</td>
+					</tr>
+					<tr><th>品牌名称</th><td>{$show.brand_name}</td></tr>
+					<tr><th>职务名称</th><td>{$show.position}</td></tr>
+					<tr><th>经营区域</th><td>{$show.business_zone}</td></tr>
+					<tr><th>经营范围</th><td>{$show.business_scope}</td></tr>
+					<tr><th>上级业务</th><td>{$show.salesman_write}</td></tr>
+					<tr><th>上级客服</th><td>{$show.service_write}</td></tr>
+					<tr><th>网站</th><td>{$show.home_page}</td></tr>
+					<tr><th>开户日期</th><td>{date('Y-m-d',$show.start_date)}</td></tr>
+					<tr><th>位置</th><td>{$show.province}{if $show.city} - {$show.city}{/if}</td></tr>
+					<tr><th>性别</th><td>{if $show.sex == 'privacy'}保密{elseif $show.sex == 'man'}男{else}女{/if}</td></tr>
+					<tr><th>上次登录时间</th><td>{date('Y-m-d',$show.login_time)}</td></tr>
+					
+					<!--<tr><td>备注</td><td>{$show.remark}</td></tr>-->
+				</table>
+			</div>
+		</div>
+		<i class="clear"></i>
+	</div>
+</div>
+<footer>
+    {include file="foot.html"}   
+</footer>
+<script type="text/javascript" src="Js/hk.js">
+
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>奢华</title>
+<link href="css/me1.css" rel="stylesheet" type="text/css" />
+<link href="css/kh-index.css" rel="stylesheet" type="text/css" />
+
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="Js/default.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="box head-box">
+        <img class="index-img" src="images/logo1.jpg" alt="奢华国际钻石集团"/>
+        <span id="heid" style="background:url(images/anniu.png);"></span>
+        <div class="head">
+            {include file="nav.html"}
+       </div>
+   </div>
+</header>
+<div class="me_home">
+	<div class="me_gray">
+    	<span id="left_hied"></span>
+		<div class="me_let">
+        <div>您好！欢迎进入在线库存中心</div>
+			{include file="me_nav.html"}
+		</div>
+		
+		<div class="me_Ys">
+			<div class="me_foe">
+				<form action="{write_url url=$thisurl go='append'}" method="post" enctype="multipart/form-data">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="me_log mes">
+						<tr><th colspan="2" class="te">修改资料</th></tr>
+						<tr><th width="35%">编号</th><td>{$show.number}</td></tr>
+						<tr><th>账号</th><td>{$show.account}</td></tr>
+						<!--<tr>
+							<th>手机短信</th>
+							<td>
+								<input name="is_SMS" type="radio" value="Y" {checked val=$show.is_SMS str='Y'} /> 开启
+								<input name="is_SMS" type="radio" value="N" {checked val=$show.is_SMS str='N'} /> 关闭
+							</td>
+						</tr>-->
+						<tr><th>*真实姓名</th><td><input name="name" type="text" value="{$show.name}" style="width:50%" /></td></tr>
+						<tr><th>*昵称</th><td><input name="nickname" type="text" value="{$show.nickname}" style="width:50%" /></td></tr>
+						<tr><td  colspan="2"></td></tr>
+						<tr><th>Logo</th><td><img style="width:80px;height:50px;" src="{$show.company_logo}" width="aoto" height="aoto"></td></tr>
+						<tr><th>*新Logo</th><td><input name="company_logo" type="file" style="width:70%" /><br/>*建议高宽：140*320px 大小:小于2M</td></tr>
+						<tr><th>*公司名称</th><td><input name="company_name" type="text" value="{$show.company_name}" style="width:70%" /></td></tr>
+						<tr><th>*公司地址</th><td><input name="company_address" type="text" value="{$show.company_address}" style="width:70%" /></td></tr>
+						<tr><th>*倍率</th><td><input name="mag" type="text" value="{$show.mag}" style="width:70%"  /></td></tr>
+						<tr class='NO_TAB_SHOW' height="140px">
+							<th>*通讯</th>
+							<td>
+								<a href="javascript:;" class="AddTX" onclick="Add_NAB('NAB');">添加新的通讯</a>
+								<ul class="NAB" id="NAB">
+									{foreach item=nB from=$Nab}
+									<li>
+										<select name="type[]" onchange="Up_NAB(this);set_default(this);">
+											<option value="0">请选择通讯类型</option>
+											{foreach item=aon key=nabKey from=$NAB}<option value="{$nabKey}" {selected val=$nB.type str=$nabKey}>{$aon}</option>{/foreach}
+										</select>
+										<input name="type_name[]" type="hidden" value="{$nB.type_name}" />
+										<input name="content[]" type="text" value="{$nB.content}" onkeyup="set_mobile(this)" />
+										<span {if $nB.type != 'mobile'}style="display:none"{/if}><input name="is_default" {checked val=$nB.is_default str='Y'} type="radio" value="{$nB.content}" style="width:auto; margin-bottom: 10px;" /> 接收 手机短信 号码</span>
+										<a href="javascript:;" onclick="Del_NAB('NAB' , this)">删除</a>
+									</li>
+									{/foreach}
+								</ul>
+							</td>
+						</tr>
+						<tr><th>品牌名称</th><td><input name="brand_name" type="text" value="{$show.brand_name}" style="width:50%" /></td></tr>
+						<tr><th>职务名称</th><td><input name="position" type="text" value="{$show.position}" style="width:50%" /></td></tr>
+						<tr><th>经营区域</th><td><input name="business_zone" type="text" value="{$show.business_zone}" style="width:70%" /></td></tr>
+						<tr><th>经营范围</th><td><input name="business_scope" type="text" value="{$show.business_scope}" style="width:70%" /></td></tr>
+						<tr><th>网站</th><td><input name="home_page" type="text" value="{$show.home_page}" style="width:70%" /></td></tr>
+						<tr class="NO_TAB_SHOW"><th>位置</th><td><span id='PROVINCE_CITY'></span></td></tr>
+						<tr>
+							<th>性别</th>
+							<td>
+								<input name="sex" type="radio" value="privacy" {checked val=$show.sex str='privacy'} /> 保密
+								<input name="sex" type="radio" value="man" {checked val=$show.sex str='man'} /> 男
+								<input name="sex" type="radio" value="woman" {checked val=$show.sex str='woman'} /> 女
+							</td>
+						</tr>
+						
+						<tr><td colspan="2" class="INP" align="center"><input value="修改资料" type="submit" style="height:auto; line-height:normal" /></td></tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<i class="clear"></i>
+	</div>
+	
+</div>
+
+<footer>
+    {include file="foot.html"}
+</footer>
+<script type="text/javascript" src="Js/hk.js"></script>
+<script type="text/javascript" src="Js/city.js"></script>
+<script type="text/javascript">set_PROVINCE_CITY('PROVINCE_CITY' , 'province' , 'city' , '{$show.province}' , '{$show.city}');</script>
+<script type="text/javascript">var NAB_ONE_LI_INNERHTML = '<select name="type[]" onchange="Up_NAB(this);set_default(this);"><option value="0">请选择通讯类型</option>{foreach item=aon key=nabKey from=$NAB}<option value="{$nabKey}">{$aon}</option>{/foreach}</select><input name="type_name[]" type="hidden" value="" />&nbsp;<input name="content[]" type="text" value="" onkeyup="set_mobile(this)" /> <span style="display:none"><input name="is_default" type="radio" style="width:auto" /> 接收 手机短信 号码</span> &nbsp;<a href="javascript:;" onclick="Del_NAB(\'NAB\' , this)">删除</a>';</script>
+</body>
+</html>

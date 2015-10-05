@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				<li><a href="{write_url url=$thisurl action='add' DEL='id'}" {CLASS_COLOR add=$get.action CLASS='this'}>添加客服权限</a></li>
+				<li><a href="{write_url url=$thisurl action='show' DEL='id'}" {CLASS_COLOR show=$get.action CLASS='this'}>客服权限管理</a></li>
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="append">
+			<form action="{write_url url=$thisurl go='append'}" method="post">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr><th colspan="2">{if $get.action != 'edit'}添加前台权限{else}编辑前台权限{/if}</th></tr>
+					<tr>
+						<td align="right" width="20%" class="Need">Open参数</td>
+						<td><input type="text" name="open" value="{$edit.open}" style="width:150px" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">参数说明</td>
+						<td><input type="text" name="open_show" value="{$edit.open_show}" style="width:90%" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">Action参数</td>
+						<td><input type="text" name="action" value="{$edit.action|default:'show'}" style="width:150px" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">动作说明</td>
+						<td><input type="text" name="action_show" value="{$edit.action_show}" style="width:90%" /></td>
+					</tr>
+					<tr>
+						<td align="right">允许删除</td>
+						<td>
+							<input name="is_del" type="radio" value="Y" {if $get.action == 'add'}checked="checked"{else}{checked val=$edit.is_del str='Y'}{/if} /> 是
+							<input name="is_del" type="radio" value="N" {checked val=$edit.is_del str='N'} /> 否
+						</td>
+					</tr>
+					<tr>
+						<td align="right">说明</td>
+						<td><textarea name="show" style="width:90%;height:120px;">{br_to_null str=$edit.show}</textarea></td>
+					</tr>
+					<tr><th colspan="2" align="center"><input type="submit" value=" 提 交 " /> <input type="reset" value=" 重 填 " /></th></tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+/* by caoxiaolian QQ：13479032；E-mail:alian194@126.com */
+.custom_tailor h3,.custom_tailor li.step_first,.custom_tailor li.step_second,.step_search li.searKey input,.step_search li.special,.webIntro,.prod_top h3,.quality_top,.arrow_l,.arrow_r,.storeBox .prev,.storeBox .next,.prodnew_left h3,.prodnew_left h4,.listGuidetab li.hover,.rssBox,.weiboBox,.qqweibo,.sinaweibo{ background:url(../images/indexsprites.png) no-repeat}
+.custom_tailor,.prodnew,.prod_top,.prod_top ul li.sel,.prodnew_list{ background:url(../images/indexsprite2.png)}
+/*flash*/
+#myFocus{width:960px;height:274px;position:relative;margin:0 auto}
+#myFocus .loading{position:absolute; left:0;top:0;z-index:9999;color:#fff;width:100%;text-align:center;height:240px;}
+#myFocus .pics ul{height:240px;}
+#myFocus .pics ul li{position:absolute; width:960px; left:0; top:0}
+#myFocus .ts{width:958px;height:30px;overflow:hidden; border:1px solid #e8e8e8; position:absolute;bottom:0;left:0}
+#myFocus .ts ul{width:960px;height:30px;line-height:28px; overflow:hidden}
+#myFocus .ts ul li{float:left;width:237px;padding:1px;border-right:1px solid #e8e8e8; font-size:12px;height:30px; text-align:center;overflow:hidden;}
+#myFocus .ts ul li.last{ border:none;width:236px}
+#myFocus .ts ul li a{display:block;color:#535353;width:100%; background:#e8e8e8;text-decoration:none;}
+#myFocus .ts ul li a.current{color:#fe0000; background:#fff;width:100%;font-weight:bold;}
+/*index*/
+.hot_screen{width:960px;margin:0 auto;height:428px; text-align:left; overflow:hidden}
+.custom_tailor{border:1px solid #bbb;width:736px;float:right;position:relative;height:300px; background-position:0 -200px; background-repeat:repeat-x}
+.custom_tailor h3{height:34px; text-indent:-9999px;overflow:hidden;width:736px;background-position:-224px -289px; background-color:#fe0000}
+.custom_tailor p{position:absolute;left:17px;top:53px}
+.custom_tailor li strong{color:#d70505;font-size:14px; display:block}
+.custom_tailor li.step_first{position:absolute;left:12px;bottom:106px;width:108px;height:72px;padding:8px 0 0 88px; background-position:0 -289px}
+.custom_tailor li.step_second{position:absolute;left:210px;bottom:106px;width:108px;height:72px;padding:28px 0 0 158px; background-position:0 -400px}
+.custom_tailor li.step_third{position:absolute;left:480px;bottom:106px;width:108px;height:72px;padding:108px 0 0 148px; background:url(../images/step_3.png) no-repeat left top;_behavior: url("js/iepng.htc");}
+.custom_tailor h4{position:absolute;left:17px;bottom:64px;}
+.step_search{position:absolute;left:17px;bottom:15px;}
+.step_search li{ position:absolute;padding-right:16px}
+.step_search li.num{width:120px;left:0;bottom:4px}
+.step_search li.txt{width:132px;font-size:15px;color:#464646; left:136px;bottom:4px}
+.step_search li.selec{width:190px; left:284px;bottom:4px;}
+.step_search li.searKey{width:75px; position:absolute;bottom:4px;left:430px}
+.step_search li.searKey input{width:57px;height:41px; border:none; background-position:-899px -154px; text-indent:-9999px; float:left; overflow:hidden; cursor:pointer}
+.step_search li.special{width:186px;height:73px;padding-top:10px; background-position:-760px -71px; position:absolute;left:500px;bottom:-5px;}
+.step_search li.special b{ display:block;font-size:18px;color:#D70505}
+.step_search strong{font-size:47px!important; line-height:47px;color:#d70505;}
+.webIntro{width:736px;border:1px solid #bbb; background-position:0 -188px;height:101px;margin-top:13px; position:relative; float:right; clear:right}
+.webIntro .leftCon{ position:absolute;left:22px;top:8px;}
+.webIntro .rightCon{ position:absolute;left:400px;top:8px;}
+.webIntro h3{font-size:20px;height:32px; line-height:1.2em}
+.webIntro ul li{ line-height:1.5em}
+
+.prodnew{height:442px; background-position:0 -58px;background-repeat:repeat-x;border:1px solid #bbb;margin-top:10px;width:958px;margin:0 auto; text-align:left}
+.prod_top{height:30px;border-bottom:1px solid #bbb; position:relative; background-position:0 0; background-repeat:repeat-x;}
+.prod_top h3{width:174px;height:41px;text-indent:-9999px; overflow:hidden; position:absolute;left:-1px;top:-11px; background-position:-578px -49px}
+.prod_top ul{ position:absolute;left:221px;top:0;}
+.prod_top ul li{float:left; text-align:center;width:93px;height:30px; line-height:30px;*line-height:32px;border-left:1px solid #bbb; overflow:hidden}
+.prod_top ul li.last{border-right:1px solid #bbb}
+.prod_top ul li.sel{ background-position:0 -30px;background-repeat:repeat-x;}
+.prod_top ul li.sel a{ color:#fff!important}
+.prod_top p{ position:absolute;top:0;right:20px;height:30px; line-height:30px;}
+.prod_top p a{margin-left:12px;color:#A04F00!important}
+.prodnew_left{float:left;padding:4px;width:202px;height:400px; overflow:hidden}
+.prodnew_left .adProdnew{width:202px;height:244px; overflow:hidden;}
+.prodnew_left h3{width:174px;height:13px; text-indent:-9999px; overflow:hidden; background-position:-752px -49px;margin-left:8px}
+.prodnew_left h4{width:189px;margin:0 auto;height:17px; overflow:hidden; text-indent:-9999px; background-position:-767px -324px; clear:both;}
+.goldPrice{height:54px;padding-bottom:6px;*padding-bottom:3px; overflow:hidden}
+.goldPrice .goldImg{float:left;width:76px;height:54px;padding-right:4px; display:block}
+.goldPrice .goldList{float:left;padding:3px 0 0 0; display:block;color:#464646;}
+.goldPrice .goldList li{height:18px; line-height:18px;}
+.listLink{width:180px;clear:both;margin:0 auto;}
+.listLink img{ vertical-align:top}
+.listLink a{ display:block;}
+.prodnew_list{float:left;width:718px; padding:10px 0 0 30px;overflow:hidden; background-position:0 -500px; background-repeat:no-repeat;height:386px;}
+.prodnew_list ul{width:748px;}
+.prodnew_list ul li{width:145px;float:left;height:195px;padding-right:37px; text-align:center}
+.prodnew_list ul li .prodImg{width:145px;height:145px;}
+.prodnew_list ul li h4{width:132px;padding-top:12px; line-height:1.2em; overflow:hidden}
+.prodnew_list ul li em{color:#f00}
+.prodSpecial{height:361px;width:960px;margin:0 auto; text-align:left}
+.specialAd{width:728px;height:359px;border:1px solid #bbb;float:left;}
+.specialAd img{vertical-align:top;}
+.prodSpecial .prod_top ul{left:18px!important}
+.notice{float:right;width:216px;height:359px;border:1px solid #bbb;}
+.notice .tab{height:26px;width:216px; overflow:hidden;background:#E8E8E8;}
+.notice .tab ul{width:220px;}
+.notice .tab li{float:left;width:108px;height:26px; line-height:26px;font-size:14px; text-align:center; cursor:pointer}
+.notice .tab li.hover{ background:#fff;font-weight:bold;color:#D80101}
+#main0{padding:8px 10px 3px 10px;}
+#main0 li{height:28px; font-size:13px; line-height:28px;border-bottom:1px solid #D3D3D3}
+#main0 li.last{ border:none}
+#main0 li a{color:#6C6C6C!important}
+
+.prodQuality{height:330px;width:956px;margin:0 auto; background:url(../images/prodqualitybg_b.png) no-repeat left bottom; text-align:left; position:relative}
+.quality_top{height:49px;width:956px; background-position:left top;position:relative}
+.quality_top .qulity_l{ position:absolute;left:68px;top:9px;font-weight:bold;font-size:14px;color:#fff;}
+.qulity_r{ position:absolute;left:818px;top:9px;font-weight:bold;font-size:14px;color:#fff;}
+.quality_top ul{ position:absolute;left:213px;top:2px;}
+.quality_top ul li{float:left;width:88px;font-weight:bold; text-align:center; height:32px; line-height:32px; font-size:13px}
+.quality_top ul li a{color:#fff!important; display:block;float:left;width:87px;margin:1px 1px 0 1px}
+.quality_top ul li a.sel{ background:url(../images/indexbtn4.png) repeat-x left top}
+.prodq_l{ position:absolute;left:0;top:50px;width:165px;height:265px;padding:10px 0 0 12px}
+.prodq_l p,.prodQuality .prodq_r p{padding:22px 0 0 6px; line-height:1.2em}
+.prodq_r{ position:absolute;right:4px;top:50px;width:165px;height:265px;padding:10px 12px 0 0}
+.prodq_c{ position:absolute;left:193px;top:44px;width:564px;height:270px;border:1px solid #A6A5A5;}
+.prodq_c .prodq_list{width:510px;height:230px; overflow:hidden; position:absolute;top:35px;left:30px}
+.prodq_list ul{width:4000px}
+.prodq_list li{float:left;width:145px;padding-right:37px; text-align:center}
+.prodq_list li .prodImg{ display:block;height:145px;}
+.prodq_list li h4{padding-top:12px;font-weight:bold}
+.arrow_l{width:6px;height:20px; overflow:hidden; position:absolute;left:-7px;top:125px; background-position:-930px -49px; display:block; cursor:pointer}
+.arrow_r{width:6px;height:20px; overflow:hidden; position:absolute;right:-7px;top:125px; background-position:-936px -49px; display:block; cursor:pointer}
+.shopping_guide{height:226px;width:956px;margin:0 auto;text-align:left}
+.shopping_guide .storeBox{float:left; position:relative;width:470px;height:224px;border:1px solid #bbb;}
+#menu3{height:22px; position:absolute;top:8px;left:17px;width:436px; line-height:22px;background:#E1E1E1; text-align:center}
+#menu3 ul{float:left;}
+#menu3 li{float:left;padding:0 6px; display:inline}
+#menu3 li.hover{ background:#c80001;}
+#menu3 li.hover a{color:#fff!important}
+#menu3 h3{color:#fff;font-size:15px;width:78px; float:left; background:#C80001;font-weight:bold;margin-right:12px; display:inline}
+.storelist{width:440px; position:absolute;top:40px;left:17px; overflow:hidden}
+.storelist ul{width:800px}
+.storelist li{width:212px;float:left;padding-right:12px; text-align:center}
+
+.storeBox .prev{width:7px;height:22px; overflow:hidden; position:absolute;left:3px;top:109px; background-position:-949px -49px; display:block; cursor:pointer}
+.storeBox .next{width:7px;height:22px; overflow:hidden; position:absolute;right:3px;top:109px; background-position:-942px -49px; display:block; cursor:pointer}
+.guideTxt{float:right;width:436px;height:224px;border-top:1px solid #bbb;border-bottom:1px solid #bbb;padding:0 17px;}
+
+.listGuidetab{width:198px;height:35px;border-bottom:1px solid #D80101; line-height:35px;font-size:15px;font-weight:bold; position:relative; overflow:hidden}
+.listGuidetab ul{width:300px}
+.listGuidetab li{width:64px;color:#bbb;float:left;padding-right:28px;padding-left:20px; cursor:pointer}
+.listGuidetab li.hover{color:#D80101;padding-left:20px; background-position:-943px -476px}
+
+.listGuide{width:198px}
+.listGuide ul{padding:8px 0 0 14px;}
+.listGuide ul li{height:25px; line-height:25px}
+
+.weibo{height:62px;width:956px;margin:0 auto}
+.rssBox{width:254px;padding:8px 0 0 216px;height:52px;float:left;border:1px solid #bbb; background-position:0 -129px}
+.rssBox p{ text-indent:12px}
+.rssInput{width:156px;border:1px solid #8E0101;height:16px;padding:1px}
+.rssBtn{font-size:14px;padding:1px;padding:2px\9;*padding:0;font-weight:bold;border:none; background:#8E0101; vertical-align:middle;*vertical-align:top;color:#fff;*margin-top:1px;width:70px;cursor:pointer}
+.weiboBox{width:215px;padding:10px 0 0 255px;height:50px;float:right;border:1px solid #bbb; background-position:1px -70px}
+.qqweibo{width:69px;height:23px; display:inline;float:left; background-position:-69px -49px;margin-left:39px;margin-top:5px; text-indent:-9999px; overflow:hidden;}
+.sinaweibo{width:69px;height:23px; display:inline;float:left;margin-left:12px; background-position:0 -49px;margin-top:5px; text-indent:-9999px; overflow:hidden;}

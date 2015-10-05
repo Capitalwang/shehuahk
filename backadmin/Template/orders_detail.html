@@ -1,0 +1,136 @@
+<div class="append">
+	<table width="100%" border="0" cellspacing="1" cellpadding="0">
+		<tr><th colspan="4">订单详情</th></tr>
+		<tr>
+			<td width="15%" align="right">订单编号</td>
+			<td>{brite_spot query =$get.info str=$orders.orders_id}</td>
+			<td width="15%" align="right">订单状态</td>
+			<td>{$status[$orders.status]}</td>
+		</tr>
+		<tr>
+			<td align="right">购买人</td>
+			<td>{brite_spot query =$get.info str=$orders.account}</td>
+			<td align="right" class="Need">组退点</td>
+			<td>{$orders.rebate} %</td>
+		</tr>
+		<tr>
+			<td align="right">业务</td>
+			<td>{brite_spot query =$get.info str=$orders.salesman_name}</td>
+			<td align="right">客服</td>
+			<td>{brite_spot query =$get.info str=$orders.service_name}</td>
+		</tr>
+		<tr>
+			<td align="right">定金</td>
+			<td>{if $orders.earnest}{$orders.earnest} 元{/if}</td>
+			<td align="right">总价</td>
+			<td>{if $orders.price}{$orders.price} 元{/if}</td>
+		</tr>
+		<tr>
+			<td align="right">订单收到的钱</td>
+			<td>{if $orders.gotten_money}{$orders.gotten_money} 元{/if}</td>
+			<td align="right">下单时间</td>
+			<td>{$orders.time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+		</tr>
+		<tr>
+			<td align="right">外部物流</td>
+			<td>{$orders.outers}</td>
+			<td align="right">内部物流</td>
+			<td>{$orders.inners}</td>
+		</tr>
+		<tr>
+			<td align="right">快递类型</td>
+			<td>{$orders.express_type}</td>
+			<td align="right">快递单号</td>
+			<td>{$orders.express_ID}</td>
+		</tr>
+		<tr>
+			<td align="right">备注</td>
+			<td colspan="3">{$orders.remark}</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr>
+						<th>产品编号</th>
+						<th>形状</th>
+						<th>重量</th>
+						<th>颜色</th>
+						<th>荧光</th>
+						<th>证书</th>
+						<th>进货价</th>
+						<th>数量</th>
+						<th>实际售价</th>
+						<th>到货情况</th>
+						<th>快递类型</th>
+						<th>快递单号</th>
+						<th width="5%">详情</th>
+					</tr>
+					{foreach item=pso from=$product}
+					<tr align="center">
+						<td>{$pso.info.ProID}</td>
+						<td>{$shape[$pso.info.shape]}</td>
+						<td>{$pso.info.weight}</td>
+						<td>{$pso.info.color}</td>
+						<td>{$pso.info.Fent_Isity}</td>
+						<td>{Goto_diploma diploma=$pso.info.diploma weight=$pso.info.weight NO=$pso.info.diplomaNO show=$pso.info.diploma}</td>
+						<td>{$pso.info.infml}</td>
+						<td>{$pso.amount}</td>
+						<td>{$pso.price}</td>
+						<td>{if $pso.is_arrival == 'Y'}到货{else}未到{/if}</td>
+						<td>{$pso.express_type}</td>
+						<td>{$pso.express_ID}</td>
+						<td class="action"><a href="javascript:;" onclick="show_detail(this , '{$pso.id}' , 13)" class="act_3_10" title="产品详情"></a></td>
+					</tr>
+					{foreachelse}
+					<tr><td colspan="13" class="else">当前订单没有产品</td></tr>
+					{/foreach}
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<th colspan="4" align="center">
+				{if $orders.status == 'null'}
+					{if $BTP[$get.open].audit}<input type="button" value="审核订单" onclick="window.location='{write_url url=$thisurl action='audit' orders_id=$orders.orders_id}'" />{/if}
+				{elseif ($orders.status == 'audit' or $orders.status == 'earnest')}
+					<input type="button" value="更改订单" onclick="window.location='{write_url url=$thisurl action='edit_orders' orders_id=$orders.orders_id}'" />
+					<input type="button" value="计算定金" onclick="window.location='{write_url url=$thisurl action='count_deposit' orders_id=$orders.orders_id}'" />
+					{if $orders.status == 'earnest'}<input type="button" value="扣除定金" onclick="window.location='{write_url url=$thisurl action='recoup_deposit' orders_id=$orders.orders_id}'" />{/if}
+				{elseif $orders.status == 'deploy'}
+					<input type="button" value="更改到货情况" onclick="window.location='{write_url url=$thisurl action='deploy' orders_id=$orders.orders_id}'" />
+					<input type="button" value="更改物流状态" onclick="window.location='{write_url url=$thisurl action='dispatch' orders_id=$orders.orders_id}'" />
+				{elseif $orders.status == 'balance'}
+					<input type="button" value="更改到货情况" onclick="window.location='{write_url url=$thisurl action='deploy' orders_id=$orders.orders_id}'" />
+					<input type="button" value="扣除余款" onclick="window.location='{write_url url=$thisurl action='balance' orders_id=$orders.orders_id}'" />
+					<input type="button" value="更改物流状态" onclick="window.location='{write_url url=$thisurl action='dispatch' orders_id=$orders.orders_id}'" />
+				{elseif $orders.status == 'dispatch'}
+					<input type="button" value="更改物流状态" onclick="window.location='{write_url url=$thisurl action='dispatch' orders_id=$orders.orders_id}'" />
+					<input type="button" value="收到货物" onclick="receiving(this , '{$orders.orders_id}' , 4)" />
+				{elseif $orders.status == 'receiving'}
+					<b style="color:#093">已完成的订单</b>
+				{elseif $orders.status == 'returned'}
+					<span style="color:#999">取消的订单</span>
+				{/if}
+				{if $BTP[$get.open].cancel and $orders.status != 'returned' and $orders.status != 'receiving'}<input type="button" value="取消订单" onclick="cancel(this , '{$orders.orders_id}' , 4)" />{/if}
+			</th>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0">
+				<tr><th colspan="3">订单日志</th></tr>
+					<tr align="center">
+						<td>操作人</td>
+						<td>时间</td>
+						<td>操作</td>
+					</tr>
+					{foreach item=pso from=$log}
+					<tr align="center">
+						<td>{$pso.update_name}</td>
+						<td>{$pso.time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+						<td align="left">{$pso.info}</td>
+					</tr>
+					{/foreach}
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>

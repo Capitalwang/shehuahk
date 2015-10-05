@@ -1,0 +1,26 @@
+<ul>
+	{if $BTP.home.show}<li><a href="{write_url open='home'}" {CLASS_COLOR home=$get.open CLASS='this'}>首页</a></li>{/if}
+	{if $BTP.customSMS.show}<li><a href="{write_url open='customSMS'}" {CLASS_COLOR customSMS=$get.open CLASS='this'}>自定义群发手机短信 {if count($back.customSMS)}<b style="color:#09F">({count($back.customSMS)})</b>{/if}</a></li>{/if}
+	{if $BTP.sms_log.show}<li><a href="{write_url open='sms_log'}" {CLASS_COLOR sms_log=$get.open CLASS='this'}>短信发送记录</a></li>{/if}
+	{if $BTP.administrators.show}<li><a href="{write_url open='administrators'}" {CLASS_COLOR administrators=$get.open CLASS='this'}>管理员列表</a></li>{/if}
+	{if $BTP.service.show}<li><a href="{write_url open='service'}" {CLASS_COLOR service=$get.open CLASS='this'}>客服管理</a></li>{/if}
+	{if $BTP.proxy.show}<li><a href="{write_url open='proxy'}" {CLASS_COLOR proxy=$get.open CLASS='this'}>代理管理</a></li>{/if}
+	{if $BTP.proxy_group.show}<li><a href="{write_url open='proxy_group'}" {CLASS_COLOR proxy_group=$get.open CLASS='this'}>代理组管理</a></li>{/if}
+	{if $BTP.role.show}<li><a href="{write_url open='role'}" {CLASS_COLOR role=$get.open CLASS='this'}>角色管理</a></li>{/if}
+	{if $BTP.bid.show}<li><a href="{write_url open='bid'}" {CLASS_COLOR bid=$get.open CLASS='this'}>国际报价管理</a></li>{/if}
+	{if $BTP.product.show}<li><a href="{write_url open='product'}" {CLASS_COLOR product=$get.open CLASS='this'}>产品管理</a></li>{/if}
+	{if $BTP.orders.show}<li><a href="{write_url open='orders'}" {CLASS_COLOR orders=$get.open CLASS='this'}>订单管理</a></li>{/if}
+	{if $BTP.stock.show}<li><a href="{write_url open='stock'}" {CLASS_COLOR stock=$get.open CLASS='this'}>库存地址管理</a></li>{/if}
+	{if $BTP.logistics.show}<li><a href="{write_url open='logistics'}" {CLASS_COLOR logistics=$get.open CLASS='this'}>物流状态管理</a></li>{/if}
+	{if $BTP.exchange.show}<li><a href="{write_url open='exchange'}" {CLASS_COLOR exchange=$get.open CLASS='this'}>汇率管理</a></li>{/if}
+	{if $BTP.import.show}<li><a href="{write_url open='import'}" {CLASS_COLOR import=$get.open CLASS='this'}>数据导入</a></li>{/if}
+	{if $BTP.news.show}<li><a href="{write_url open='news'}" {CLASS_COLOR news=$get.open CLASS='this'}>新闻管理</a></li>{/if}
+	{if $BTP.API.show}<li><a href="{write_url open='API'}" {CLASS_COLOR API=$get.open CLASS='this'}>API管理</a></li>{/if}
+	{if $back.account == 'simon'}
+	<li><a href="{write_url open='city'}" {CLASS_COLOR city=$get.open CLASS='this'}>城市管理(System)</a></li>
+	<li><a href="{write_url open='proxy_purview'}" {CLASS_COLOR proxy_purview=$get.open CLASS='this'}>代理权限表(System)</a></li>
+	<li><a href="{write_url open='service_purview'}" {CLASS_COLOR service_purview=$get.open CLASS='this'}>客服权限表(System)</a></li>
+	<li><a href="{write_url open='back_purview'}" {CLASS_COLOR back_purview=$get.open CLASS='this'}>后台权限表(System)</a></li>
+	{/if}
+	<li><a href="{write_url open='Quit'}">退出系统</a></li>
+</ul>

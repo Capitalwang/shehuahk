@@ -1,0 +1,73 @@
+.POPUP{width:500px;background-color:#FFF; text-align:left; padding:2px}
+.POPUP a{text-decoration:none}
+.POPUP .top dt{float:left; margin:10px}
+.POPUP .top dd{float:right}
+.POPUP .top b{float:right; display:block; padding:5px 10px 0 0}
+.POPUP .top b a{display:block;text-decoration:none; color:#aaa; font-family:"Book Antiqua";font-weight:300; padding:0 6px; border:1px solid #FFF}
+.POPUP .top p{clear:both; padding:0 10px 0 0; float:right}
+.POPUP .top p a{color:#0056af; margin:0 3px 0 0}
+.POPUP div{border:1px solid #727272;margin:10px 10px; padding:0 0 10px 0}
+.POPUP div strong{display:block;height:25px; line-height:25px; text-indent:20px; color:#000}
+.POPUP div p{padding:20px; line-height:20px; color:#000; text-align:justify}
+
+.POPUP div textarea{width:430px; height:80px; margin:10px 20px 0 20px; overflow:auto; font-size:12px}
+.POPUP div dl{padding:5px 20px; margin:0 auto; background-color:#FFF}
+.POPUP div dt{float:left}
+.POPUP div dd{float:right}
+.POPUP div dt input{padding:0; outline:0; *margin:0 3px 0 0;vertical-align:middle}
+.POPUP div dd a{display:block; float:left; background-image:url(../images/submit.gif); width:50px; height:20px; line-height:20px; text-align:center; border:0 none; margin:0 0 0 10px}
+
+#Tencent{border:3px solid #0979c7}
+#Tencent div strong{background-color:#c9e9f5}
+#Tencent .top b a:hover{border:1px solid #0979c7;color:#0979c7}
+#Tencent .top dt{background-image:url(../images/Tencent.gif); width:210px; height:60px}
+
+#Sina{border:3px solid #F00}
+#Sina div strong{background-color:#ffe8e8}
+#Sina .top b a:hover{border:1px solid #F00; color:#F00}
+#Sina .top dt{background-image:url(../images/Sina.gif); width:172px; height:61px}
+
+.weiboBG{position:absolute; background-color:#000; top:0; left:0; z-index:999;filter:alpha(opacity=50);opacity:0.5}
+.POPUP{position:absolute; z-index:9999}
+
+.POPUP #wb_views_infos p b{color:#F00; font-weight:900}
+.POPUP #wb_views_infos p strong{ display:inline;color:#000; font-weight:900; margin:0 5px; padding:0 5px}
+
+#wb_views_infos ul{float:right; padding:0 10px 0 0}
+#wb_views_infos li{display:block; clear:both}
+#wb_views_infos li a{display:block; background-image:url(../images/award_an.gif); width:130px; height:30px; float:right}
+#wb_views_infos li span{float:right; margin:5px 0 0 0}
+
+.cMain{width:960px; margin:10px auto 0 auto; background:url(../images/award/bg.gif) repeat}
+.weibo_bg{background-image:url(../images/award/m2.gif); width:960px; height:190px;position:relative}
+.weibo_bg p a, .weibo_bg b a{position:absolute; width:160px; height:30px; overflow:hidden; text-indent:-300px; bottom:19px}
+.weibo_bg p a{left:430px}
+.weibo_bg b a{right:50px}
+
+.tw_usher{background:url(../images/award/mbg.gif) repeat-y}
+.tw_usher dl{clear:both; padding:24px; zoom:1}
+.tw_usher dl dd , .tw_usher dl dt{float:left; text-align:center; width:266px; padding:0 17px; height:270px; overflow:hidden}
+.tw_usher dl dd img{width:266px; height:203px; border:1px solid #000}
+.tw_usher dl dd img , .tw_usher dl dd span{display:block; text-align:center}
+.tw_usher dl dd span p , .tw_usher dl dd span strong{display:block;color:#dd0010; font-size:16px; width:266px;height:20px;overflow:hidden; padding:8px 0 0 0;}
+.tw_usher dl dd span p{color:#433b3c; font-size:12px; padding:0}
+.tw_usher dt table{border:1px solid #c30404; background-color:#FFF}
+.tw_usher dt th{background-color:#ffc8c6; height:23px; line-height:23px; color:#000}
+.tw_usher dt td{color:#000; height:22px; line-height:22px; border-top:1px dashed #CCC; padding:0 2px}
+.tw_usher dt td.gray{color:#616161}
+.tw_usher dt td.red{color:#F00}
+.tw_usher .notop td{border-top:0 none}
+
+.usher_list table{background-color:#fcdee2;width:912px; margin:0 auto;}
+.usher_list th{background:url(../images/award/thbg.gif) repeat-x; height:32px; line-height:32px; color:#FFF}
+.usher_list td{height:33px; line-height:33px; border-top:1px dashed #CCC}
+.usher_list td.dia{background:url(../images/award/diamond.gif) center center no-repeat}
+
+.usher_wz{background-image:url(../images/award/ditu.gif); padding:6px 40px 0 50px;height:224px; text-align:left}
+.usher_wz a{float:right; color:#fcdee2}
+.usher_wz strong{font-size:16px; display:block; padding:25px 0 5px 0}
+.usher_wz p{height:25px; line-height:25px}
+
+#diss{padding:15px 0 70px 0; text-align:center; color:#fcdee2}
+#diss p{margin:0 0 5px 0}
+#diss p a , #diss p span{margin:0 10px; color:#fcdee2}

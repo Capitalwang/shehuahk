@@ -1,0 +1,211 @@
+@charset "utf-8";
+/* 公共的CSS部分 */
+
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,dl, dt, dd, ul, ol, li,pre,fieldset, lengend, button, input, textarea,th, td{margin:0;padding:0}
+
+/* 设置默认字体 */
+body,button, input, select{font:12px/1 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif}
+
+h1{font-size:18px}
+h2{font-size:16px}
+h3{font-size:14px}
+h4, h5, h6{font-size:100%}
+
+/*address, cite, dfn, em, var{font-style:normal}将斜体扶正*/
+/*code, kbd, pre, samp, tt{font-family:"Courier New", Courier, monospace}统一等宽字体*/
+/*small{font-size:12px}小于 12px 的中文很难阅读，让 small 正常化*/
+
+ul, ol{list-style:none}
+
+a{text-decoration:none}
+a:hover{text-decoration:none}
+
+/*abbr[title], acronym[title]{border-bottom:1px dotted;cursor:help}*/
+/*q:before, q:after{content:''}*/
+
+/* 重置表单元素 */
+legend{color:#000} /* for ie6 */
+fieldset,img{border:none} /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea{font-size:100%; /* 使得表单元素在 ie 下能继承字体大小 */}
+/*table{border-collapse:collapse;border-spacing:0}*/
+
+/* 重置 hr */
+hr{border:none;height:1px}
+
+.action a{background-image:url(../images/action.jpg);display:block;width:24px;height:24px;}
+.action a.act_1_1{background-position:-9px -4px}
+.action a.act_1_2{background-position:-44px -4px}
+.action a.act_1_3{background-position:-79px -4px}
+.action a.act_1_4{background-position:-114px -4px}
+.action a.act_1_5{background-position:-149px -4px}
+.action a.act_1_6{background-position:-184px -4px}
+.action a.act_1_7{background-position:-219px -4px}
+.action a.act_1_8{background-position:-254px -4px}
+.action a.act_1_9{background-position:-289px -4px}
+.action a.act_1_10{background-position:-324px -4px}
+.action a.act_1_11{background-position:-359px -4px}
+.action a.act_1_12{background-position:-394px -4px}
+.action a.act_1_13{background-position:-429px -4px}
+
+.action a.act_2_1{background-position:-9px -39px}
+.action a.act_2_2{background-position:-44px -39px}
+.action a.act_2_3{background-position:-79px -39px}
+.action a.act_2_4{background-position:-114px -39px}
+.action a.act_2_5{background-position:-149px -39px}
+.action a.act_2_6{background-position:-184px -39px}
+.action a.act_2_7{background-position:-219px -39px}
+.action a.act_2_8{background-position:-254px -39px}
+.action a.act_2_9{background-position:-289px -39px}
+.action a.act_2_10{background-position:-324px -39px}
+.action a.act_2_11{background-position:-359px -39px}
+.action a.act_2_12{background-position:-394px -39px}
+.action a.act_2_13{background-position:-429px -39px}
+
+.action a.act_3_1{background-position:-9px -74px}
+.action a.act_3_2{background-position:-44px -74px}
+.action a.act_3_3{background-position:-79px -74px}
+.action a.act_3_4{background-position:-114px -74px}
+.action a.act_3_5{background-position:-149px -74px}
+.action a.act_3_6{background-position:-184px -74px}
+.action a.act_3_7{background-position:-219px -74px}
+.action a.act_3_8{background-position:-254px -74px}
+.action a.act_3_9{background-position:-289px -74px}
+.action a.act_3_10{background-position:-324px -74px}
+.action a.act_3_11{background-position:-359px -74px}
+.action a.act_3_12{background-position:-394px -74px}
+.action a.act_3_13{background-position:-429px -74px}
+
+.action a.act_4_1{background-position:-9px -109px}
+.action a.act_4_2{background-position:-44px -109px}
+.action a.act_4_3{background-position:-79px -109px}
+.action a.act_4_4{background-position:-114px -109px}
+.action a.act_4_5{background-position:-149px -109px}
+.action a.act_4_6{background-position:-184px -109px}
+.action a.act_4_7{background-position:-219px -109px}
+.action a.act_4_8{background-position:-254px -109px}
+.action a.act_4_9{background-position:-289px -109px}
+.action a.act_4_10{background-position:-324px -109px}
+.action a.act_4_11{background-position:-359px -109px}
+.action a.act_4_12{background-position:-394px -109px}
+.action a.act_4_13{background-position:-429px -109px}
+
+.action a.act_5_1{background-position:-97px -149px}
+.action a.act_5_2{background-position:-132px -149px}
+.action a.act_5_3{background-position:-167px -149px}
+.action a.act_5_4{background-position:-202px -149px}
+.action a.act_5_5{background-position:-237px -149px}
+.action a.act_5_6{background-position:-272px -149px}
+.action a.act_5_7{background-position:-307px -149px}
+.action a.act_5_8{background-position:-342px -149px}
+
+.taxis{width:60px; text-align:center}
+.clear{clear:both;height:1px;overflow:hidden;display:block;background-color:#FFF;margin:0;padding:0}
+
+.header{padding:2em 0 0.5em 1em; border-bottom:1px solid #CCC}
+.header .title{color:#666;font-size:3.8em;font-family:"黑体";display:block;text-align:right}
+
+.car a{float:left;height:24px;line-height:24px;text-indent:0.2em;font-size:16px;color:#09F;font-weight:900; margin:0 0 0 1em}
+.car span{background-image:url(../images/action.jpg);display:block;width:24px;height:24px; float:left}
+.car span.act_4_1{background-position:-9px -109px}
+.car span.act_5_1{background-position:-97px -149px}
+.car span.act_1_12{background-position:-394px -4px}
+.car span.act_1_13{background-position:-429px -4px}
+
+.center{background-color:#EEE;}
+.center .left{width:15%;float:left}
+.center .right{width:85%;float:left;background-color:#FFF; padding:0 0 1em 0}
+
+.left ul{margin:1em auto 1em 0.5em}
+.left li{margin:0;padding:0}
+.left li a{display:block;color:#666;height:35px;line-height:35px;text-indent:1em}
+.left li a.this , .header li a:hover{background-color:#FFF;color:#333;font-weight:900}
+.FM_date{width:212px;text-align:center}
+span.Hint{margin:0 0 0 2em; color:#666}
+div.Hint{margin:0.5em 0 0 0; color:#666}
+
+.Nav{margin:1em 0 1em 1em;clear:both}
+.Nav div{display:block;float:left; height:30px; line-height:30px}
+.Nav div a{color:#09F}
+.Nav div a.red , .Nav div a:hover{color:#F00}
+
+.Nav div form{display:inline}
+.Nav div form input{width:180px; vertical-align:middle;color:#999}
+.Nav div form .submit{padding:0.2em 0.3em;border:1px solid #000;background-color:#F0F0F0;cursor:pointer;width:auto;height:18px;color:#000}
+
+.Nav ul{float:right; margin:0; padding:0}
+.Nav li{float:left;padding:0 1em 0 0}
+.Nav li a{display:block;padding:0.5em;background-color:#CFF;border:1px solid #39A8EA;color:#666}
+.Nav li a.this , .Nav li a:hover{background-color:#C9F;border:1px solid #C0F;color:#FFF;font-weight:900}
+
+.show{clear:both;margin:0 1em}
+.show table{background-color:#ccc}
+.show th{background-color:#F0F0F0;padding:1em;}
+.show td{background-color:#fff;padding:0.5em;}
+.show td.promotion , .append td.promotion{background-color:#CFC}
+.show th input , .show .add_or{padding:0.4em;border:1px solid #000;background-color:#F0F0F0;cursor:pointer; width:auto}
+.show .add_or{margin:0 0 0 2em; height:24px;line-height:20px; padding:0; color:#06F}
+.show .select{margin:1em 0 0 0}
+.show .select input{padding:0.2em 0.3em;border:1px solid #000;background-color:#F0F0F0;cursor:pointer}
+
+.append{clear:both;margin:0 1em}
+.append table{background-color:#ccc}
+.append th{background-color:#F0F0F0;padding:1em;}
+.append td{background-color:#fff;padding:0.5em;}
+td.Need{background:url(../images/dirty.gif) right top no-repeat #FFF; font-weight:900; color:#09F}
+.DELDAY{color:#093}
+tr.NO_TAB_SHOW td.padding{padding:1.2em;text-align:center}
+
+.append th input{padding:0.4em;border:1px solid #000;background-color:#F0F0F0;cursor:pointer}
+.append td input{height:20px; line-height:20px; vertical-align:middle}
+.append .select{padding:1em;margin:1em;border:1px solid #DFDFDF}
+.append .select input{padding:0.2em 0.3em;border:1px solid #000;background-color:#F0F0F0;cursor:pointer; height:auto}
+
+td.else{text-align:center;padding:2em}
+
+.page{text-align:right}
+.page input{width:30px;text-align:center}
+
+.block_CHECK label{display:block; float:left; width:33%}
+
+.AddTX{display:block; border:1px solid #0C9;padding:0.5em;float:left; margin:0 0 1em 1em; color:#093; font-weight:900}
+.NAB{clear:both}
+.NAB li{line-height:30px; height:30px}
+.NAB li select{vertical-align:middle; font-size:16px}
+.NAB li input{width:200px;vertical-align:middle}
+.NAB li a{color:#F33}
+.NAB li span{margin:0 0.5em}
+
+.AjaxShow input{float:left;width:160px;color:#999;height:22px;line-height:22px}
+.AjaxShow b{background-image:url(../images/action.jpg);display:none;width:24px;height:24px;margin:auto auto auto 1em;float:left}
+.AjaxShow b.act_1_5{background-position:-149px -4px;display:block}
+.AjaxShow b.act_1_6{background-position:-184px -4px;display:block}
+
+.seller{display:none}
+
+.promotion li{margin:0.2em}
+.promotion ul{display:none}
+.Padd_TD td{padding:1em}
+
+.append .Advanced td{vertical-align:top}
+.append .Advanced label{display:block;margin:0 0 0.8em 0; padding:0; height:15px}
+
+.earnest_div{margin:0 0 1em 0}
+.earnest_div a{margin:0 1em 0 0}
+.attribute li{width:33%; float:left}
+
+.purview{margin:auto 1em}
+.purview li{line-height:30px;vertical-align:middle; border-bottom:1px dashed #CCC}
+.purview li b{vertical-align:middle;margin:0 0 0 1em;color:#093;display:block;width:10em;float:left}
+.purview li label input{vertical-align:middle;margin:0 0 0 1em}
+.purview li input.set{padding:0 0.3em;border:1px solid #000;background-color:#F0F0F0;cursor:pointer;height:20px;line-height:20px;vertical-align:middle}
+.purview li a{margin:0 0 0 1em; color:#06C}
+
+.send{height:25px;border:1px solid #CCC;cursor:pointer;padding:0.4em;background-color:#F0F0F0}
+
+.Find{padding:0 0.4em;border:1px solid #000;background-color:#F0F0F0;cursor:pointer;}
+
+#autos{display:;margin:0 0 0 1em}
+#autos a{color:#090}
+#autos b{color:#F00;margin:0 0 0 1em}

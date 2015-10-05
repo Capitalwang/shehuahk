@@ -1,0 +1,62 @@
+<table border="0" cellspacing="1" cellpadding="0" width="100%"  class="dil">
+	<tr>
+		<th width="10%">产品编号</th>
+		<td>{$show.info.ProID}</td>
+		<th width="10%">审核时间</th>
+		<td>{$show.time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+	</tr>
+	<tr>
+		<th>售价</th>
+		<td>{$show.price} 元</td>
+		<th>数量</th>
+		<td>{$show.amount}</td>
+	</tr>
+	<tr>
+		<th>促销</th>
+		<td>{if $show.is_promotion == 'N'}否{else}是{/if}</td>
+		<th>国际报价</th>
+		<td>{$show.info.INTbid} 元 / ct</td>
+	</tr>
+	<tr>
+		<th>形状</th>
+		<td>{$shape[$show.info.shape]} ({$show.info.shape})</td>
+		<th>重量</th>
+		<td>{$show.info.weight} ct</td>
+	</tr>
+	<tr>
+		<th>颜色</th>
+		<td>{$show.info.color}</td>
+		<th>净度</th>
+		<td>{$show.info.clarity}</td>
+	</tr>
+	<tr>
+		<th>切工</th>
+		<td>{$show.info.cut}</td>
+		<th>抛光</th>
+		<td>{$show.info.buffing}</td>
+	</tr>
+	<tr>
+		<th>对称</th>
+		<td>{$show.info.symmetry}</td>
+		<th>荧光强度</th>
+		<td>{$show.info.Fent_Isity}</td>
+	</tr>
+	<tr>
+		<th>荧光颜色</th>
+		<td>{$show.info.Fent_color}</td>
+		<th>测量值</th>
+		<td>{$show.info.scalar_value}</td>
+	</tr>
+	<tr>
+		<th>全身比</th>
+		<td>{$show.info.body_ratio} %</td>
+		<th>台宽比</th>
+		<td>{$show.info.table_width} %</td>
+	</tr>
+	<tr>
+		<th>证书类型</th>
+		<td>{$show.info.diploma}</td>
+		<th>证书编号</th>
+		<td>{Goto_diploma diploma=$show.info.diploma weight=$show.info.weight NO=$show.info.diplomaNO show=$show.info.diplomaNO}</td>
+	</tr>
+</table>

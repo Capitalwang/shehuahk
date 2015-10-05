@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/product.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+			{if $BTP.product.show}<li><a href="{write_url url=$thisurl open='product' DEL='ALL'}">继续添加产品</a></li>{/if}
+			{if $BTP[$get.open].del}<li><a href="{write_url url=$thisurl action='del' DEL='ALL'}">清空缓存</a></li>{/if}
+			{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='ALL'}" {CLASS_COLOR show=$get.action CLASS='this'}>产品导出CSV</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		{if $get.action == 'choose'}
+		<div class="append">
+			<form action="{write_url url=$thisurl action='write'}" method="post">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0">
+				<tr><th colspan="2">选择导出的属性</th></tr>
+				<tr>
+					<td width="35%" align="right" class="Need">产品属性</td>
+					<td>
+						<ul class="attribute">
+						{foreach item=pso from=$attribute}
+							<li><label for="att_{$pso.value}"><input type="checkbox" id="att_{$pso.value}" name="attribute[]" value="{$pso.value}" {if $pso.checked}checked="checked"{/if} /> {$pso.name}</label></li>
+						{/foreach}
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">排序</td>
+					<td>
+						<ul class="purview">
+							<li>
+								<b>产品编号</b>
+								<label for="ProID_asc"><input name="taxis[ProID]" type="radio" value="asc" id="ProID_asc" /> 升序</label>
+								<label for="ProID_desc"><input name="taxis[ProID]" type="radio" value="desc" id="ProID_desc" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>数量</b>
+								<label for="amount_asc"><input name="taxis[amount]" type="radio" value="asc" id="amount_asc" /> 升序</label>
+								<label for="amount_desc"><input name="taxis[amount]" type="radio" value="desc" id="amount_desc" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>形状</b>
+								<label for="shape_asc"><input name="taxis[shape]" type="radio" value="asc" id="shape_asc" /> 升序</label>
+								<label for="shape_desc"><input name="taxis[shape]" type="radio" value="desc" id="shape_desc" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>重量</b>
+								<label for="weight_asc"><input name="taxis[weight]" type="radio" value="asc" id="weight_asc" /> 升序</label>
+								<label for="weight_desc"><input name="taxis[weight]" type="radio" value="desc" id="weight_desc" checked="checked" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>颜色</b>
+								<label for="color_asc"><input name="taxis[color]" type="radio" value="asc" id="color_asc" /> 升序</label>
+								<label for="color_desc"><input name="taxis[color]" type="radio" value="desc" id="color_desc" checked="checked" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>净度</b>
+								<label for="clarity_asc"><input name="taxis[clarity]" type="radio" value="asc" id="clarity_asc" /> 升序</label>
+								<label for="clarity_desc"><input name="taxis[clarity]" type="radio" value="desc" id="clarity_desc" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>切工</b>
+								<label for="cut_asc"><input name="taxis[cut]" type="radio" value="asc" id="cut_asc" /> 升序</label>
+								<label for="cut_desc"><input name="taxis[cut]" type="radio" value="desc" id="cut_desc" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>抛光</b>
+								<label for="buffing_asc"><input name="taxis[buffing]" type="radio" value="asc" id="buffing_asc" /> 升序</label>
+								<label for="buffing_desc"><input name="taxis[buffing]" type="radio" value="desc" id="buffing_desc" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>对称</b>
+								<label for="symmetry_asc"><input name="taxis[symmetry]" type="radio" value="asc" id="symmetry_asc" /> 升序</label>
+								<label for="symmetry_desc"><input name="taxis[symmetry]" type="radio" value="desc" id="symmetry_desc" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+							<li>
+								<b>退点</b>
+								<label for="agio_asc"><input name="taxis[agio]" type="radio" value="asc" id="agio_asc" /> 升序</label>
+								<label for="agio_desc"><input name="taxis[agio]" type="radio" value="desc" id="agio_desc" checked="checked" /> 降序</label>
+								<a href="javasrcipt:;" onclick="cancel(this)">取消</a>
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td align="right" class="Need">价格体系</td>
+					<td>
+						<ul>
+						{foreach item=pso from=$proxy_group}
+							<li><label for="money_{$pso.id}" style="margin:0 1em 0 0"><input name="money" type="radio" value="{$pso.is_offer}{$pso.rebate}" id="money_{$pso.id}" /> {$pso.name} ({$pso.rebate}%)</label></li>
+						{/foreach}
+						</ul>
+					</td>
+				</tr>
+				<tr><th colspan="2" align="center"><input type="submit" value=" 提 交 " /></th></tr>
+			</table>
+			</form>
+		</div>
+		{elseif $get.action == 'write'}
+			<div align="center" style="padding:100px 0">
+				<a href="{write_url url=$thisurl action='down' DEL='ALL'}"><b style="color:#F00; display:block; margin:1em;">设定完成,请点击下载</b></a>
+				<a href="{write_url url=$thisurl DEL='ALL'}" style="margin:0 1em">返回到 产品导出CSV 程序</a>
+			</div>
+		{else}
+		<div class="show">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+				<tr>
+					<th>编号</th>
+					<th>形状</th>
+					<th>重量</th>
+					<th>颜色</th>
+					<th>净度</th>
+					<th>切工</th>
+					<th>抛光</th>
+					<th>对称</th>
+					<th>荧光</th>
+					<th>测量值</th>
+					<th>证书</th>
+					<th>退点</th>
+					<th>基准退点</th>
+					<th>¥/每颗</th>
+					<th>数量</th>
+					<th width="5%">详情</th>
+					<th width="5%">删除</th>
+				</tr>
+				{foreach item=pso from=$list_cart}
+				<tr align="center">
+					<td>{brite_spot query =$get.info str=$pso.ProID}</td>
+					<td>{$shape[$pso.shape]}</td>
+					<td>{$pso.weight} / ct</td>
+					<td>{$pso.color}</td>
+					<td>{$pso.clarity}</td>
+					<td>{$pso.cut}</td>
+					<td>{$pso.buffing}</td>
+					<td>{$pso.symmetry}</td>
+					<td>{$pso.Fent_Isity}</td>
+					<td>{$pso.scalar_value}</td>
+					<td>{Goto_diploma diploma=$pso.diploma weight=$pso.weight NO=$pso.diplomaNO show=$pso.diploma}</td>
+					{if $pso.is_promotion == 'Y' and $pso.promotion_start <= mktime() and $pso.promotion_stop >= mktime()}
+					<td class="promotion">{$pso.agio+$pso.baseAgio+$pso.promotion_dot} %</td>
+					<td class="promotion">促销</td>
+					<td class="promotion">{sprintf('%.2f' , $pso.INTbid*$pso.weight*(100+$pso.agio+$pso.baseAgio+$pso.promotion_dot)/100)} 元</td>
+					{else}
+					<td>{$pso.agio} %</td>
+					<td>{$pso.baseAgio} %</td>
+					<td>{$pso.infml}</td>
+					{/if}
+					<td>{$pso.amount}</td>
+					<td class="action">{if $BTP[$get.open].detail}<a href="javascript:;" onclick="show_pro_detail(this , '{$pso.id}' , 17)" class="act_3_10" title="产品详情"></a>{/if}</td>
+					<td class="action">{if $BTP[$get.open].del}<a href="{write_url url=$thisurl action='del' id=$pso.id}" class="act_1_5" title="删除"></a>{/if}</td>
+				</tr>
+				{foreachelse}
+				<tr><td colspan="17" class="else">购物车中没有产品 , <a href="{write_url url=$thisurl open='product' DEL='ALL'}">点击添加产品</a></td></tr>
+				{/foreach}
+			</table>
+			<div class="select" style="text-align:center"><input value="下 一 步" type="button" style="padding:0.5em" onclick="window.location = '{write_url url=$thisurl action='choose'}'" /></div>
+		</div>		
+		{/if}
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

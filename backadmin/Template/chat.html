@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="show" style="height:450px;text-align:center; padding:5em 0">
+			<form action="{write_url url=$thisurl action='edit'}" method="post">
+				<label for="zoossoft" style="display:block; margin:2em 0">
+					<input name="chat" id="zoossoft" type="radio" value="zoossoft" {checked val=$CHAT_TYPE str='zoossoft'} />
+					<img src="images/zoossoft.jpg" style="vertical-align:middle" />
+					<br /><br />网站商务通
+				</label>
+				
+
+				<label for="gtalk" style="display:block">
+					<input name="chat" id="gtalk" type="radio" value="gtalk" {checked val=$CHAT_TYPE str='gtalk'} />
+					<img src="images/gtalk.gif" style="vertical-align:middle" />
+					<br /><br />Gtalk App system
+				</label>
+				<br />
+				<input type="submit" class="add_or" value="   保  存   " />
+			</form>
+		</div>
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

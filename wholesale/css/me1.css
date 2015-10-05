@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+
+	.me_home{
+		width:980px;
+		margin:0 auto;
+		overflow:hidden;
+		background:#dbdbdb;
+		font:1em;
+		padding:35px 0;
+		}	
+		
+	.me_home #left_hied{
+		 display:none;
+	}
+	
+	.me_home .me_let{
+		
+		width:220px;
+		float:left;
+		margin-left:20px;
+		overflow:hidden;
+		white-space:nowrap;
+		}
+	.me_home .me_let div{
+		background:#818181;
+		color:#fff;
+		text-align:center;
+		line-height:35px;
+		border-radius:5px 5px 0 0;
+		
+		}
+	.me_home .me_let ul{
+		border:1px solid #aaaaaa;
+		list-style-type:none;
+		padding-top:10px;
+		background:#fff;
+		font-size:0.8em;
+		overflow:hidden;
+		margin-top: -23px;
+		}
+	.me_home .me_let li{
+		margin-bottom:10px;}
+	.me_home .me_let li a{
+		color:#000;
+		text-decoration:none;}
+	.me_home .me_let li strong{
+		background:url(../images/me_nav_bg.jpg);
+		display:inline-block;
+		line-height:35px;
+		width:100%;
+		padding-left:10px;
+		}
+	.me_home .me_let li span{
+		display:block;
+		margin-left:30px;
+		width:160px;
+		}	
+	.me_home .me_let li span a{
+		display:block;
+		line-height:28px;
+		}
+	.me_home .me_Ys{
+		width:700px;
+		float:left;
+		background:#fff;
+		margin-left:20px;
+		}
+ 	.me_home .me_Ys table{
+		font-size:0.8em;
+		border-right:1px solid #aaaaaa;
+		border-bottom:1px solid #aaaaaa;
+		line-height:25px;
+	} 
+	.me_home .me_Ys table td{
+		border-left:1px solid #aaaaaa;
+		border-top:1px solid #aaaaaa;
+		}
+	.me_home .me_Ys table td ul{
+		list-style-type:none;}
+	.me_home .me_Ys table th{
+		border-left:1px solid #aaaaaa;
+		border-top:1px solid #aaaaaa;
+		text-align:right;
+		padding-right:5px;}
+	
+	.me_home .me_Ys table .te{
+		text-align:center;}
+		
+@media screen and (max-width: 980px) {
+	
+	.me_home{
+		width:100%;
+
+		}
+	.me_home .me_Ys{
+		width:100%;
+		clear:both;
+		margin:0 auto;
+	}
+	.me_home .me_let{
+		position:absolute;
+		left:0px;
+		overflow:hidden;
+		width:0;
+		margin-top:-35px;
+		margin-left:0px;
+		
+		}
+	.me_home .me_let div{
+		border-radius:0;
+		}		
+	.me_home #left_hied{
+		display:block;
+		background:url(../images/show.gif); 
+		 width:35px; 
+		 height:35px; 
+		 position:absolute; 
+		 left:0;
+		 margin-top:-35px;
+		 z-index:1;}
+	}
+	
+

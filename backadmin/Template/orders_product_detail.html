@@ -1,0 +1,111 @@
+<table border="0" cellspacing="1" cellpadding="0" width="100%">
+	<tr>
+		<td width="10%" align="right" class="Need">产品编号</td>
+		<td>{$show.info.ProID}</td>
+		<td width="10%" align="right">原编号</td>
+		<td>{$show.info.previousNO}</td>
+	</tr>
+	<tr>
+		<td align="right" class="Need">产品状态</td>
+		<td>{if $show.status == 'Y'}通过审核{elseif $show.status == 'C'}取消{else}未审核{/if}</td>
+		<td align="right">审核时间</td>
+		<td>{$show.time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+	</tr>
+	<tr>
+		<td align="right">快递类型</td>
+		<td>{$show.express_type}</td>
+		<td align="right">快递单号</td>
+		<td>{$show.express_ID}</td>
+	</tr>
+	<tr>
+		<td align="right" class="Need">售价</td>
+		<td>{$show.price} 元</td>
+		<td align="right">数量</td>
+		<td>{$show.amount}</td>
+	</tr>
+	<tr>
+		<td align="right">促销</td>
+		<td>{if $show.is_promotion == 'N'}否{else}是<span style="margin:0 0 0 2em">促销点 {$show.info.promotion_dot} %</span>{/if}</td>
+		<td align="right">国家</td>
+		<td>{$country[$show.info.country]} ({$show.info.country})</td>
+	</tr>
+	<tr>
+		<td align="right" class="Need">进货价</td>
+		<td>{$show.info.infml} 元</td>
+		<td align="right" class="Need">国际报价</td>
+		<td>{$show.info.INTbid} 元 / ct</td>
+	</tr>
+	<tr>
+		<td align="right" class="Need">退点</td>
+		<td>{$show.info.agio} %</td>
+		<td align="right" class="Need">基准退点</td>
+		<td>{$show.baseAgio} %</td>
+	</tr>
+	<tr>
+		<td align="right">形状</td>
+		<td>{$shape[$show.info.shape]} ({$show.info.shape})</td>
+		<td align="right">重量</td>
+		<td>{$show.info.weight} ct</td>
+	</tr>
+	<tr>
+		<td align="right">颜色</td>
+		<td>{$show.info.color}</td>
+		<td align="right">净度</td>
+		<td>{$show.info.clarity}</td>
+	</tr>
+	<tr>
+		<td align="right">切工</td>
+		<td>{$show.info.cut}</td>
+		<td align="right">抛光</td>
+		<td>{$show.info.buffing}</td>
+	</tr>
+	<tr>
+		<td align="right">对称</td>
+		<td>{$show.info.symmetry}</td>
+		<td align="right">荧光强度</td>
+		<td>{$show.info.Fent_Isity}</td>
+	</tr>
+	<tr>
+		<td align="right">荧光颜色</td>
+		<td>{$show.info.Fent_color}</td>
+		<td align="right">测量值</td>
+		<td>{$show.info.scalar_value}</td>
+	</tr>
+	<tr>
+		<td align="right">全身比</td>
+		<td>{$show.info.body_ratio} %</td>
+		<td align="right">台宽比</td>
+		<td>{$show.info.table_width} %</td>
+	</tr>
+	<tr>
+		<td align="right">证书类型</td>
+		<td>{$show.info.diploma}</td>
+		<td align="right">证书编号</td>
+		<td>{Goto_diploma diploma=$show.info.diploma weight=$show.info.weight NO=$show.info.diplomaNO show=$show.info.diplomaNO}</td>
+	</tr>
+	<tr>
+		<td align="right">产品来源</td>
+		<td>
+			{$proSource[$show.info.proSource]}
+			{if $show.info.proSource != 'self'}<span style="margin:0 0 0 2em">商家ID：{$show.info.sellerID}</span>{/if}
+		</td>
+		<td align="right">库存地点</td>
+		<td>{$show.info.stockAddress}</td>
+	</tr>
+	<tr>
+		<td align="right">产品 外部备注</td>
+		<td>{$show.info.userRemark}</td>
+		<td align="right">产品 内部备注</td>
+		<td>{$show.info.backRemark}</td>
+	</tr>
+	<tr>
+		<td align="right">产品添加日期</td>
+		<td> {$show.info.time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+		<td align="right">最后修改日期</td>
+		<td> {$show.info.edit_time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+	</tr>
+	<tr>
+		<td align="right">购买时 内部备注</td>
+		<td colspan="3">{$show.remark}</td>
+	</tr>
+</table>

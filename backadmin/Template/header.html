@@ -1,0 +1,12 @@
+<div class="header">
+	<b class="title">{$smarty.const.Site_Name}</b>
+	{if ($BTP.cart.show and count($back.cart)) or ($BTP.product_to_CSV.show and count($back.product_to_CSV)) or ($BTP.product_sms.show and count($back.P_SMS.pro)) or ($BTP.proxy_sms.show and count($back.Pxy_SMS))}
+	{if $BTP.cart.show and count($back.cart)}<span class="car"><a href="{write_url url=$thisurl open='cart' DEL='ALL'}"><span class="act_4_1"></span>购物车 (<b>{count($back.cart)}</b>)</a></span>{/if}
+	{if $BTP.product_to_CSV.show and count($back.product_to_CSV)}<span class="car"><a href="{write_url open='product_to_CSV'}"><span class="act_5_1"></span>产品导出CSV (<b>{count($back.product_to_CSV)}</b>)</a></span>{/if}
+	{if $BTP.product_sms.show and count($back.P_SMS.pro)}<span class="car"><a href="{write_url open='product_sms'}"><span class="act_1_13"></span>代理群发产品短信 (<b>{count($back.P_SMS.pro)} , {count($back.P_SMS.proxy)}</b>)</a></span>{/if}
+	{if $BTP.proxy_sms.show and count($back.Pxy_SMS)}<span class="car"><a href="{write_url open='proxy_sms'}"><span class="act_1_12"></span>代理群发手机短信 (<b>{count($back.Pxy_SMS)}</b>)</a></span>{/if}
+	<span class="clear"></span>
+	{else}
+	<div style="height:2em"></div>
+	{/if}
+</div>

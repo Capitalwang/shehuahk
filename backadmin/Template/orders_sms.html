@@ -1,0 +1,39 @@
+<div style="text-align:center;padding:2em 0" id="sms_{$get.orders}">
+{if $proxy}
+	{if $proxy.tel}
+	<table width="70%" border="0" cellspacing="1" cellpadding="0" align="center">
+		<tr><th colspan="2">发送关于订单的手机短信</th></tr>
+		<tr>
+			<td width="30%" align="right">代理</td>
+			<td align="left">{$proxy.name}</td>
+		</tr>
+		<tr>
+			<td align="right">编号</td>
+			<td align="left">{$proxy.number}</td>
+		</tr>
+		<tr>
+			<td align="right">手机号码</td>
+			<td align="left">{$proxy.tel}</td>
+		</tr>
+		<tr>
+			<td align="right">公司</td>
+			<td align="left">{$proxy.company_name}</td>
+		</tr>
+		<tr>
+			<td align="right">短信内容</td>
+			<td align="left">
+				<textarea id="message_{$get.orders}" style="width:95%;height:100px" onkeyup="Calculation(this , 'show_{$get.orders}');"></textarea>
+				<div id="show_{$get.orders}" style="margin:0.5em 0 0 0"></div>
+			</td>
+		</tr>
+		<tr align="center">
+			<td colspan="2"><input type="button" value=" 发 送 短 信 " class="send" onClick="sms_send('{$get.orders}','{$proxy.name}','{$proxy.tel}')" /></td>
+		</tr>
+	</table>
+	{else}
+	该代理没有填写手机号码,或者手机错误
+	{/if}
+{else}
+	不存在的代理
+{/if}
+</div>

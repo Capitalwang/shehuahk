@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>LD国际钻石报价表-奢华国际钻石集团-专业的钻石批发商,全球最大的GIA,IGI,HRD裸钻数据库！</title>
+<meta name="keywords" content="国际钻石报价表,钻石报价表" />
+<meta name="description" content="LD国际钻石报价表让您第一时间掌握世界钻石价格走向，让钻石价格掌握在自己手上，更方便计算出相应的钻石价格！" />
+
+<script type="text/javascript" src="Js/default.js"></script>
+<script type="text/javascript" src="Js/Quote.js"></script>
+<link href="css/kh-index.css" rel="stylesheet" type="text/css" />
+
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<style type="text/css">
+	.Pe{
+		width: 980px;
+		margin: 0 auto;
+	}
+
+@media screen and (max-width: 980px) {
+	.Pe{
+		width:100%;}
+	.Pe .dl{
+		width:100%;
+		margin: 0 auto !important;
+	}
+	.Pe .gray{
+		padding: 0;
+	}
+}
+@media screen and (max-width: 768px) {
+	.Pe{
+		font-size: 0.8em;
+	}
+	.Pe dd a{
+		padding:5px 5px !important;
+	}
+	.Pe dt a{
+		display: none;
+	}
+}
+@media screen and (max-width: 500px) {
+	.Pe .gray{
+		width: 500px !important;
+	}
+
+}
+
+</style>
+
+</head>
+
+<body>
+<header>
+    <div class="box head-box">
+        <img class="index-img" src="images/logo1.jpg" alt="奢华国际钻石集团"/>
+        <span id="heid" style="background:url(images/anniu.png);"></span>
+        <div class="head">
+            {include file="nav.html"}
+       </div>
+   </div>
+</header>
+
+<div class="Pe">
+
+	<div class="gray quote" >
+	
+		<dl class="dl">
+
+			<dt><a href="{write_url url=$thisurl action='Prints' exchange=$get.exchange}" class="Print" target="_{$get.exchange}">打印 ({$get.exchange}) 报价</a></dt>
+			<dd>
+				<a href="{write_url open='Quote' exchange='USD'}" {CLASS_COLOR USD=$get.exchange CLASS='this'}>美元</a>
+				<a href="{write_url open='Quote' exchange='CNY'}" {CLASS_COLOR CNY=$get.exchange CLASS='this'}>人民币</a>
+				<a href="{write_url open='Quote' exchange='HKD'}" {CLASS_COLOR HKD=$get.exchange CLASS='this'}>港元</a>
+				<a href="{write_url open='Quote' exchange='TWD'}" {CLASS_COLOR TWD=$get.exchange CLASS='this'}>台币</a>
+				<a href="{write_url open='Quote' exchange='JPY'}" {CLASS_COLOR JPY=$get.exchange CLASS='this'}>日元</a>
+				<a href="{write_url open='Quote' exchange='EUR'}" {CLASS_COLOR EUR=$get.exchange CLASS='this'}>欧元</a>
+				<a href="{write_url open='Quote' exchange='GBP'}" {CLASS_COLOR GBP=$get.exchange CLASS='this'}>英镑</a>
+			</dd>
+		</dl>
+		{$html}
+		
+	</div>
+</div>
+<footer>
+    {include file="foot.html"}
+</footer>
+<script type="text/javascript" src="Js/hk.js"></script>
+</body>
+</html>

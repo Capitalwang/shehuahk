@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				{if $BTP[$get.open].import}<li><a href="{write_url url=$thisurl action='import' DEL='id'}" {CLASS_COLOR bid=$get.open import=$get.action CLASS='this'}>导入国际报价</a></li>{/if}
+				{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='id'}" {CLASS_COLOR bid=$get.open show=$get.action CLASS='this'}>国际报价管理</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="show">
+			<form action="{write_url url=$thisurl action='del'}" method="post">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr>
+						<th>重量范围</th>
+						<th>净度</th>
+						<th>颜色</th>
+						<th>价格(美元)</th>
+						<th width="5%">编辑</th>
+					</tr>
+					{foreach item=pso from=$list_text}
+					<tr align="center">
+						<td>{$pso.weight_start} - {$pso.weight_stop}</td>
+						<td>{$pso.clarity}</td>
+						<td>{$pso.color}</td>
+						<td>{$pso.price}</td>
+						<td class="action">{if $BTP[$get.open].edit}<a href="{write_url url=$thisurl action='edit' id=$pso.id}" class="act_5_8" title="编辑"></a>{/if}</td>
+					</tr>
+					{foreachelse}
+					<tr><td colspan="5" class="else">当前没有国际报价 , <a href="{write_url url=$thisurl action='import' DEL='id'}">点击导入国际报价</a></td></tr>
+					{/foreach}
+				</table>
+				<div class="select"></div>
+			</form>
+			{if $list_page.Record > 0}
+			<div class="page">
+				每页
+				<select onchange="page_Local(this,0 , '{write_url url=$thisurl DEL='PNS'}')">
+					<option value="PNS=10" {selected val=$get.PNS str='10'}>10</option>
+					<option value="PNS=25" {selected val=$get.PNS str='25'}>25</option>
+					<option value="PNS=50" {selected val=$get.PNS str='50'}>50</option>
+					<option value="PNS=100" {selected val=$get.PNS str='100'}>100</option>
+				</select>
+				条数据
+				当前第{$list_page.NowPage}页 / 共{$list_page.count}页
+				{if $list_page.NowPage > 1}<a href="{write_url url=$thisurl page='1'}">首页</a>{else}首页{/if}
+				{if $list_page.NowPage > 1}<a href="{write_url url=$thisurl page=$list_page.up}">上一页</a>{else}上一页{/if}
+				{if $list_page.NowPage < $list_page.count}<a href="{write_url url=$thisurl page=$list_page.down}">下一页</a>{else}下一页{/if}
+				{if $list_page.NowPage < $list_page.count}<a href="{write_url url=$thisurl page=$list_page.count}">尾页</a>{else}尾页{/if}
+				至 <input type="text" value="{$list_page.NowPage}" onkeydown="go_page(event , this , '{$thisurl}')" /> 页
+				排序:
+				<select onchange="page_Local(this,0 , '{write_url url=$thisurl DEL='ORDER'}')">
+					<option value="ORDER=Wt_UP" {selected val=$get.ORDER str='Wt_UP'}>按 重量范围 (↑) 排序</option>
+					<option value="ORDER=Wt_Dn" {selected val=$get.ORDER str='Wt_Dn'}>按 重量范围 (↓) 排序</option>
+					<option value="ORDER=Cy_UP" {selected val=$get.ORDER str='Cy_UP'}>按 净度 (↑) 排序</option>
+					<option value="ORDER=Cy_Dn" {selected val=$get.ORDER str='Cy_Dn'}>按 净度 (↓) 排序</option>
+					<option value="ORDER=Cr_UP" {selected val=$get.ORDER str='Cr_UP'}>按 颜色 (↑) 排序</option>
+					<option value="ORDER=Cr_Dn" {selected val=$get.ORDER str='Cr_Dn'}>按 颜色 (↓) 排序</option>
+					<option value="ORDER=Pe_UP" {selected val=$get.ORDER str='Pe_UP'}>按 价格 (↑) 排序</option>
+					<option value="ORDER=Pe_Dn" {selected val=$get.ORDER str='Pe_Dn'}>按 价格 (↓) 排序</option>
+				</select>
+			</div>
+			{/if}
+		</div>		
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

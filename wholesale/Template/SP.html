@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>奢华</title>
+<link href="css/kh-index.css" rel="stylesheet" type="text/css" />
+<link href="css/sp.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/default.js"></script>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+<body>
+<header>
+    <div class="box head-box">
+        <img class="index-img" src="images/logo1.jpg" alt="奢华国际钻石集团"/>
+        <span id="heid" style="background:url(images/anniu.png);"></span>
+        <div class="head">
+            {include file="nav.html"}
+       </div>
+   </div>
+</header>
+
+ <div class="Pe">
+
+	<form action="{write_url open='cart' action='add'}" method="post">
+	<div class="gray">
+		<ul style="height=30px; color:#dbdbdb;"><li></li></ul>
+		<ul class="sp_nav">
+			<li id="left" {CLASS_COLOR 03=$get.weight CLASS='this'}><a href="{write_url open='SP' weight='03'}">0.3ct</a></li>
+			<li {CLASS_COLOR 04=$get.weight CLASS='this'}><a href="{write_url open='SP' weight='04'}">0.4ct</a></li>
+			<li {CLASS_COLOR 05=$get.weight CLASS='this'}><a href="{write_url open='SP' weight='05'}">0.5ct</a></li>
+			<li {CLASS_COLOR 06=$get.weight CLASS='this'}><a href="{write_url open='SP' weight='06'}">0.6ct</a></li>
+			<li {CLASS_COLOR 07=$get.weight CLASS='this'}><a href="{write_url open='SP' weight='07'}">0.7ct</a></li>
+			<li {CLASS_COLOR 08=$get.weight CLASS='this'}><a href="{write_url open='SP' weight='08'}">0.8ct</a></li>
+			<li {CLASS_COLOR 09=$get.weight CLASS='this'}><a href="{write_url open='SP' weight='09'}">0.9ct</a></li>
+			<li id="right" {CLASS_COLOR 010=$get.weight CLASS='this'}><a href="{write_url open='SP' weight='010'}">&gt;1.0ct</a></li>
+		</ul>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0" class="SP" align=center>
+			<tbody>
+			<tr class="tp">
+				<th class="z sp-h"></th><td class="sp-h">选择</td><th></th>
+				<td>编号</td><th></th>
+				<td class="sp-h1">形状</td><th></th>
+				<td>
+					{if $get.orders == 'asc'}
+					<a href="{write_url open='SP' weight=$get.weight px='weight' orders='desc'}" {CLASS_COLOR weight=$get.px CLASS='this'}>重量 ↑</a>
+					{else}
+					<a href="{write_url open='SP' weight=$get.weight px='weight' orders='asc'}" {CLASS_COLOR weight=$get.px CLASS='this'}>重量 ↓</a>
+					{/if}
+				</td><th></th>
+				<td>
+					{if $get.orders == 'asc'}
+					<a href="{write_url open='SP' weight=$get.weight px='color' orders='desc'}" {CLASS_COLOR color=$get.px CLASS='this'}>颜色 ↑</a>
+					{else}
+					<a href="{write_url open='SP' weight=$get.weight px='color' orders='asc'}" {CLASS_COLOR color=$get.px CLASS='this'}>颜色 ↓</a>
+					{/if}
+				</td><th></th>
+				<td>
+					{if $get.orders == 'asc'}
+					<a href="{write_url open='SP' weight=$get.weight px='clarity' orders='desc'}" {CLASS_COLOR clarity=$get.px CLASS='this'}>净度 ↑</a>
+					{else}
+					<a href="{write_url open='SP' weight=$get.weight px='clarity' orders='asc'}" {CLASS_COLOR clarity=$get.px CLASS='this'}>净度 ↓</a>
+					{/if}
+				</td><th></th>
+				<td class="sp-h">切工</td><th class="sp-h"></th>
+				<td class="sp-h">抛光</td><th class="sp-h"></th>
+				<td class="sp-h">对称</td><th class="sp-h"></th>
+				<td class="sp-h">荧光</td><th class="sp-h"></th>
+				<td class="sp-h">测量值</td><th class="sp-h"></th>
+				<td>证书</td><th></th>
+				<td class="sp-h">¥/每卡</td><th class="sp-h"></th>
+				<td>
+					{if $get.orders == 'asc'}
+					<a href="{write_url open='SP' weight=$get.weight px='agio' orders='desc'}" {CLASS_COLOR agio=$get.px CLASS='this'}>退点% ↑</a>
+					{else}
+					<a href="{write_url open='SP' weight=$get.weight px='agio' orders='asc'}" {CLASS_COLOR agio=$get.px CLASS='this'}>退点% ↓</a>
+					{/if}
+				</td><th></th>
+				<td>¥/每颗</td><th></th>
+				<td>详情</td><th class="y"></th>
+			</tr>
+			<tr class="x"><th colspan="33"></th></tr>
+			{if $get.weight}
+			{if $list_text}
+			{foreach item=pso from=$list_text}
+			<tr align="center">
+				<th class="zx sp-h"></th>
+				<td class="sp-h"><input type="checkbox" name="id[]" value="{$pso.id}" /></td><th></th>
+				<td align="left">{$pso.ProID}</td><th></th>
+				<td  class="sp-h1">{$shape[$pso.shape]}</td><th></th>
+				<td>{$pso.weight}</td><th></th>
+				<td>{$pso.color}</td><th></th>
+				<td>{$pso.clarity}</td><th></th>
+				<td class="sp-h">{$pso.cut}</td><th class="sp-h"></th>
+				<td class="sp-h">{$pso.buffing}</td><th class="sp-h"></th>
+				<td class="sp-h">{$pso.symmetry}</td><th class="sp-h"></th>
+				<td class="sp-h">{$pso.Fent_Isity}</td><th class="sp-h"></th>
+				<td class="sp-h">{$pso.scalar_value}</td><th class="sp-h"></th>
+				<td >{Goto_diploma diploma=$pso.diploma weight=$pso.weight NO=$pso.diplomaNO show=$pso.diploma}</td><th ></th>
+				<td class="sp-h">{sprintf('%.2f' , $pso.INTbid * (100+$pso.agio) / 100)}</td><th class="sp-h"></th>
+				<td>{$pso.agio}</td><th></th>
+				<td>{sprintf('%.2f' , $pso.INTbid * $pso.weight * (100+$pso.agio) / 100)}</td><th></th>
+				<th><a href="javascript:;" onclick="show_detail(this,'{$pso.id}',31)"></a></th>
+				<th class="yx"></th>
+			</tr>
+			{/foreach}
+			{else}
+			<tr class="No_info"><th class="zx"></th><td colspan="31">{sprintf('%.1f',$get.weight/10)} ct 系列 今日没有特价</td><th class="yx"></th></tr>
+			{/if}
+			{else}
+			{if $list_text}
+			{foreach item=pso from=$list_text}
+			<tr align="center">
+				<th class="zx sp-h"></th>
+				<td class="sp-h"><input type="checkbox" name="id[]" value="{$pso.id}" /></td><th></th>
+				<td align="left">{$pso.ProID}</td><th></th>
+				<td class="sp-h1">{$shape[$pso.shape]}</td><th></th>
+				<td>{$pso.weight}</td><th></th>
+				<td>{$pso.color}</td><th></th>
+				<td>{$pso.clarity}</td><th></th>
+				<td class="sp-h">{$pso.cut}</td><th class="sp-h"></th>
+				<td class="sp-h">{$pso.buffing}</td><th class="sp-h"></th>
+				<td class="sp-h">{$pso.symmetry}</td><th class="sp-h"></th>
+				<td class="sp-h">{$pso.Fent_Isity}</td><th class="sp-h"></th>
+				<td class="sp-h">{$pso.scalar_value}</td><th class="sp-h"></th>
+				<td>{Goto_diploma diploma=$pso.diploma weight=$pso.weight NO=$pso.diplomaNO show=$pso.diploma}</td><th></th>
+				<td class="sp-h">{sprintf('%.2f' , $pso.INTbid * (100+$pso.agio) / 100)}</td><th class="sp-h"></th>
+				<td>{$pso.agio}</td><th></th>
+				<td>{sprintf('%.2f' , $pso.INTbid * $pso.weight * (100+$pso.agio) / 100)}</td><th></th>
+				<th><a href="javascript:;" onclick="show_detail(this,'{$pso.id}',31)"></a></th>
+				<th class="yx"></th>
+			</tr>
+			{/foreach}
+			{else}
+			<tr class="No_info"><th class="zx"></th><td colspan="31">今日没有特价</td><th class="yx"></th></tr>
+			{/if}
+			{/if}
+			<tr class="x"><th colspan="33"></th></tr>
+			</tbody>
+		</table>
+		{if $list_text}
+		<div class="Page">
+			<!-- <input type="submit" value="" /> -->
+			<ul>
+				<li><a href="{write_url url=$thisurl page=$list_page.up}">上一页</a></li>
+				{foreach item=Npc from=$list_page.PageCode}<li><a href="{write_url url=$thisurl page=$Npc}" {if $Npc == $get.page}class="this"{/if}>{$Npc}</a></li>{/foreach}
+				<li><a href="{write_url url=$thisurl page=$list_page.down}">下一页</a></li>
+			</ul>
+			<i class="clear"></i>
+		</div>
+		{/if}
+	</div>
+	</form>
+</div> 
+
+
+
+<footer>
+    {include file="foot.html"}   
+</footer>
+<script type="text/javascript" src="Js/hk.js"></script>
+</body>
+</html>

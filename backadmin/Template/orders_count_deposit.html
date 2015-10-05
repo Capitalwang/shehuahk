@@ -1,0 +1,82 @@
+<div class="append">
+	<form action="{write_url url=$thisurl go='append'}" method="post">
+	<table width="100%" border="0" cellspacing="1" cellpadding="0">
+		<tr><th colspan="4">计算定金</th></tr>
+		<tr>
+			<td width="15%" align="right">订单编号</td>
+			<td>{brite_spot query =$get.info str=$orders.orders_id}</td>
+			<td width="15%" align="right">订单状态</td>
+			<td>{$status[$orders.status]}</td>
+		</tr>
+		<tr>
+			<td align="right">购买人</td>
+			<td>{brite_spot query =$get.info str=$orders.account}<input name="proxy_id" type="hidden" value="{$orders.proxy_id}" /></td>
+			<td align="right">组退点</td>
+			<td>{$orders.rebate} %</td>
+		</tr>
+		<tr>
+			<td align="right">业务</td>
+			<td>{brite_spot query =$get.info str=$orders.salesman_name}</td>
+			<td align="right">客服</td>
+			<td>{brite_spot query =$get.info str=$orders.service_name}</td>
+		</tr>
+		<tr>
+			<td align="right" class="Need">总价</td>
+			<td>{$orders.price} 元</td>
+			<td align="right">下单时间</td>
+			<td>{$orders.time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+		</tr>
+		<tr>
+			<td align="right">外部备注</td>
+			<td colspan="3">{$orders.remark}</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right">定金</td>
+			<td colspan="2">
+				<div class="earnest_div">
+					<a href="javascript:;" onclick="Ernest(0.2,{$orders.price})">20%</a>
+					<a href="javascript:;" onclick="Ernest(0.3,{$orders.price})">30%</a>
+					<a href="javascript:;" onclick="Ernest(0.4,{$orders.price})">40%</a>
+					<a href="javascript:;" onclick="Ernest(0.5,{$orders.price})">50%</a>
+					<a href="javascript:;" onclick="Ernest(0.6,{$orders.price})">60%</a>
+				</div>
+				<input type="hidden" name="yuan_earnest" value="{$orders.earnest|default:-1}" />
+				<input type="text" name="earnest" id="earnest" value="{$orders.earnest|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this , false , 0 , {$orders.price});" /> 元
+			</td>
+		</tr>
+		<tr><th colspan="4" align="center"><input type="submit" value=" 确 认 " /></th></tr>
+		<tr>
+			<td colspan="4">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show" style="margin:0.5em 0 0 0">
+					<tr>
+						<th>产品编号</th>
+						<th>形状</th>
+						<th>重量</th>
+						<th>颜色</th>
+						<th>净度</th>
+						<th>进货价</th>
+						<th>数量</th>
+						<th>实际售价</th>
+						<th>产品状态</th>
+						<th width="5%">详情</th>
+					</tr>
+					{foreach item=pso from=$product}
+					<tr align="center">
+						<td>{$pso.info.ProID}</td>
+						<td>{$shape[$pso.info.shape]}</td>
+						<td>{$pso.info.weight}</td>
+						<td>{$pso.info.color}</td>
+						<td>{$pso.info.clarity}</td>
+						<td>{$pso.info.infml}</td>
+						<td>{$pso.amount}</td>
+						<td>{$pso.price}</td>
+						<td>{if $pso.status == 'Y'}通过审核{else}取消{/if}</td>
+						<td class="action"><a href="javascript:;" onclick="show_detail(this , '{$pso.id}' , 10)" class="act_3_10" title="产品详情"></a></td>
+					</tr>
+					{/foreach}
+				</table>
+			</td>
+		</tr>
+	</table>
+	</form>
+</div>

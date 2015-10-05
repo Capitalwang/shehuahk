@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<form method="post" action="{write_url url=$thisurl action=login}">
+<table border="0" cellspacing="1" cellpadding="0" align=center>
+	<tr><th colspan="2">{$smarty.const.Site_Name}</th></tr>
+	<tr>
+		<td align="right" width="30%">账　号</td>
+		<td><input type="text" name="Username" /></td>
+	</tr>
+	<tr>
+		<td align="right">密　码</td>
+		<td><input type="password" name="Password" /></td>
+	</tr>
+<!--
+	<tr>
+		<td align="right">验证码</td>
+		<td>
+			<input type="text" name="code" maxlength="4" style="width:40px;" />
+			<img src="?open=code" onclick="this.src='?open=code&'+Math.random()" />
+		</td>
+	</tr>
+-->
+	<tr>
+		<th colspan="2" align="center">
+			<input type="submit" value="登 陆" />
+			<input type="reset" value="重 填" />
+		</th>
+	</tr>
+</table>
+</form>
+</body>
+</html>

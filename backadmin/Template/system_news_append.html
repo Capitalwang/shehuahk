@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				{if $BTP[$get.open].add}<li><a href="{write_url url=$thisurl action='add' DEL='ALL'}" {CLASS_COLOR add=$get.action CLASS='this'}>添加系统信息</a></li>{/if}
+				{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='ALL'}" {CLASS_COLOR show=$get.action CLASS='this'}>系统信息管理</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="append">
+			<form action="{write_url url=$thisurl go='append'}" method="post">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr><th colspan="2">{if $get.action != 'edit'}添加系统信息{else}编辑系统信息{/if}</th></tr>
+					<tr>
+						<td align="right" width="20%" class="Need">信息名称</td>
+						<td><input name="title" type="text" style="width:90%" value="{$edit.title}" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">简介</td>
+						<td><textarea name="bewrite" style="width:90%; height:120px;">{br_to_null str=$edit.bewrite}</textarea></td>
+					</tr>
+					<tr>
+						<td align="right">关键字</td>
+						<td><input name="key_word" type="text" style="width:90%" value="{$edit.key_word}" /></td>
+					</tr>
+					<tr>
+						<td align="right">脚本显示</td>
+						<td>
+							<label for="is_foot_Y"><input name="is_foot" id="is_foot_Y" type="radio" value="Y" {if $edit.is_foot == 'Y'}checked="checked"{/if} /> 是</label>
+							<label for="is_foot_N"><input name="is_foot" id="is_foot_N" type="radio" value="N" {if $edit.is_foot == 'N' or $get.action == 'add'}checked="checked"{/if} /> 否</label>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">排序</td>
+						<td>
+							<input name="taxis" type="text" class="taxis" value="{$edit.taxis|default:1}" onfocus="sprintf('%d' , this)" />
+							<span class="Hint">注：数字越大越靠前,数字范围(-2147483648 ~ 2147483647)</span>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">状态</td>
+						<td>
+							<label for="is_view_Y"><input name="is_view" id="is_view_Y" type="radio" value="Y" {if $edit.is_view == 'Y' or $get.action == 'add'}checked="checked"{/if} /> 显示</label>
+							<label for="is_view_N"><input name="is_view" id="is_view_N" type="radio" value="N" {if $edit.is_view == 'N'}checked="checked"{/if} /> 隐藏</label>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">内容</td>
+						<td>{$content}</td>
+					</tr>
+					<tr><th colspan="2" align="center"><input type="submit" value=" 提 交 " /> <input type="reset" value=" 重 填 " /></th></tr>
+				</table>
+			</form>
+		</div>	
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

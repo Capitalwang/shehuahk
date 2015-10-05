@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>奢华</title>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<link href="css/kh-index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/default.js"></script>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+
+<header>
+    <div class="box head-box">
+        <img class="index-img" src="images/logo1.jpg" alt="奢华国际钻石集团"/>
+        <span id="heid" style="background:url(images/anniu.png);"></span>
+        <div class="head">
+            {include file="nav.html"}
+       </div>
+   </div>
+</header>
+
+
+
+<div class="Pe">
+	<div class="gray search">
+		<ul class="top">
+			<li><a href="{write_url url=$thisurl st='b'}" {CLASS_COLOR b=$get.st CLASS='this'}>按钮搜索方式</a></li>
+			<li><a href="{write_url url=$thisurl st='l'}" {CLASS_COLOR l=$get.st CLASS='this'}>文字搜索方式</a></li>
+		</ul>
+		<form action="{write_url url=$thisurl go='query'}" method="post">
+			<div class="bon">
+				<strong>形状</strong>
+				<ul>
+					<li class="t1"><a {CLASS_COLOR round=$post.shape[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'round')"></a><input type="hidden" name="shape[]" value="{$post.shape[0]}" /></li>
+					<li class="t2"><a {CLASS_COLOR princess=$post.shape[1] CLASS='this'} href="javascript:;" onclick="sbon(this , 'princess')"></a><input type="hidden" name="shape[]" value="{$post.shape[1]}" /></li>
+					<li class="t3"><a {CLASS_COLOR emerald=$post.shape[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'emerald')"></a><input type="hidden" name="shape[]" value="{$post.shape[2]}" /></li>
+					<li class="t4"><a {CLASS_COLOR oval=$post.shape[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'oval')"></a><input type="hidden" name="shape[]" value="{$post.shape[3]}" /></li>
+					<li class="t5"><a {CLASS_COLOR marquise=$post.shape[4] CLASS='this'} href="javascript:;" onclick="sbon(this , 'marquise')"></a><input type="hidden" name="shape[]" value="{$post.shape[4]}" /></li>
+					<li class="t6"><a {CLASS_COLOR cushion=$post.shape[5] CLASS='this'} href="javascript:;" onclick="sbon(this , 'cushion')"></a><input type="hidden" name="shape[]" value="{$post.shape[5]}" /></li>
+					<li class="t7"><a {CLASS_COLOR pear=$post.shape[6] CLASS='this'} href="javascript:;" onclick="sbon(this , 'pear')"></a><input type="hidden" name="shape[]" value="{$post.shape[6]}" /></li>
+					<li class="t8"><a {CLASS_COLOR heart=$post.shape[7] CLASS='this'} href="javascript:;" onclick="sbon(this , 'heart')"></a><input type="hidden" name="shape[]" value="{$post.shape[7]}" /></li>
+					<li class="t9"><a href="javascript:;"></a></li>
+					<li class="t10"><a href="javascript:;"></a></li>
+				</ul>
+			</div>
+			<div class="bon">
+				<strong>净度</strong>
+				<dl class="v1">
+					<dd class="t"><a {CLASS_COLOR IF=$post.clarity[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'IF')">IF</a><input type="hidden" name="clarity[]" value="{$post.clarity[0]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR VVS1=$post.clarity[1] CLASS='this'} href="javascript:;" onclick="sbon(this , 'VVS1')">VVS1</a><input type="hidden" name="clarity[]" value="{$post.clarity[1]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR VVS2=$post.clarity[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'VVS2')">VVS2</a><input type="hidden" name="clarity[]" value="{$post.clarity[2]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR VS1=$post.clarity[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'VS1')">VS1</a><input type="hidden" name="clarity[]" value="{$post.clarity[3]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR VS2=$post.clarity[4] CLASS='this'} href="javascript:;" onclick="sbon(this , 'VS2')">VS2</a><input type="hidden" name="clarity[]" value="{$post.clarity[4]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR SI1=$post.clarity[5] CLASS='this'} href="javascript:;" onclick="sbon(this , 'SI1')">SI1</a><input type="hidden" name="clarity[]" value="{$post.clarity[5]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR SI2=$post.clarity[6] CLASS='this'} href="javascript:;" onclick="sbon(this , 'SI2')">SI2</a><input type="hidden" name="clarity[]" value="{$post.clarity[6]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR SI3=$post.clarity[7] CLASS='this'} href="javascript:;" onclick="sbon(this , 'SI3')">SI3</a><input type="hidden" name="clarity[]" value="{$post.clarity[7]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR I1=$post.clarity[8] CLASS='this'} href="javascript:;" onclick="sbon(this , 'I1')">I1</a><input type="hidden" name="clarity[]" value="{$post.clarity[8]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR I2=$post.clarity[9] CLASS='this'} href="javascript:;" onclick="sbon(this , 'I2')">I2</a><input type="hidden" name="clarity[]" value="{$post.clarity[9]}" /></dd><dt></dt>
+					<dd class="w"><a {CLASS_COLOR I3=$post.clarity[10] CLASS='this'} href="javascript:;" onclick="sbon(this , 'I3')">I3</a><input type="hidden" name="clarity[]" value="{$post.clarity[10]}" /></dd>
+				</dl>
+				<strong>切工</strong>
+				<dl class="v2">
+					<dd class="t"><a {CLASS_COLOR ID=$post.cut[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'ID')">ID</a><input type="hidden" name="cut[]" value="{$post.cut[0]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR EX=$post.cut[1] CLASS='this'} href="javascript:;" onclick="sbon(this , 'EX')">EX</a><input type="hidden" name="cut[]" value="{$post.cut[1]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR VG=$post.cut[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'VG')">VG</a><input type="hidden" name="cut[]" value="{$post.cut[2]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR G=$post.cut[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'G')">GD</a><input type="hidden" name="cut[]" value="{$post.cut[3]}" /></dd><dt></dt>
+					<dd class="w"><a {CLASS_COLOR FR=$post.cut[4] CLASS='this'} href="javascript:;" onclick="sbon(this , 'FR')">FR</a><input type="hidden" name="cut[]" value="{$post.cut[4]}" /></dd>
+				</dl>
+			</div>
+			<div class="bon">
+				<strong>颜色</strong>
+				<dl class="v1">
+					<dd class="t"><a {CLASS_COLOR D=$post.color[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'D')">D</a><input type="hidden" name="color[]" value="{$post.color[0]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR E=$post.color[1] CLASS='this'} href="javascript:;" onclick="sbon(this , 'E')">E</a><input type="hidden" name="color[]" value="{$post.color[1]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR F=$post.color[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'F')">F</a><input type="hidden" name="color[]" value="{$post.color[2]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR G=$post.color[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'G')">G</a><input type="hidden" name="color[]" value="{$post.color[3]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR H=$post.color[4] CLASS='this'} href="javascript:;" onclick="sbon(this , 'H')">H</a><input type="hidden" name="color[]" value="{$post.color[4]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR I=$post.color[5] CLASS='this'} href="javascript:;" onclick="sbon(this , 'I')">I</a><input type="hidden" name="color[]" value="{$post.color[5]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR J=$post.color[6] CLASS='this'} href="javascript:;" onclick="sbon(this , 'J')">J</a><input type="hidden" name="color[]" value="{$post.color[6]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR K=$post.color[7] CLASS='this'} href="javascript:;" onclick="sbon(this , 'K')">K</a><input type="hidden" name="color[]" value="{$post.color[7]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR L=$post.color[8] CLASS='this'} href="javascript:;" onclick="sbon(this , 'L')">L</a><input type="hidden" name="color[]" value="{$post.color[8]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR M=$post.color[9] CLASS='this'} href="javascript:;" onclick="sbon(this , 'M')">M</a><input type="hidden" name="color[]" value="{$post.color[9]}" /></dd><dt></dt>
+					<dd class="w"><a {CLASS_COLOR N=$post.color[10] CLASS='this'} href="javascript:;" onclick="sbon(this , 'N')">N</a><input type="hidden" name="color[]" value="{$post.color[10]}" /></dd>
+				</dl>
+				<strong>抛光</strong>
+				<dl class="v2">
+					<dd class="t"><a {CLASS_COLOR ID=$post.buffing[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'ID')">ID</a><input type="hidden" name="buffing[]" value="{$post.buffing[0]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR EX=$post.buffing[1] CLASS='this'} href="javascript:;" onclick="sbon(this , 'EX')">EX</a><input type="hidden" name="buffing[]" value="{$post.buffing[1]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR VG=$post.buffing[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'VG')">VG</a><input type="hidden" name="buffing[]" value="{$post.buffing[2]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR G=$post.buffing[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'G')">GD</a><input type="hidden" name="buffing[]" value="{$post.buffing[3]}" /></dd><dt></dt>
+					<dd class="w"><a {CLASS_COLOR FR=$post.buffing[4] CLASS='this'} href="javascript:;" onclick="sbon(this , 'FR')">FR</a><input type="hidden" name="buffing[]" value="{$post.buffing[4]}" /></dd>
+				</dl>
+			</div>
+			<div class="bon">
+				<strong>证书</strong>
+				<dl class="v1">
+					<dd class="t"><a {CLASS_COLOR GIA=$post.diploma[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'GIA')">GIA</a><input type="hidden" name="diploma[]" value="{$post.diploma[0]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR HRD=$post.diploma[1] CLASS='this'} href="javascript:;" onclick="sbon(this , 'HRD')">HRD</a><input type="hidden" name="diploma[]" value="{$post.diploma[1]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR IGI=$post.diploma[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'IGI')">IGI</a><input type="hidden" name="diploma[]" value="{$post.diploma[2]}" /></dd><dt></dt>
+					<dd class="w"><a {CLASS_COLOR Other=$post.diploma[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'Other')">国检</a><input type="hidden" name="diploma[]" value="{$post.diploma[3]}" /></dd>
+				</dl>
+				<strong>对称</strong>
+				<dl class="v2">
+					<dd class="t"><a {CLASS_COLOR ID=$post.symmetry[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'ID')">ID</a><input type="hidden" name="symmetry[]" value="{$post.symmetry[0]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR EX=$post.symmetry[1] CLASS='this'} href="javascript:;" onclick="sbon(this , 'EX')">EX</a><input type="hidden" name="symmetry[]" value="{$post.symmetry[1]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR VG=$post.symmetry[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'VG')">VG</a><input type="hidden" name="symmetry[]" value="{$post.symmetry[2]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR G=$post.symmetry[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'G')">GD</a><input type="hidden" name="symmetry[]" value="{$post.symmetry[3]}" /></dd><dt></dt>
+					<dd class="w"><a {CLASS_COLOR FR=$post.symmetry[4] CLASS='this'} href="javascript:;" onclick="sbon(this , 'FR')">FR</a><input type="hidden" name="symmetry[]" value="{$post.symmetry[4]}" /></dd>
+				</dl>
+			</div>
+			<div class="bon sis">
+				<strong>荧光颜色</strong>
+				<dl class="v3">
+					<dd class="t"><a {CLASS_COLOR Blue=$post.Fent_color[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'Blue')">Blue</a><input type="hidden" name="Fent_color[]" value="{$post.Fent_color[0]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR Yellow=$post.Fent_color[1] CLASS='this'} href="javascript:;" onclick="sbon(this , 'Yellow')">Yellow</a><input type="hidden" name="Fent_color[]" value="{$post.Fent_color[1]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR Green=$post.Fent_color[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'Green')">Green</a><input type="hidden" name="Fent_color[]" value="{$post.Fent_color[2]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR Red=$post.Fent_color[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'Red')">Red</a><input type="hidden" name="Fent_color[]" value="{$post.Fent_color[3]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR Orange=$post.Fent_color[4] CLASS='this'} href="javascript:;" onclick="sbon(this , 'Orange')">Orange</a><input type="hidden" name="Fent_color[]" value="{$post.Fent_color[4]}" /></dd><dt></dt>
+					<dd class="w"><a {CLASS_COLOR White=$post.Fent_color[5] CLASS='this'} href="javascript:;" onclick="sbon(this , 'White')">White</a><input type="hidden" name="Fent_color[]" value="{$post.Fent_color[5]}" /></dd>
+				</dl>
+				<strong>荧光强度</strong>
+				<dl class="v2">
+					<dd class="t"><a {CLASS_COLOR N=$post.Fent_Isity[0] CLASS='this'} href="javascript:;" onclick="sbon(this , 'N')">N</a><input type="hidden" name="Fent_Isity[]" value="{$post.Fent_Isity[0]}" /></dd><dt></dt>
+					<dd><a {if $post.Fent_Isity[1]=='F/SL'}class='this'{/if} href="javascript:;" onclick="sbon(this , 'F/SL')">F</a><input type="hidden" name="Fent_Isity[]" value="{$post.Fent_Isity[1]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR M=$post.Fent_Isity[2] CLASS='this'} href="javascript:;" onclick="sbon(this , 'M')">M</a><input type="hidden" name="Fent_Isity[]" value="{$post.Fent_Isity[2]}" /></dd><dt></dt>
+					<dd><a {CLASS_COLOR S=$post.Fent_Isity[3] CLASS='this'} href="javascript:;" onclick="sbon(this , 'S')">S</a><input type="hidden" name="Fent_Isity[]" value="{$post.Fent_Isity[3]}" /></dd><dt></dt>
+					<dd class="w"><a {CLASS_COLOR VS=$post.Fent_Isity[4] CLASS='this'} href="javascript:;" onclick="sbon(this , 'VS')">VS</a><input type="hidden" name="Fent_Isity[]" value="{$post.Fent_Isity[4]}" /></dd>
+				</dl>
+			</div>
+			<div class="bon cow">
+				<strong>钻重</strong>
+				<span>
+					<input type="text" name="weight[]" value="{$post.weight[0]}" onfocus="sprintf('%.2f' , this , true)" /> ct ~ 
+					<input type="text" name="weight[]" value="{$post.weight[1]}" onfocus="sprintf('%.2f' , this , true)" /> ct
+				</span>
+				<div><input type="submit" class="st" value="查 询" /></div>
+			</div>
+		</form>
+		{if $get.go}
+		<form action="{write_url open='cart' action='add' DEL='ALL'}" method="post">
+			<div class="Page">
+				<div>为您筛选出<b>{$list_page.Record}</b>颗钻石等您选择</div>
+				{if $list_text}
+				<ul>
+					<li><a href="{write_url url=$thisurl page=$list_page.up}">上一页</a></li>
+					{foreach item=Npc from=$list_page.PageCode}<li><a href="{write_url url=$thisurl page=$Npc}" {if $Npc == $get.page}class="this"{/if}>{$Npc}</a></li>{/foreach}
+					<li><a href="{write_url url=$thisurl page=$list_page.down}">下一页</a></li>
+				</ul>
+				{/if}
+				<i class="clear"></i>
+			</div>
+		
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="SP">
+				<tr class="tp">
+					<th class="z"></th><td>选择</td><th></th>
+					<td>编号</td><th></th>
+					<td>形状</td><th></th>
+					<td>
+						{if $get.orders == 'asc'}
+						<a href="{write_url url=$thisurl px='weight' orders='desc'}" {CLASS_COLOR weight=$get.px CLASS='this'}>重量 ↑</a>
+						{else}
+						<a href="{write_url url=$thisurl px='weight' orders='asc'}" {CLASS_COLOR weight=$get.px CLASS='this'}>重量 ↓</a>
+						{/if}
+					</td><th></th>
+					<td>
+						{if $get.orders == 'asc'}
+						<a href="{write_url url=$thisurl px='color' orders='desc'}" {CLASS_COLOR color=$get.px CLASS='this'}>颜色 ↑</a>
+						{else}
+						<a href="{write_url url=$thisurl px='color' orders='asc'}" {CLASS_COLOR color=$get.px CLASS='this'}>颜色 ↓</a>
+						{/if}
+					</td><th></th>
+					<td>
+						{if $get.orders == 'asc'}
+						<a href="{write_url url=$thisurl px='clarity' orders='desc'}" {CLASS_COLOR clarity=$get.px CLASS='this'}>净度 ↑</a>
+						{else}
+						<a href="{write_url url=$thisurl px='clarity' orders='asc'}" {CLASS_COLOR clarity=$get.px CLASS='this'}>净度 ↓</a>
+						{/if}
+					</td><th></th>
+					<td>切工</td><th></th>
+					<td>抛光</td><th></th>
+					<td>对称</td><th></th>
+					<td>荧光</td><th></th>
+					<td>测量值</td><th></th>
+					<td>证书</td><th></th>
+					<td>¥/每卡</td><th></th>
+					<td>
+						{if $get.orders == 'asc'}
+						<a href="{write_url url=$thisurl px='agio' orders='desc'}" {CLASS_COLOR agio=$get.px CLASS='this'}>退点% ↑</a>
+						{else}
+						<a href="{write_url url=$thisurl px='agio' orders='asc'}" {CLASS_COLOR agio=$get.px CLASS='this'}>退点% ↓</a>
+						{/if}
+					</td><th></th>
+					<td>¥/每颗</td><th></th>
+					
+					<td>详情</td><th class="y"></th>
+				</tr>
+				<tr class="x"><th colspan="33"></th></tr>
+				{if $list_text}
+				{foreach item=pso from=$list_text}
+				<tr align="center">
+					<th class="zx"></th>
+					
+					<td><input type="checkbox" name="id[]" value="{$pso.id}" /></td><th></th>
+					<td>{brite_spot query =$get.info str=$pso.ProID}</td><th></th>
+					<td>{$shape[$pso.shape]}</td><th></th>
+					<td>{$pso.weight}</td><th></th>
+					<td>{$pso.color}</td><th></th>
+					<td>{$pso.clarity}</td><th></th>
+					<td>{$pso.cut}</td><th></th>
+					<td>{$pso.buffing}</td><th></th>
+					<td>{$pso.symmetry}</td><th></th>
+					<td>{$pso.Fent_Isity}</td><th></th>
+					<td>{$pso.scalar_value}</td><th></th>
+					<td>{Goto_diploma diploma=$pso.diploma weight=$pso.weight NO=$pso.diplomaNO show=$pso.diploma}</td><th></th>
+					{if $proxy.is_offer == 'Y' and $pso.is_promotion == 'Y' and $pso.promotion_start <= mktime() and $pso.promotion_stop >= mktime()}
+					<td>{sprintf('%.2f' , $pso.INTbid* $proxy.mag * (100+$pso.agio+$pso.baseAgio+$pso.promotion_dot)/100)}</td><th></th>
+					<td>{sprintf('%.2f' , $pso.agio+$pso.baseAgio+$pso.promotion_dot)}</td><th></th>
+					
+					<td>{sprintf('%.2f' , $pso.INTbid * $pso.weight * $proxy.mag * (100+$pso.agio+$pso.baseAgio+$pso.promotion_dot)/100)}</td><th></th>
+					{else}
+					<td>{sprintf('%.2f' , $pso.INTbid *$proxy.mag* (100+$pso.agio+$pso.baseAgio+$proxy.rebate)/100)}</td><th></th>
+					<td>{sprintf('%.2f' , $pso.agio+$pso.baseAgio+$proxy.rebate)}</td><th></th>
+					
+					<td>{sprintf('%.2f' , $pso.INTbid * $pso.weight * $proxy.mag*(100+$pso.agio+$pso.baseAgio+$proxy.rebate)/100)}</td><th></th>
+					{/if}
+					<th><a href="javascript:;" onclick="show_detail(this,'{$pso.id}',31)"></a></th>
+					<th class="yx"></th>
+				</tr>
+				{/foreach}
+				{else}
+				<tr class="No_info"><th class="zx"></th><td colspan="31">当前没有你搜索的产品 , <a href="{write_url open='Query'}">点击重新查询</a></td><th class="yx"></th></tr>
+				{/if}
+				<tr class="x"><th colspan="33"></th></tr>
+			</table>
+		
+			<div class="Page">
+				<!--<input type="submit" value="" />-->
+				{if $list_text}
+				<ul>
+					<li><a href="{write_url url=$thisurl page=$list_page.up}">上一页</a></li>
+					{foreach item=Npc from=$list_page.PageCode}<li><a href="{write_url url=$thisurl page=$Npc}" {if $Npc == $get.page}class="this"{/if}>{$Npc}</a></li>{/foreach}
+					<li><a href="{write_url url=$thisurl page=$list_page.down}">下一页</a></li>
+				</ul>
+				{/if}
+				<i class="clear"></i>
+			</div>
+		</form>
+	{/if}
+	</div>
+
+</div>
+<footer>
+    {include file="foot.html"}
+</footer>
+<script type="text/javascript" src="Js/hk.js"></script>
+</body>
+</html>

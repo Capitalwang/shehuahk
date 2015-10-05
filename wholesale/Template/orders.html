@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>奢华</title>
+<link href="css/me1.css" rel="stylesheet" type="text/css" />
+<link href="css/kh-index.css" rel="stylesheet" type="text/css" />
+
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/default.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="box head-box">
+        <img class="index-img" src="images/logo1.jpg" alt="奢华国际钻石集团"/>
+        <span id="heid" style="background:url(images/anniu.png);"></span>
+        <div class="head">
+            {include file="nav.html"}
+       </div>
+   </div>
+</header>
+
+<div class="me_home">
+	<div class="me_gray">
+    	<span id="left_hied"></span>
+		<div class="me_let">
+        <div>您好！欢迎进入在线库存中心</div>
+			{include file="me_nav.html"}
+		</div>
+		
+		<div class="me_Ys">
+			<div class="me_foe">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" id="tab_show" class="SP">
+					<tr>
+						<th height="35">订单号</th>
+						<th>订单状态</th>
+						<th>业务</th>
+						<th>客服</th>
+						<th>总价</th>
+						<th>下单时间</th>
+						<th>详情</th>
+					</tr>
+					{if $list_text}
+					{foreach item=pso from=$list_text}
+					<tr align="center">
+						<td>{$pso.orders_id}</td>
+						<td>{$status[$pso.status]}</td>
+						<td>{$pso.salesman_name}</td>
+						<td>{$pso.service_name}</td>
+						<td>{$pso.price}</td>
+						<td>{$pso.time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+						<td><a href="{write_url url=$thisurl action='orders_detail' orders_id=$pso.orders_id}">查看</a></td>
+					</tr>
+					{/foreach}
+					{else}
+					<tr class="NO_TAB_SHOW"><td align="center" colspan="7" style="padding:10em 0;color:#333">当前你没有订单</td></tr>
+					{/if}
+				</table>
+				{if $list_page.Record > 0}
+				<div class="Page">
+					<span>
+						当前第{$list_page.NowPage}页 / 共{$list_page.count}页
+						{if $list_page.NowPage > 1}<a href="{write_url url=$thisurl page='1'}">首页</a>{else}首页{/if}
+						{if $list_page.NowPage > 1}<a href="{write_url url=$thisurl page=$list_page.up}">上一页</a>{else}上一页{/if}
+						{if $list_page.NowPage < $list_page.count}<a href="{write_url url=$thisurl page=$list_page.down}">下一页</a>{else}下一页{/if}
+						{if $list_page.NowPage < $list_page.count}<a href="{write_url url=$thisurl page=$list_page.count}">尾页</a>{else}尾页{/if}
+						至<input type="text" value="{$list_page.NowPage}" onkeydown="go_page(event , this , '{$thisurl}' , {$list_page.count})" />页
+					</span>
+				</div>
+				{/if}
+			</div>
+		</div>
+		<i class="clear"></i>
+	</div>
+</div>
+<footer>
+    {include file="foot.html"}
+</footer>
+<script type="text/javascript" src="Js/hk.js"></script>
+</body>
+</html>

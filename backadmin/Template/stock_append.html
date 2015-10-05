@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				{if $BTP[$get.open].add}<li><a href="{write_url url=$thisurl action='add' DEL='id'}" {CLASS_COLOR stock=$get.open add=$get.action CLASS='this'}>添加库存地址</a></li>{/if}
+				{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='id'}" {CLASS_COLOR stock=$get.open show=$get.action CLASS='this'}>库存地址管理</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="append">
+			<form action="{write_url url=$thisurl go='append'}" method="post">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr><th colspan="2">{if $get.action != 'edit'}添加库存地址{else}编辑库存地址{/if}</th></tr>
+					<tr>
+						<td align="right" width="30%" class="Need">库存地址</td>
+						<td><input type="text" name="address" value="{$edit.address}" style="width:80%" /></td>
+					</tr>
+					<tr>
+						<td align="right">负责人</td>
+						<td><input type="text" name="principal" value="{$edit.principal}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right">电话</td>
+						<td><input type="text" name="tel" value="{$edit.tel}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right">手机</td>
+						<td><input type="text" name="mobile" value="{$edit.mobile}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right">传真</td>
+						<td><input type="text" name="fax" value="{$edit.fax}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right">排序</td>
+						<td>
+							<input name="taxis" type="text" class="taxis" value="{$edit.taxis|default:1}" onfocus="sprintf('%d' , this)" />
+							<span class="Hint">注：数字越大越靠前,数字范围(-2147483648 ~ 2147483647)</span>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">备注</td>
+						<td><textarea name="remark" style="width:80%; height:120px">{br_to_null str=$edit.remark}</textarea></td>
+					</tr>
+					<tr><th colspan="2" align="center"><input type="submit" value=" 提 交 " /> <input type="reset" value=" 重 填 " /></th></tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

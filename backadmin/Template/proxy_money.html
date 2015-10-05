@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/user.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				{if $BTP[$get.open].add}<li><a href="{write_url url=$thisurl action='add' DEL='ALL'}" {CLASS_COLOR add=$get.action CLASS='this'}>添加代理</a></li>{/if}
+				{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='ALL'}" {CLASS_COLOR show=$get.action CLASS='this'}>代理管理</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="append">
+			<form action="{write_url url=$thisurl go='append'}" method="post">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr><th colspan="2">代理的财务</th></tr>
+					<tr>
+						<td align="right" width="45%">代理账号</td>
+						<td>{$edit.account}</td>
+					</tr>
+					<tr>
+						<td align="right">真实姓名</td>
+						<td>{$edit.name}<input name="name" type="hidden" value="{$edit.name}" /></td>
+					</tr>
+					<tr>
+						<td align="right">昵称</td>
+						<td>{$edit.nickname}</td>
+					</tr>
+					<tr>
+						<td align="right">编号</td>
+						<td>{$edit.number}</td>
+					</tr>
+					<tr>
+						<td align="right">公司</td>
+						<td>{$edit.company_name}</td>
+					</tr>
+					<tr>
+						<td align="right">职务</td>
+						<td>{$edit.position}</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">当前账号金额</td>
+						<td>{$edit.money|default:0} 元</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">加/减 金额</td>
+						<td><span>{$edit.money|default:0}</span> 元 + <input type="text" name="money" value="0" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this);" onchange="proxy_money(this)" /> 元 = <span>{$edit.money|default:0}</span> 元</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">操作原因</td>
+						<td><textarea name="show" style="width:90%; height:120px"></textarea></td>
+					</tr>
+					<tr><th colspan="2" align="center"><input type="submit" value=" 确 认 " /></th></tr>
+				</table>
+			</form>
+		</div>	
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

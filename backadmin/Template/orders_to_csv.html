@@ -1,0 +1,25 @@
+<div class="append">
+	{if $get.go == 'write'}
+	<div align="center" style="padding:100px 0">
+		<a href="{write_url url=$thisurl action='to_csv' go='down_csv' DEL='ALL'}"><b style="color:#F00; display:block; margin:1em;">设定完成,点击下载(CSV)</b></a>
+		<a href="{write_url url=$thisurl action='to_csv' go='down_excel' DEL='ALL'}"><b style="color:#F00; display:block; margin:1em;">设定完成,点击下载(Excel)</b></a>
+		<a href="{write_url url=$thisurl action='to_csv' DEL='ALL'}" style="margin:0 1em">返回到 订单导出CSV 程序</a>
+	</div>
+	{else}
+	<script type="text/javascript" src="Js/Calendar.js"></script>
+	<form action="{write_url url=$thisurl go='write'}" method="post">
+		<table width="100%" border="0" cellspacing="1" cellpadding="0">
+			<tr><th colspan="2">订单导出到CSV</th></tr>
+			<tr>
+				<td width="45%" align="right" class="Need">开始时间</td>
+				<td><input name='orders_start' type="text" class="FM_date" onclick="Calendar(this)" readonly /></td>
+			</tr>
+			<tr>
+				<td align="right" class="Need">结束时间</td>
+				<td><input name='orders_stop' type="text" class="FM_date" onclick="Calendar(this)" readonly /></td>
+			</tr>
+			<tr><th colspan="2" align="center"><input type="submit" value="导出订单" /></th></tr>
+		</table>
+	</form>
+	{/if}
+</div>

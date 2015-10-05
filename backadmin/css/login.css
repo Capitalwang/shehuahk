@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+table{background-color:#CCC; width:300px; margin:200px auto;}
+table th , table td{padding:0.3em; background-color:#FFF}
+
+td input{width:150px;}
+
+img{cursor:pointer;border:1px solid #CCC;vertical-align:middle}

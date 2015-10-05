@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				{if $BTP[$get.open].edit}<li><a href="{write_url url=$thisurl action='edit' DEL='id'}" {CLASS_COLOR exchange=$get.open edit=$get.action CLASS='this'}>编辑汇率</a></li>{/if}
+				{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='id'}" {CLASS_COLOR exchange=$get.open show=$get.action CLASS='this'}>汇率管理</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="append">
+			<form action="{write_url url=$thisurl go='append'}" method="post">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr><th colspan="2">编辑汇率</th></tr>
+					<tr>
+						<td align="right" width="45%" class="Need">美元 -&gt; 人民币</td>
+						<td><input type="text" name="USD" value="{$show.USD|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this )" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">港元 -&gt; 人民币</td>
+						<td><input type="text" name="HKD" value="{$show.HKD|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this )" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">台币 -&gt; 人民币</td>
+						<td><input type="text" name="TWD" value="{$show.TWD|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this )" /></td>
+					</tr>
+					<tr>
+						<td align="right">日元 -&gt; 人民币</td>
+						<td><input type="text" name="JPY" value="{$show.JPY|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this )" /></td>
+					</tr>
+					<tr>
+						<td align="right">欧元 -&gt; 人民币</td>
+						<td><input type="text" name="EUR" value="{$show.EUR|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this )" /></td>
+					</tr>
+					<tr>
+						<td align="right">英镑 -&gt; 人民币</td>
+						<td><input type="text" name="GBP" value="{$show.GBP|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this )" /></td>
+					</tr>
+					<tr><th colspan="2" align="center"><input type="submit" value=" 提 交 " /> <input type="reset" value=" 重 填 " /></th></tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

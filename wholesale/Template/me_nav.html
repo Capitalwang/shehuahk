@@ -1,0 +1,22 @@
+﻿<ul> 
+	<li>
+		<strong><a href="javascript:;">我的设置</a><b>+</b></strong>
+		<span>
+			<a href="{write_url open='me' action='info'}" {CLASS_COLOR info=$get.action CLASS='this'}>我的资讯</a>
+			<a href="{write_url open='me' action='password'}" {CLASS_COLOR password=$get.action CLASS='this'}>修改密码</a>
+			<a href="{write_url open='me' action='edit'}" {CLASS_COLOR edit=$get.action CLASS='this'}>修改资料</a>
+		<!-- 	<a href="{write_url open='me' action='editbl'}" {CLASS_COLOR editbl=$get.action CLASS='this'}>编辑倍率</a> -->
+		
+		</span>
+	</li>
+	<li>
+		<strong><a href="javascript:;">我的订单</a><b>+</b></strong>
+		<span>
+			{foreach item=pso key=ss from=$status}
+			<a href="{write_url open='me' action='orders' status=$ss}" {if $ss == $get.status}class="this"{/if}>{$pso}</a>
+			{/foreach}
+		</span>
+	</li>
+	<li><strong><a href="{write_url open='me' action='log'}" {CLASS_COLOR log=$get.action CLASS='this'}>现金日志</a></strong></li>
+	<li><strong><a href="{write_url open='Quit'}">安全退出</a></strong></li>
+</ul>

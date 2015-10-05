@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/user.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				{if $BTP[$get.open].add}<li><a href="{write_url url=$thisurl action='add' DEL='ALL'}" {CLASS_COLOR add=$get.action CLASS='this'}>添加客服</a></li>{/if}
+				{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='ALL'}" {CLASS_COLOR show=$get.action CLASS='this'}>客服列表</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="append">
+			<form action="{write_url url=$thisurl go='append'}" method="post">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr><th colspan="2">{if $get.action != 'edit'}添加客服{else}编辑客服{/if}</th></tr>
+					<tr>
+						<td align="right" width="40%" class="Need">账号</td>
+						<td><input type="text" name="account" value="{$edit.account}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right" {CLASS_COLOR add=$get.action CLASS='Need'}>密码</td>
+						<td>
+							<input type="password" name="password" style="width:250px" />
+							<span class="Hint">注：密码不能少于6个字符. {if $get.action == 'edit'}<b>不填写表示不更改客服的密码</b>{/if}</span>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">昵称</td>
+						<td><input type="text" name="nickname" value="{$edit.nickname}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">真实姓名</td>
+						<td><input type="text" name="name" value="{$edit.name}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">编号</td>
+						<td><input type="text" name="number" value="{$edit.number}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right">位置</td>
+						<td><span id='PROVINCE_CITY'></span></td>
+					</tr>
+					<tr>
+						<td align="right">客服经理</td>
+						<td class="AjaxShow">
+							<input type="text" name="service_write" value="{$edit.service_write|default:'账号,编号,姓名'}" onfocus="AjaxShow(this,'账号,编号,姓名' , 'service' , 'service')" {if $edit.service_id}style="color:#F00;font-weight:900"{/if} />
+							<input name="service_id" type="hidden" value="{$edit.service_id}" />
+							<b {if $edit.service_id}class="act_1_6"{/if}></b>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">角色</td>
+						<td class="block_CHECK">
+							{foreach item=re from=$role}
+							<label for='{$re.id}'><input type="checkbox" name="role[]" value="{$re.id}" id="{$re.id}" {checked val=$re.id str=$edit.role} /> {$re.name}</label>
+							{/foreach}
+						</td>
+					</tr>
+					<tr>
+						<td align="right">性别</td>
+						<td>
+							<input name="sex" type="radio" value="privacy" {if $get.action == 'add'}checked="checked"{else}{checked val=$edit.sex str='privacy'}{/if} /> 保密
+							<input name="sex" type="radio" value="man" {checked val=$edit.sex str='man'} /> 男
+							<input name="sex" type="radio" value="woman" {checked val=$edit.sex str='woman'} /> 女
+						</td>
+					</tr>
+					<tr>
+						<td align="right">备注</td>
+						<td><textarea name="remark" style="width:80%; height:120px">{br_to_null str=$edit.remark}</textarea></td>
+					</tr>
+					<tr><th colspan="2" align="center"><input type="submit" value=" 提 交 " /> <input type="reset" value=" 重 填 " /></th></tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<b class="clear"></b>
+</div>
+<script type="text/javascript" src="Js/city.js"></script>
+<script type="text/javascript">set_PROVINCE_CITY('PROVINCE_CITY' , 'province' , 'city' , '{$edit.province|default:"0"}' , '{$edit.city|default:"0"}');</script>
+</body>
+</html>

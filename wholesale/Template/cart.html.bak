@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>奢华</title>
+<!-- <link href="css/default.css" rel="stylesheet" type="text/css" /> -->
+<link href="css/kh-index.css" rel="stylesheet" type="text/css" />
+<link href="css/sp.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/default.js"></script>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="box head-box">
+        <img class="index-img" src="images/logo1.jpg" alt="奢华国际钻石集团"/>
+        <span id="heid" style="background:url(images/anniu.png);"></span>
+        <div class="head">
+            {include file="nav.html"}
+       </div>
+   </div>
+</header>
+
+<div class="Pe">
+	<!-- <div class="head">
+		<img src="images/logo.jpg" />
+		
+	</div> -->
+	<div class="gray search">
+		<div class="Page">
+			<div>
+				您的购物车中共有 <b>{count($proxy.cart)}</b> 颗钻石
+				<a href="{write_url open='cart' action='del'}">清空</a>
+				<a href="{write_url open='Query'}">继续添加</a>
+			</div>
+		</div>
+		<form action="{write_url open='cart' action='make_orders'}" method="post">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="SP">
+				<tr class="tp">
+					<th class="z"></th>
+					<td>编号</td><th></th>
+					<td  class="sh-1">形状</td><th  class="sh-1"></th>
+					<td  class="sh-1">重量</td><th  class="sh-1"></th>
+					<td class="sh-1">颜色</td><th class="sh-1"></th>
+					<td class="sh-1">净度</td><th class="sh-1"></th>
+					<td class="sh-1">切工</td><th class="sh-1"></th>
+					<td class="sh-1">抛光</td><th class="sh-1"></th>
+					<td class="sh-1">对称</td><th class="sh-1"></th>
+					<td class="sh-1">荧光</td><th class="sh-1"></th>
+					<td class="sh-1">测量值</td><th class="sh-1"></th>
+					<td  class="sh-1">证书</td><th  class="sh-1"></th>
+					<td  class="sh-1">数量</td><th  class="sh-1"></th>
+					<td class="sh-1">购买量</td><th class="sh-1"></th>
+					<td class="sh-1">退点%</td><th class="sh-1"></th>
+ 					<td >¥/每颗</td><th></th> 
+					<td>详情</td><th></th>
+					<td>删除</td><th class="y"></th>
+				</tr>
+				<tr class="x"><th colspan="35"></th></tr>
+				{if $list_cart}
+				{foreach item=pso from=$list_cart}
+				<tr align="center">
+					<th class="zx"></th>
+					<td>{$pso.ProID}</td><th></th>
+					<td>{$shape[$pso.shape]}</td><th></th>
+					<td>{$pso.weight}</td><th></th>
+					<td class="sh-1">{$pso.color}</td><th class="sh-1"></th>
+					<td class="sh-1">{$pso.clarity}</td><th class="sh-1"></th>
+					<td class="sh-1">{$pso.cut}</td><th class="sh-1"></th>
+					<td class="sh-1">{$pso.buffing}</td><th class="sh-1"></th>
+					<td class="sh-1">{$pso.symmetry}</td><th class="sh-1"></th>
+					<td class="sh-1">{$pso.Fent_Isity}</td><th class="sh-1"></th>
+					<td class="sh-1">{$pso.scalar_value}</td><th class="sh-1"></th>
+					<td>{Goto_diploma diploma=$pso.diploma weight=$pso.weight NO=$pso.diplomaNO show=$pso.diploma}</td><th></th>
+					<td>{$pso.amount}</td><th></th>
+					<td class="sh-1"><input type="text" name="amount[{$pso.id}]" value="1" style="width:40px;text-align:center" onfocus="C_price(this,1,{$pso.amount})" /></td><th class="sh-1"></th>
+					{if $proxy.is_offer == 'Y' and $pso.is_promotion == 'Y' and $pso.promotion_start <= mktime() and $pso.promotion_stop >= mktime()}
+					<td class="sh-1">{$pso.agio + $pso.baseAgio + $pso.promotion_dot}</td><th class="sh-1"></th>
+					<td class="sh-1">{sprintf('%.2f' , $pso.INTbid * $pso.weight * $proxy.mag * (100+$pso.agio + $pso.baseAgio + $pso.promotion_dot) / 100)}</td><th class="sh-1"></th>
+					{else}
+					<td class="sh-1">{sprintf('%.2f' , $pso.agio + $pso.baseAgio + $proxy.rebate)}</td><th class="sh-1"></th>
+	                                <td>{sprintf('%.2f' , $pso.INTbid * $pso.weight * $proxy.mag * (100+$pso.agio + $pso.baseAgio + $proxy.rebate) / 100)}</td><th></th>
+					{/if}
+					<td><a href="javascript:;" onclick="show_detail(this,'{$pso.id}',33)">查看</a></td><th></th>
+					<td><a href="{write_url url=$thisurl action='del' id=$pso.id}">删除</a></td>
+					<th class="yx"></th>
+				</tr>
+				{/foreach}
+				<tr class="x"><th colspan="35"></th></tr>
+				<tr>
+					<th class="zx"></th>
+					<td align="right">备注：</td>
+					<td colspan="32"><textarea name="remark" style="width:99%;height:120px; margin:10px 0"></textarea></td>
+					<th class="yx"></th>
+				</tr>
+				{else}
+				<tr class="No_info"><th class="zx"></th><td colspan="33">当前购物车中没有产品 , <a href="{write_url open='Query'}">点击添加</a></td><th class="yx"></th></tr>
+				{/if}
+				<tr class="x"><th colspan="35"></th></tr>
+				<tr>
+					<!-- <th class="zx"></th>
+					<th colspan="33" class="Js_cars"><input type="submit" value="" /></th>
+					<th class="yx"></th> -->
+				</tr>
+				<tr class="x"><th colspan="35"></th></tr>
+			</table>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="Js/hk.js"></script>
+</body>
+</html>

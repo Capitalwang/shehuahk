@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/product.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+<script type="text/javascript" src="Js/Calendar.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+			{if $BTP[$get.open].advanced}<li><a href="{write_url url=$thisurl action='advanced' DEL='ALL'}" {CLASS_COLOR advanced=$get.action CLASS='this'}>高级查询</a></li>{/if}
+			{if $BTP[$get.open].add}<li><a href="{write_url url=$thisurl action='add' DEL='ALL'}" {CLASS_COLOR add=$get.action CLASS='this'}>添加产品</a></li>{/if}
+			{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='ALL'}" {CLASS_COLOR show=$get.action CLASS='this'}>产品管理</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="append">
+			<form action="{write_url url=$thisurl go='append'}" method="post" enctype="multipart/form-data">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr><th colspan="2">{if $get.action != 'edit'}添加产品{else}编辑产品{/if}</th></tr>
+					<tr>
+						<td align="right" class="Need">编号</td>
+						<td>
+						{if $get.action == 'add'}
+							<input type="text" name="ProID" value="{$edit.ProID}" style="width:30%" />
+							<label for="to_NO" style="margin:0 1em"><input type="checkbox" name="to_NO" id="to_NO" value="auto" onclick="sto_NO(this)" />系统生成</label>
+							<input type="button" class="Find" value="检测" onclick="check_NO(this)" />
+							<span class="Hint">注：编号具有唯一性,不能重复</span>
+						{else}{$edit.ProID}{/if}
+						</td>
+					</tr>
+					<tr>
+						<td align="right" width="30%">原编号</td>
+						<td><input type="text" name="previousNO" value="{$edit.previousNO}" style="width:250px" /></td>
+					</tr>
+					<tr>
+						<td align="right" class='Need'>状态</td>
+						<td>
+							<select name="status">
+								<option value="0">请选择产品状态</option>
+								{foreach item=ts key=sy from=$status}<option value="{$sy}" {selected val=$edit.status str=$sy}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">形状</td>
+						<td>
+							<select name="shape">
+								<option value="0">请选择产品形状</option>
+								{foreach item=ts key=sy from=$shape}<option value="{$sy}" {selected val=$edit.shape str=$sy}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">重量</td>
+						<td><input type="text" name="weight" id="weight" value="{$edit.weight|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this , true)" onchange="get_bid('INTbid');get_agio('agio')" /> ct</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">颜色</td>
+						<td>
+							<select name="color" id="color" onchange="get_bid('INTbid')">
+								<option value="0">请选择产品颜色</option>
+								{foreach item=ts from=$color}<option value="{$ts}" {selected val=$edit.color str=$ts}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">净度</td>
+						<td class="block_CHECK">
+							<select name="clarity" id="clarity" onchange="get_bid('INTbid')">
+								<option value="0">请选择产品净度</option>
+								{foreach item=ts from=$clarity}<option value="{$ts}" {selected val=$edit.clarity str=$ts}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">切工</td>
+						<td>
+							<select name="cut">
+								<option value="0">请选择产品切工</option>
+								{foreach item=ts from=$cut}<option value="{$ts}" {selected val=$edit.cut str=$ts}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">抛光</td>
+						<td>
+							<select name="buffing">
+								<option value="0">请选择产品抛光</option>
+								{foreach item=ts from=$cut}<option value="{$ts}" {selected val=$edit.buffing str=$ts}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">对称</td>
+						<td>
+							<select name="symmetry">
+								<option value="0">请选择产品对称</option>
+								{foreach item=ts from=$cut}<option value="{$ts}" {selected val=$edit.symmetry str=$ts}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">荧光强度</td>
+						<td>
+							<select name="Fent_Isity">
+								<option value="0">请选择产品荧光强度</option>
+								{foreach item=ts from=$Fent_Isity}<option value="{$ts}" {selected val=$edit.Fent_Isity str=$ts}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">荧光颜色</td>
+						<td>
+							<select name="Fent_color">
+								<option value="0">请选择产品荧光颜色</option>
+								{foreach item=ts from=$Fent_color}<option value="{$ts}" {selected val=$edit.Fent_color str=$ts}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">国家</td>
+						<td>
+							<select name="country">
+								<option value="0">请选择国家</option>
+								{foreach item=ts key=sy from=$country}<option value="{$sy}" {selected val=$edit.country str=$sy}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">证书类型</td>
+						<td>
+							<select name="diploma" onchange="to_check_Dip()">
+								<option value="0">请选择产品证书类型</option>
+								{foreach item=ts from=$diploma}<option value="{$ts}" {selected val=$edit.diploma str=$ts}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">证书编号</td>
+						<td>
+							<input type="text" name="diplomaNO" onchange="to_check_Dip()" value="{$edit.diplomaNO}" style="width:250px" />
+							<span id="autos" style="display:{if $edit.diploma != 'GIA'}none{/if}"><a href="Javascript:;" onclick="auto_tab(this)">自动填表</a><b></b></span>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">证书图像</td>
+						<td>
+							<input type="file" name="diplomaPhoto" size="40" style="width:300px;height:23px" />
+							{if $edit.diplomaPhoto}<span class="Hint"><b>不选择文件表示不改变原来的文件</b></span>{/if}
+							<div class="Hint">注：当前支持的文件大小为5M,文件类型 图片:jpg , gif , bmp , png</div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">产品来源</td>
+						<td>
+							<select name="proSource" onchange="show_proSource(this , 'tab_show' , 'seller');">
+								<option value="0">请选择产品来源</option>
+								{foreach item=ts key=sy from=$proSource}<option value="{$sy}" {selected val=$edit.proSource str=$sy}>{$ts}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr class="seller" style="{if $edit.proSource && $edit.proSource != 'self'}display:table-row{/if}">
+						<td align="right" class="Need">商家ID</td>
+						<td><input type="text" name="sellerID" value="{$edit.sellerID}" style="width:250px" /></td>
+					</tr>
+					<tr class="seller" style="{if $edit.proSource}display:table-row{/if}">
+						<td align="right" class="Need">库存地点</td>
+						<td id="Address">
+							<input type="text" name="stockAddress_String" value="{$edit.stockAddress}" style="width:60%;display:{if $edit.proSource && $edit.proSource != 'self'}block{else}none{/if}" />
+							
+							<select name="stockAddress_Select" style="display:{if $edit.proSource && $edit.proSource == 'self'}block{else}none{/if}">
+								<option value="0">请选择库存地点</option>
+								{foreach item=ts from=$stockAddress}<option value="{$ts.address}" {selected val=$edit.stockAddress str=$ts.address}>{$ts.address}</option>{/foreach}
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">测量值</td>
+						<td><input type="text" name="scalar_value" value="{$edit.scalar_value}" style="width:150px;" /></td>
+					</tr>
+					<tr>
+						<td align="right">全身比</td>
+						<td><input type="text" name="body_ratio" value="{$edit.body_ratio}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this , true)" /> %</td>
+					</tr>
+					<tr>
+						<td align="right">台宽比</td>
+						<td><input type="text" name="table_width" value="{$edit.table_width}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this , true)" /> %</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">进货价</td>
+						<td><input type="text" name="infml" id="infml" value="{$edit.infml|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this );" onpropertychange="get_agio('agio')" onchange="get_agio('agio')" /> 元</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">数量</td>
+						<td><input type="text" name="amount" value="{$edit.amount|default:1}" style="width:80px;text-align:center" onfocus="sprintf('%d' , this)" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">国际报价</td>
+						<td><span id="INTbid">人民币 {$edit.INTbid|default:0} / ct</span><input id="INTbid_value" type="hidden" value="{$edit.INTbid|default:0}" /></td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">退点</td>
+						<td><span id="agio">{$edit.agio|default:0}</span> %</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">基准退点</td>
+						<td><input type="text" name="baseAgio" value="{$edit.baseAgio|default:0}" style="width:80px;text-align:center" onfocus="sprintf('%.2f' , this , true)" /> %</td>
+					</tr>
+					<tr>
+						<td align="right" class="Need">促销</td>
+						<td class="promotion">
+							<input name="is_promotion" type="radio" value="Y" {checked val=$edit.is_promotion str='Y'} onclick="click_promotion(this)" /> 是
+							<input name="is_promotion" type="radio" value="N" {if $get.action == 'add'}checked="checked"{else}{checked val=$edit.is_promotion str='N'}{/if} onclick="click_promotion(this)" /> 否
+							<ul style="display:{if $edit.is_promotion == 'Y'}block{else}none{/if}">
+								<li>
+									开始时间 <input name='promotion_start' type="text" class="FM_date" onclick="Calendar(this)" value="{$edit.promotion_start|date_format:'%Y-%m-%d'}" readonly />
+									<a href="javascript:;" class="DELDAY" onclick="DELDAY('promotion_start');">删除</a>
+								</li>
+								<li>
+									结束时间 <input name='promotion_stop' type="text" class="FM_date" onclick="Calendar(this)" value="{$edit.promotion_stop|date_format:'%Y-%m-%d'}" readonly />
+									<a href="javascript:;" class="DELDAY" onclick="DELDAY('promotion_stop');">删除</a>
+								</li>
+								<li>促销点 <input type="text" name="promotion_dot" value="{$edit.promotion_dot}" style="width:40px;text-align:center; margin:0 0 0 1em" maxlength="5" onfocus="sprintf('%.2f' , this , true)" /> %</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">外部备注</td>
+						<td><textarea name="userRemark" style="width:95%;height:120px">{br_to_null str=$edit.userRemark}</textarea></td>
+					</tr>
+					<tr>
+						<td align="right">内部备注</td>
+						<td><textarea name="backRemark" style="width:95%;height:120px">{br_to_null str=$edit.backRemark}</textarea></td>
+					</tr>
+					<tr><th colspan="2" align="center"><input type="submit" value=" 提 交 " /> <input type="reset" value=" 重 填 " /></th></tr>
+				</table>
+			</form>
+		</div>
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

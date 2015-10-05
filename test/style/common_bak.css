@@ -1,0 +1,145 @@
+/*by caoxiaolian qq13479032 E-MAIL:alian194@126.com */
+body { text-align: center; font-family:arial,Verdana,"ËÎÌו";margin:0; padding:0; background: #FFF; font-size:12px; line-height:22px; color:#464646;}
+html, body{ height:100% }
+div,form,img,ul,ol,li,p,dl,dt,dd {margin: 0; padding: 0; border: 0; }
+input,select{font-size:12px;line-height:16px;}
+ul,li{list-style-type:none;}
+img{vertical-align:top;}
+em {font-style:normal;}
+h1,h2,h3,h4,h5,h6 { margin:0; padding:0;font-size:12px; font-weight:normal;}
+/* Link */
+a:link {color: #424242; text-decoration:none;}
+a:visited {color: #424242;text-decoration:none;}
+a:hover {color: #C80001; text-decoration:underline;}
+a:active {color: #C80001;}
+/* Color */
+.cRed,a.cRed:link,a.cRed:visited{ color:#f00; }
+.cDRed,a.cDRed:link,a.cDRed:visited{ color:#D70505; }
+.cCRed,a.cCRed:link,a.cCRed:visited{ color:#C80001; }
+.cBlack,a.cBlack:link,a.cBlack:visited,a.cBlack:active{color:#424242;}
+.cGrey,a.cGrey:link,a.cGrey:visited,a.cGrey:active{color:#A0A0A0;}
+.cSGrey,a.cSGrey:link,a.cSGrey:visited,a.cSGrey:active{color:#bbb;}
+.cCGrey,a.cCGrey:link,a.cCGrey:visited,a.cSGrey:active{color:#8c8c8c;}
+/* Font  */
+.fB {font-weight: bold;}
+.f12px{ font-size:12px;}
+.f14px{ font-size:14px;}
+
+.inline,.inline li{display:inline}
+.float_l{float:left;}
+.float_r{float:right;}
+section, article, aside, header, footer, nav, dialog, figure{ display:block}
+/* Other */
+.fB{ font-weight:bold}
+.left{ float: left;}
+.right{ float: right;}
+.clear{ clear: both; font-size:1px; width:1px; height:0; visibility: hidden; overflow:hidden }
+.clearfix:after{content:"."; display:block; height: 0; clear: both; visibility: hidden;} 
+.noBorder{border:none;	}
+.noBg{ background:none!important}
+.blank3{ height:3px; clear:both;display:block; font-size:1px;overflow:hidden;}
+.blank6{ height:6px; font-size:1px; display:block;clear:both;overflow:hidden;}
+.blank8{ height:8px; font-size:1px;display:block; clear:both;overflow:hidden;}
+
+
+.text_c{ text-align:center}
+.text_r{ text-align:right}
+
+/*header*/
+
+
+.top_header{width:960px;margin:0 auto;height:90px; position:relative; background:#EE0101 url(../images/headerbg1.png) no-repeat left top}
+.top_header .logo{ position:absolute;left:28px;top:20px;width:216px;height:57px; text-indent:-9999px; overflow:hidden; background:url(../images/logo.png) no-repeat left top;_behavior: url("js/iepng.htc");}
+.top_header .tel{ position:absolute; right:18px;top:38px; text-indent:-9999px; overflow:hidden;width:138px;height:41px; background:url(../images/headerbg3.png) no-repeat left top;_behavior: url("js/iepng.htc");}
+.top_header .webInfo{position:absolute;left:393px;top:58px;width:202px;height:23px;background:url(../images/headerbg2.png) no-repeat left top; text-indent:-9999px; overflow:hidden;_behavior: url("js/iepng.htc");}
+.site_nav{width:960px;margin:0 auto; position:relative;height:23px; line-height:23px; background:url(../images/siteNavbg1.png) repeat-x left top;border-bottom:1px solid #C8C8C8; position:relative}
+.site_nav .favorite{float:left;padding:0 0 0 28px;}
+.site_nav .welcome{ position:absolute;left:280px;top:0;color:#A0A0A0}
+.site_nav .helpList{height:23px;width:255px;float:right;padding:0 20px 0 13px; background:url(../images/siteNavbg2.png) no-repeat left top; overflow:hidden}
+.site_nav .helpList ul{height:23px;padding:0 0 0 21px; width:272px;background:url(../images/siteNavbg3.png) repeat-x left top}
+.site_nav .helpList ul li{float:left;padding:0 6px 0 5px; background:url(../images/siteNavbg5.png) no-repeat right center}
+.btn_fav{padding:6px 0 4px 18px;background:url(../images/siteNavbg4.png) no-repeat left 5px;}
+.webNav,.webNav .lbg,.webNav .rbg{height:39px;background:url(../images/navbg.png) repeat-x;width:960px;margin:0 auto; position:relative; }
+.webNav{ background-position:left -39px;z-index:21}
+.webNav .lbg{ background-position:left 0;width:9px; display:block; position:absolute;left:0;top:0; z-index:3}
+.webNav .rbg{ background-position:left -78px;width:9px; display:block; position:absolute; right:0;top:0; z-index:3}
+
+.webNav ul{float:left;padding:0 0 0 38px;}
+
+.webNav ul li{float:left;width:78px;height:25px; line-height:25px;padding:6px 6px 0 4px; background:url(../images/navlibg.gif) no-repeat right 9px; position:relative; z-index:15}
+.webNav ul li a:link,.webNav ul li a:visited{color:#fff; font-size:14px;font-weight:bold}
+.webNav ul li .submenu{display:none}
+.webNav ul li.index{width:54px!important;}
+
+.webNav ul li.hover .submenu {position:absolute;left:4px;top:26px;display:block;width:76px;border-left:1px solid #f00;border-right:1px solid #f00;background:#fff;padding:12px 0 6px 0; z-index:17}
+.webNav ul li.hover .submenu ul{float:none;padding:0 0 0 0!important}
+
+.webNav ul li.hover .submenu .bb{background:url(../images/submenubg.gif) no-repeat;width:78px;height:5px; overflow:hidden; position:absolute; display:block;}
+.webNav ul li.hover .submenu .bb{ background-position:left top; left:-1px;bottom:-5px}
+.webNav ul li.hover .submenu li{float:none;width:66px;height:18px; line-height:18px;padding:0; background:none; position:static}
+.webNav ul li.hover .submenu li a{color:#464646!important; background:none; font-size:12px; font-weight:normal}
+.webNav ul li.hover a,.webNav ul li.current a{background:url(../images/navlibg2.png) no-repeat left top;display:block;padding:0 0 0 0;color:#C80001!important; text-decoration:none;}
+.webNav ul li.index.current a{background:url(../images/navlibg2.png) no-repeat left top;display:block;padding:0 0 0 12px;color:#C80001!important; text-decoration:none;float:left}
+.webNav ul li.index.current a span{background:url(../images/navlibg2.png) no-repeat right top;display:block;padding:0 12px 0 0;color:#C80001!important; text-decoration:none;margin:0;float:left}
+.webNav .cartbox{width:144px;padding:0 26px 0 30px;height:29px; position:absolute;right:6px;top:6px; line-height:26px;*line-height:28px; overflow:hidden; background:url(../images/cartbg.png) no-repeat left top}
+.webNav .cartbox .goto{float:right;width:40px;*padding-top:1px}
+.sh_search{width:880px;height:30px;margin:0 auto; background:#FFE8E8 url(../images/keywordsbg.png) no-repeat left top;padding:0 50px 0 30px}
+.sh_search .keywords{float:left;height:30px; line-height:30px;}
+.sh_search .keywords a{margin:0 6px}
+.sh_search .searchbox{float:right;width:210px;padding:2px 0 0 0}
+.sh_search .searchInput{width:140px;border:1px solid #4B4B4B;height:18px; line-height:18px;padding-left:16px; background:#fff url(../images/searchbg.png) no-repeat 3px 4px}
+.sh_search .searchkey{width:41px;height:23px; line-height:23px;margin-left:6px; background:url(../images/searchkey.png) no-repeat left top;border:none; vertical-align:middle; cursor:pointer}
+/*pages*/
+.pages{height:23px;overflow:hidden;background:#FDEFEF;padding:0 10px;}
+.pages p{float:left;}
+.pages ul{float:right;width:360px;margin-top:4px}
+.pages ul li{float:left;height:14px; line-height:14px;border:1px solid #DFD8D8;padding:0 4px; background:#fff; display:inline;margin-left:6px;*padding-top:1px;*height:13px; overflow:hidden}
+.pages ul li a{color:#C80001!important}
+.pages ul li.sel{ background:#c80001}
+.pages ul li.sel a{color:#fff!important}
+
+/*aside*/
+.w210{width:210px;float:left; overflow:hidden; text-align:left}
+.product_list{ border:2px solid #c80001;width:206px;float:left;padding-bottom:3px}
+.product_list h2{height:33px;text-indent:-9999px;overflow:hidden;width:206px;background:#c80001 url(../images/prodlist_title.png) no-repeat 16px 8px}
+.product_list h3{height:29px;line-height:29px;padding:0 0 0 13px; font-size:13px; color:#c80001; font-weight:bold}
+.product_list h3 span{color:#b1b1b1;font-size:11px; margin-left:6px; font-weight:normal}
+.product_list ul li{height:25px;padding-left:13px; background:#fff1f1; line-height:25px;margin-bottom:1px} 
+.product_list ul li a{margin-right:12px;font-size:13px}
+.sh_position{height:23px; line-height:23px; background:#F3F3F3 url(../images/sh_position.png) no-repeat 17px 6px;width:932px;margin:0 auto;padding-left:28px; text-align:left;}
+/*footer*/
+.footer {width:956px;margin:0 auto; text-align:left}
+.footHelp{height:154px;border:1px solid #bbb; background:url(../images/foothelpbg.png) repeat-x left top;padding:5px 38px 0 30px; position:relative}
+.foottel{width:159px;height:18px; text-indent:-9999px; overflow:hidden; background:url(../images/foottelbg.png) no-repeat left top; position:absolute; left:55px;top:18px;}
+.footBtnbox{width:204px;position:absolute;left:33px;top:45px; text-align:center;}
+.footBtnbox ul{margin-top:10px}
+.footBtnbox li{ display:inline;margin-bottom:11px;}
+
+.footBtn1,.footBtn2,.footBtn3,.footBtn4{ width:70px;height:28px; padding:0 0 0 18px; display:block;background:url(../images/footbtn1.png) no-repeat left top; line-height:28px; cursor:pointer; font-weight:bold}
+.footBtn2{background:url(../images/footbtn2.png) no-repeat left top}
+.footBtn3{background:url(../images/footbtn3.png) no-repeat left top}
+.footBtn4{background:url(../images/footbtn4.png) no-repeat left top}
+.footlink{width:566px;padding:1px 15px;height:30px;position:absolute;top:10px;left:305px;}
+
+.footprev{ cursor:pointer; display:block;width:8px;height:33px; position:absolute;left:-8px;top:0; background:url(../images/footprev.png) no-repeat left top}
+.footnext{ cursor:pointer; display:block;width:8px;height:33px; position:absolute;right:-8px;top:0; background:url(../images/footnext.png) no-repeat left top}
+.footlink .hid{width:566px; overflow:hidden}
+.footlink ul{width:1000px}
+.footlink ul li{float:left;width:80px;height:30px;padding-right:17px}
+.listAbout{ position:absolute; left:288px;top:54px;width:620px; overflow:hidden}
+.listAbout ul{width:680px;}
+.listAbout li{float:left;width:109px;padding-left:18px; background:url(../images/footlinebg.png) no-repeat right 16px}
+.listAbout li dt{height:30px;font-weight:bold;line-height:30px;padding-left:30px}
+.listAbout li dt.footBtn5{ background:url(../images/footbtn5.png) no-repeat left top}
+.listAbout li dt.footBtn6{ background:url(../images/footbtn6.png) no-repeat left top}
+.listAbout li dt.footBtn7{ background:url(../images/footbtn7.png) no-repeat left top}
+.listAbout li dt.footBtn8{ background:url(../images/footbtn8.png) no-repeat left top}
+.listAbout li dt.footBtn9{ background:url(../images/footbtn9.png) no-repeat left top}
+.listAbout li dd{padding-left:20px;height:23px; line-height:23px}
+.links{position:absolute;width:620px; height:100px;left:288px;top:54px;overflow-x:hidden;overflow-y:auto;}
+.links ul{width:640px;}
+.links li{ overflow:hidden;text-align:center;float:left;width:80px;height:20px; line-height:20px;margin-right:10px;}
+.about{height:33px; color:#fff; line-height:33px; background:#D80101; text-align:center; font-size:13px; font-weight:bold;margin:8px 0 12px 0}
+.about a{color:#fff!important;padding:0 8px}
+.copyright{ text-align:center; line-height:22px}
+.copyright a{padding:0 8px}

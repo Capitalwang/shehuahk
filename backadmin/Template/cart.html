@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/string.js"></script>
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/cart.js"></script>
+<script type="text/javascript" src="Js/product.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+			{if $BTP.product.show}<li><a href="{write_url url=$thisurl open='product' DEL='ALL'}">继续添加产品</a></li>{/if}
+			{if $BTP[$get.open].del}<li><a href="{write_url url=$thisurl action='del' DEL='ALL'}">清空购物车</a></li>{/if}
+			{if $BTP[$get.open].show}<li><a href="{write_url url=$thisurl action='show' DEL='ALL'}" {CLASS_COLOR show=$get.action CLASS='this'}>购物车</a></li>{/if}
+			</ul>
+			<span class="clear"></span>
+		</div>
+		{if $get.action == 'orders_info'}
+		<div class="append">
+			<form action="{write_url url=$thisurl action='make_orders'}" method="post">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0">
+				<tr><th colspan="2">填写订单</th>	</tr>
+				<tr>
+					<td width="35%" align="right">代理身份</td>
+					<td>
+						<input type="hidden" name="proxy_id" value="{$post.proxy_id}" />
+						<input type="hidden" name="proxy_value" value="{$post.proxy_value}" />
+						{$post.proxy_value}
+					</td>
+				</tr>
+				<tr>
+					<td align="right">业务</td>
+					<td>
+						<input type="hidden" name="salesman_id" value="{$post.salesman_id}" />
+						<input type="hidden" name="salesman_write" value="{$post.salesman_write}" />
+						{$post.salesman_write}
+					</td>
+				</tr>
+				<tr>
+					<td align="right">客服</td>
+					<td>
+						<input type="hidden" name="service_id" value="{$post.service_id}" />
+						<input type="hidden" name="service_write" value="{$post.service_write}" />
+						{$post.service_write}
+					</td>
+				</tr>
+				<tr>
+					<td align="right">代理退点</td>
+					<td>{$post.rebate}<input type="hidden" id="rebate" name="rebate" value="{$post.rebate}" /></td>
+				</tr>
+				<tr>
+					<td align="right">代理组</td>
+					<td>{$post.group}<input type="hidden" id="group" name="group" value="{$post.group}" /></td>
+				</tr>
+				<tr>
+					<td align="right">促销价</td>
+					<td>{if $post.is_offer == 'Y'}支持{else}不支持{/if}<input type="hidden" id="is_offer" name="is_offer" value="{$post.is_offer}" /></td>
+				</tr>
+				<tr>
+					<td align="right">总原价</td>
+					<td><b id="Z_price" style="color:#03F">{$price}</b></td>
+				</tr>
+				<tr>
+					<td align="right">总售价</td>
+					<td><b id="S_price" style="color:#090">{$price}</b></td>
+				</tr>
+				<tr>
+					<td align="right">备注</td>
+					<td>{$post.remark}<input type="hidden" name="remark" value="{$post.remark}" /></td>
+				</tr>
+				<tr class="">
+					<td colspan="2">
+					<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+						<tr>
+							<th>编号</th>
+							<th>形状</th>
+							<th>重量</th>
+							<th>颜色</th>
+							<th>净度</th>
+							<th>荧光</th>
+							<th>证书</th>
+							<th>国际报价</th>
+							<th>退点</th>
+							<th>基准退点</th>
+							<th>原售价</th>
+							<th>数量</th>
+							<th>购买量</th>
+							<th>售价 / 颗</th>
+						</tr>
+						{foreach item=pso from=$list_cart}
+						<tr align="center">
+							<td>{brite_spot query =$get.info str=$pso.ProID}</td>
+							<td>{$shape[$pso.shape]}</td>
+							<td>{$pso.weight} / ct</td>
+							<td>{$pso.color}</td>
+							<td>{$pso.clarity}</td>
+							<td>{$pso.Fent_Isity}</td>
+							<td>{Goto_diploma diploma=$pso.diploma weight=$pso.weight NO=$pso.diplomaNO show=$pso.diploma}</td>
+							<td>{$pso.INTbid} / ct</td>
+							{if $post.is_offer == 'Y' and $pso.is_promotion == 'Y' and $pso.promotion_start <= mktime() and $pso.promotion_stop >= mktime()}
+							<td class="promotion">{$pso.agio+$pso.baseAgio+$pso.promotion_dot} %</td>
+							<td class="promotion">促销</td>
+							<td class="promotion"><b style="color:red">{sprintf('%.2f' , $pso.INTbid*$pso.weight*(100+$pso.agio+$pso.baseAgio+$pso.promotion_dot)/100)}</b></td>
+							<td>{$pso.amount}</td>
+							<td><input type="text" name="amount[{$pso.id}]" value="1" style="width:40px;text-align:center" onfocus="C_price(this , 1 , {$pso.amount})" /></td>
+							<td>
+								<input type="text" name="price[{$pso.id}]" value="{sprintf('%.2f',$pso.INTbid*$pso.weight*(100+$pso.agio+$pso.baseAgio+$pso.promotion_dot)/100)}" style="width:80px;text-align:center" onfocus="set_price(this)" />
+								<input type="hidden" name="Yprice[{$pso.id}]" value="{sprintf('%.2f',$pso.INTbid*$pso.weight*(100+$pso.agio+$pso.baseAgio+$pso.promotion_dot)/100)}" />
+							</td>
+							{else}
+							<td>{$pso.agio} %</td>
+							<td>{$pso.baseAgio} %</td>
+							<td><b style="color:red">{sprintf('%.2f' , $pso.weight * $pso.INTbid / 100 * (100+$pso.agio + $pso.baseAgio + $post.rebate))}</b></td>
+							<td>{$pso.amount}</td>
+							<td><input type="text" name="amount[{$pso.id}]" value="1" style="width:40px;text-align:center" onfocus="C_price(this , 1 , {$pso.amount})" /></td>
+							<td>
+								<input type="text" name="price[{$pso.id}]" value="{sprintf('%.2f',$pso.weight*$pso.INTbid/100*(100+$pso.agio+$pso.baseAgio+$post.rebate))}" style="width:80px;text-align:center" onfocus="set_price(this)" />
+								<input type="hidden" name="Yprice[{$pso.id}]" value="{sprintf('%.2f',$pso.weight*$pso.INTbid/100*(100+$pso.agio+$pso.baseAgio+$post.rebate))}" />
+							</td>
+							{/if}
+						</tr>
+						{foreachelse}
+						<tr><td colspan="14" class="else">购物车中没有产品 , <a href="{write_url url=$thisurl open='product' DEL='ALL'}">点击添加产品</a></td></tr>
+						{/foreach}
+					</table>
+					</td>
+				</tr>
+				<tr><th colspan="2" align="center"><input type="submit" value=" 生 成 订 单 " /></th></tr>
+			</table>
+			</form>
+		</div>
+		{else}
+		<div class="show">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+				<tr>
+					<th>编号</th>
+					<th>形状</th>
+					<th>重量</th>
+					<th>颜色</th>
+					<th>净度</th>
+					<th>切工</th>
+					<th>抛光</th>
+					<th>对称</th>
+					<th>荧光</th>
+					<th>测量值</th>
+					<th>证书</th>
+					<th>退点</th>
+					<th>基准退点</th>
+					<th>¥/每颗</th>
+					<th>数量</th>
+					<th width="5%">价格</th>
+					<th width="5%">详情</th>
+					<th width="5%">删除</th>
+				</tr>
+				{foreach item=pso from=$list_cart}
+				<tr align="center">
+					<td>{brite_spot query =$get.info str=$pso.ProID}</td>
+					<td>{$shape[$pso.shape]}</td>
+					<td>{$pso.weight} / ct</td>
+					<td>{$pso.color}</td>
+					<td>{$pso.clarity}</td>
+					<td>{$pso.cut}</td>
+					<td>{$pso.buffing}</td>
+					<td>{$pso.symmetry}</td>
+					<td>{$pso.Fent_Isity}</td>
+					<td>{$pso.scalar_value}</td>
+					<td>{Goto_diploma diploma=$pso.diploma weight=$pso.weight NO=$pso.diplomaNO show=$pso.diploma}</td>
+					{if $pso.is_promotion == 'Y' and $pso.promotion_start <= mktime() and $pso.promotion_stop >= mktime()}
+					<td class="promotion">{$pso.agio+$pso.baseAgio+$pso.promotion_dot} %</td>
+					<td class="promotion">促销</td>
+					<td class="promotion">{sprintf('%.2f' , $pso.INTbid*$pso.weight*(100+$pso.agio+$pso.baseAgio+$pso.promotion_dot)/100)}</td>
+					{else}
+					<td>{$pso.agio} %</td>
+					<td>{$pso.baseAgio} %</td>
+					<td>{$pso.infml}</td>
+					{/if}
+					<td>{$pso.amount}</td>
+					<td class="action">{if $BTP[$get.open].view_price}<a href="javascript:;" onclick="view_price(this , '{$pso.id}' , 18)" class="act_3_2" title="查看价格"></a>{/if}</td>
+					<td class="action">{if $BTP[$get.open].detail}<a href="javascript:;" onclick="show_pro_detail(this , '{$pso.id}' , 18)" class="act_3_10" title="产品详情"></a>{/if}</td>
+					<td class="action">{if $BTP[$get.open].del}<a href="{write_url url=$thisurl action='del' id=$pso.id}" class="act_1_5" title="删除"></a>{/if}</td>
+				</tr>
+				{foreachelse}
+				<tr><td colspan="18" class="else">购物车中没有产品 , <a href="{write_url url=$thisurl open='product' DEL='ALL'}">点击添加产品</a></td></tr>
+				{/foreach}
+			</table>
+			{if $list_cart}
+			<form action="{write_url url=$thisurl action='orders_info'}" method="post" style="margin:1em 0 0 0">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0">
+				<tr><th colspan="2">填写订单</th>	</tr>
+				<tr>
+					<td width="35%" align="right">代理身份</td>
+					<td class="AjaxShow">
+						<input type="hidden" name="proxy_id" id="proxy_id" />
+						<input type="text" name="proxy_value" value="账号,编号,姓名" onfocus="get_proxy(this , false)" />
+						<b></b>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">业务</td>
+					<td class="AjaxShow">
+						<input type="hidden" name="salesman_id" id="salesman_id" />
+						<input type="text" name="salesman_write" id="salesman_write" value="账号,编号,姓名" onfocus="change_id(this , 'proxy')" />
+						<b></b>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">客服</td>
+					<td class="AjaxShow">
+						<input type="hidden" name="service_id" id="service_id" />
+						<input type="text" name="service_write" id="service_write" value="账号,编号,姓名" onfocus="change_id(this , 'service')" />
+						<b></b>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">代理退点</td>
+					<td><span id="rebate_value"></span><input type="hidden" name="rebate" id="rebate" /></td>
+				</tr>
+				<tr>
+					<td align="right">代理组</td>
+					<td><span id="group_info"></span><input type="hidden" name="group" id="group" /></td>
+				</tr>
+				<tr>
+					<td align="right">促销价</td>
+					<td><span id="is_offer_info"></span><input type="hidden" name="is_offer" id="is_offer" /></td>
+				</tr>
+				<tr>
+					<td align="right">备注</td>
+					<td><textarea name="remark" style="width:95%; height:120px;"></textarea></td>
+				</tr>
+				<tr id="subMIT" style="display:none"><th colspan="2" align="center" class="select"><input value="下 一 步" type="submit" style="padding:0.5em" /></th></tr>
+			</table>
+			</form>
+			{/if}
+		</div>		
+		{/if}
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

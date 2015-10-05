@@ -1,0 +1,107 @@
+<table border="0" cellspacing="1" cellpadding="0" width="100%">
+	<tr>
+		<td width="10%" align="right" class="Need">编号</td>
+		<td>{brite_spot query =$get.info str=$show.ProID}</td>
+		<td width="10%" align="right">原编号</td>
+		<td>{brite_spot query =$get.info str=$show.previousNO}</td>
+	</tr>
+	<tr>
+		<td align="right" class="Need">状态</td>
+		<td>{$status[$show.status]} ({$show.status})</td>
+		<td align="right">数量</td>
+		<td>{$show.amount}</td>
+	</tr>
+	<tr>
+		<td align="right">形状</td>
+		<td>{$shape[$show.shape]} ({$show.shape})</td>
+		<td align="right">重量</td>
+		<td>{$show.weight}</td>
+	</tr>
+	<tr>
+		<td align="right">颜色</td>
+		<td>{$show.color}</td>
+		<td align="right">净度</td>
+		<td>{$show.clarity}</td>
+	</tr>
+	<tr>
+		<td align="right">切工</td>
+		<td>{$show.cut}</td>
+		<td align="right">抛光</td>
+		<td>{$show.buffing}</td>
+	</tr>
+	<tr>
+		<td align="right">对称</td>
+		<td>{$show.symmetry}</td>
+		<td align="right">荧光强度</td>
+		<td>{$show.Fent_Isity}</td>
+	</tr>
+	<tr>
+		<td align="right">荧光颜色</td>
+		<td>{$show.Fent_color}</td>
+		<td align="right">测量值</td>
+		<td>{$show.scalar_value}</td>
+	</tr>
+	<tr>
+		<td align="right">全身比</td>
+		<td>{$show.body_ratio} %</td>
+		<td align="right">台宽比</td>
+		<td>{$show.table_width} %</td>
+	</tr>
+	<tr>
+		<td align="right">证书</td>
+		<td colspan="3">
+			{Goto_diploma diploma=$show.diploma weight=$show.weight NO=$show.diplomaNO show={brite_spot query =$get.info str=$show.diploma|cat:' - '|cat:$show.diplomaNO}}
+			{if $show.diplomaPhoto}<a style="margin:0 0 0 2em" href="{$show.diplomaPhoto}" target="_{$show.ProID}">证书图</a>{/if}
+		</td>
+	</tr>
+	<tr>
+		<td align="right">产品来源</td>
+		<td>
+			{$proSource[$show.proSource]}
+			{if $show.proSource != 'self'}<span style="margin:0 0 0 2em">商家ID：{$show.sellerID}</span>{/if}
+		</td>
+		<td align="right">库存地点</td>
+		<td>{$show.stockAddress}</td>
+	</tr>
+	<tr>
+		<td align="right">是否促销</td>
+		<td colspan="3">
+			{if $show.is_promotion == 'N' or $show.promotion_start > $smarty.now or $smarty.now > $show.promotion_stop}否{else}
+				是
+				<span style="margin:0 0 0 2em">开始日期 {$show.promotion_start|date_format:"%Y-%m-%d %H:%M"}</span>
+				<span style="margin:0 0 0 2em">结束日期 {$show.promotion_stop|date_format:"%Y-%m-%d %H:%M"}</span>
+				<span style="margin:0 0 0 2em">促销点 {$show.promotion_dot} %</span>
+			{/if}
+		</td>
+	</tr>
+	<tr>
+		<td align="right">国家</td>
+		<td>{$country[$show.country]} ({$show.country})</td>
+		<td align="right">&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td align="right">进货价</td>
+		<td>{$show.infml} 元</td>
+		<td align="right">国际报价</td>
+		<td>{$show.INTbid} 元 / ct</td>
+	</tr>
+	<tr>
+		<td align="right">退点</td>
+		<td>{$show.agio} %</td>
+		<td align="right">基准退点</td>
+		<td>{$show.baseAgio} %</td>
+	</tr>
+	<tr>
+		<td align="right">产品添加日期</td>
+		<td> {$show.time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+		<td align="right">最后修改日期</td>
+		<td> {$show.edit_time|date_format:"%Y-%m-%d %H:%M:%S"}</td>
+	</tr>
+	<tr>
+		<td align="right">外部备注</td>
+		<td>{$show.userRemark}</td>
+		<td align="right">内部备注</td>
+		<td>{$show.backRemark}</td>
+	</tr>
+</table>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$smarty.const.Site_Name}</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="Js/menu.js"></script>
+<script type="text/javascript" src="Js/exec.js"></script>
+</head>
+
+<body>
+{include file="header.html"}
+<div class="center">
+	<div class="left">{include file="menu.html"}</div>
+	<div class="right">
+		<div class="Nav">
+			<ul>
+				<li><a href="{write_url url=$thisurl action='add' DEL='id'}" {CLASS_COLOR add=$get.action CLASS='this'}>添加客服权限</a></li>
+				<li><a href="{write_url url=$thisurl action='show' DEL='id'}" {CLASS_COLOR show=$get.action CLASS='this'}>客服权限管理</a></li>
+			</ul>
+			<span class="clear"></span>
+		</div>
+		<div class="show">
+			<form action="{write_url url=$thisurl action='del'}" method="post">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" id="tab_show">
+					<tr>
+						<th width="5%">选择</th>
+						<th>Open参数</th>
+						<th>参数说明</th>
+						<th>Action参数</th>
+						<th>动作说明</th>
+						<th width="5%">编辑</th>
+						<th width="5%">删除</th>
+					</tr>
+					{foreach item=pso from=$list_text}
+					<tr>
+						<td align="center">{if $pso.is_del == 'Y'}<input type="checkbox" name="id[]" value="{$pso.id}" />{else}-{/if}</td>
+						<td>{$pso.open}</td>
+						<td>{$pso.open_show}</td>
+						<td>{$pso.action}</td>
+						<td>{$pso.action_show}</td>
+						<td class="action" align="center"><a href="{write_url url=$thisurl action='edit' id=$pso.id}" class="act_5_8" title="编辑"></a></td>
+						<td class="action" align="center">{if $pso.is_del == 'Y'}<a href="{write_url url=$thisurl action='del' id=$pso.id}" class="act_1_5" title="删除"></a>{else}-{/if}</td>
+					</tr>
+					{foreachelse}
+					<tr><td colspan="7" class="else">当前没有前台权限 , <a href="{write_url url=$thisurl action='add' DEL='id'}">点击添加前台权限</a></td></tr>
+					{/foreach}
+				</table>
+				<div class="select">
+					选择：
+					<input value="全部选择" type="button" onclick="select_all('id[]');" />
+					<input value="全部取消" type="button" onclick="select_out('id[]');" />
+					<input value="反向选择" type="button" onclick="select_agt('id[]');" />
+					<input value="删除选择" type="button" onclick="select_del('id[]' , this);" />
+				</div>
+			</form>
+			{if $list_page.Record > 0}
+			<div class="page">
+				每页
+				<select onchange="page_Local(this,0 , '{write_url url=$thisurl DEL='PNS'}')">
+					<option value="PNS=10" {selected val=$get.PNS str='10'}>10</option>
+					<option value="PNS=25" {selected val=$get.PNS str='25'}>25</option>
+					<option value="PNS=50" {selected val=$get.PNS str='50'}>50</option>
+					<option value="PNS=100" {selected val=$get.PNS str='100'}>100</option>
+				</select>
+				条数据
+				当前第{$list_page.NowPage}页 / 共{$list_page.count}页
+				{if $list_page.NowPage > 1}<a href="{write_url url=$thisurl page='1'}">首页</a>{else}首页{/if}
+				{if $list_page.NowPage > 1}<a href="{write_url url=$thisurl page=$list_page.up}">上一页</a>{else}上一页{/if}
+				{if $list_page.NowPage < $list_page.count}<a href="{write_url url=$thisurl page=$list_page.down}">下一页</a>{else}下一页{/if}
+				{if $list_page.NowPage < $list_page.count}<a href="{write_url url=$thisurl page=$list_page.count}">尾页</a>{else}尾页{/if}
+				至 <input type="text" value="{$list_page.NowPage}" onkeydown="go_page(event , this , '{$thisurl}')" /> 页
+				排序:
+				<select onchange="page_Local(this,0 , '{write_url url=$thisurl DEL='ORDER'}')">
+					<option value="ORDER=time_UP" {selected val=$get.ORDER str='time_UP'}>按 时间 (↑) 排序</option>
+					<option value="ORDER=time_Dn" {selected val=$get.ORDER str='time_Dn'}>按 时间 (↓) 排序</option>
+					<option value="ORDER=open_UP" {selected val=$get.ORDER str='open_UP'}>按 Open (↑) 排序</option>
+					<option value="ORDER=open_Dn" {selected val=$get.ORDER str='open_Dn'}>按 Open (↓) 排序</option>
+				</select>
+			</div>
+			{/if}
+		</div>		
+	</div>
+	<b class="clear"></b>
+</div>
+</body>
+</html>

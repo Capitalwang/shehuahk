@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+.Pe{
+		width:980px;
+		margin:0 auto;
+		overflow:hidden;
+		font:12px/1 Tahoma,Helvetica,Arial,"\5b8b\4f53",sans-serif;}	
+		
+	.Pe #left_hied{
+		 display:none;
+	}
+		
+@media screen and (max-width: 980px) {
+	
+	.Pe{
+		width:100%;
+
+		}
+		
+	.me{padding:0 !important;}
+		
+	.gray{ padding-left:2% !important;
+	}
+	.Ys{
+		width:98% !important;
+		clear:both;
+		margin:0 auto !important;
+
+	}
+	.let{
+		position:absolute;
+		left:0px;
+		overflow:hidden;
+		width:0;
+		}
+	.let div{
+		border-radius: 0 !important;
+	}
+		
+		
+	.Pe #left_hied{
+		display:block;
+		background:url(../images/show.gif); 
+		 width:58px; 
+		 height:50px; 
+		 position:absolute; 
+		 left:0; 
+		 z-index:1;
+		}
+	}
+	
+
+
