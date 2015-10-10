@@ -188,7 +188,7 @@
 				$array = array();
 				$post = $this->fun->pars_all('post' , true);
 				
-				if($_SESSION["proxy"]["company_logo"]){
+				if(!$_SESSION["proxy"]["company_logo"]){
 				if(!empty($_FILES["company_logo"]["tmp_name"])){
 			        if($_FILES["company_logo"]["size"]>1024*1024*2){
                                     $this->fun->Msg('图片太大！请上传小于2M的图片！');
@@ -311,6 +311,11 @@
 			}
 		}
 		
+
+
+
+		//修改倍率
+
 		/**
 		 * 默认值
 		 */

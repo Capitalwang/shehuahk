@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>奢华</title>
+<link href="css/me1.css" rel="stylesheet" type="text/css" />
+<link href="css/kh-index.css" rel="stylesheet" type="text/css" />
+
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="Js/default.js"></script>
+</head>
+
+<body>
+<header>
+    <div class="box head-box">
+        <img class="index-img" src="images/logo1.jpg" alt="奢华国际钻石集团"/>
+        <span id="heid" style="background:url(images/anniu.png);"></span>
+        <div class="head">
+            {include file="nav.html"}
+       </div>
+   </div>
+</header>
+<div class="me_home">
+	<div class="me_gray">
+    	<span id="left_hied"></span>
+		<div class="me_let">
+        <div>您好！欢迎进入在线库存中心</div>
+			{include file="me_nav.html"}
+		</div>
+		
+		<div class="me_Ys">
+			<div class="me_foe">
+				<form action="{write_url url=$thisurl go='append'}" method="post" enctype="multipart/form-data">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="me_log mes">
+						<tr><th colspan="2" class="te">修改倍率</th></tr>
+						<tr><th>*倍率</th><td><input name="mag" type="text" value="{$show.mag}" style="width:70%"  /></td></tr>
+						<tr><td colspan="2" class="INP" stley="text-align:center !important;"><input value="修改资料" type="submit" style="height:auto; line-height:normal;" /></td></tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<i class="clear"></i>
+	</div>
+	
+</div>
+
+<footer>
+    {include file="foot.html"}
+</footer>
+<script type="text/javascript" src="Js/hk.js"></script>
+<script type="text/javascript" src="Js/city.js"></script>
+<script type="text/javascript">set_PROVINCE_CITY('PROVINCE_CITY' , 'province' , 'city' , '{$show.province}' , '{$show.city}');</script>
+<script type="text/javascript">var NAB_ONE_LI_INNERHTML = '<select name="type[]" onchange="Up_NAB(this);set_default(this);"><option value="0">请选择通讯类型</option>{foreach item=aon key=nabKey from=$NAB}<option value="{$nabKey}">{$aon}</option>{/foreach}</select><input name="type_name[]" type="hidden" value="" />&nbsp;<input name="content[]" type="text" value="" onkeyup="set_mobile(this)" /> <span style="display:none"><input name="is_default" type="radio" style="width:auto" /> 接收 手机短信 号码</span> &nbsp;<a href="javascript:;" onclick="Del_NAB(\'NAB\' , this)">删除</a>';</script>
+</body>
+</html>

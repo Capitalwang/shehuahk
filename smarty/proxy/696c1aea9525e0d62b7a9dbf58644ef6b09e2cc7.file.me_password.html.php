@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-b8, created on 2015-09-24 14:20:49
+<?php /* Smarty version Smarty3-b8, created on 2015-10-10 15:08:33
          compiled from "D:\www\shehuahk\wholesale/Template/me_password.html" */ ?>
-<?php /*%%SmartyHeaderCode:405456039641e903c5-36043110%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:192345618b97117d3d0-71114340%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '696c1aea9525e0d62b7a9dbf58644ef6b09e2cc7' => 
     array (
       0 => 'D:\\www\\shehuahk\\wholesale/Template/me_password.html',
-      1 => 1443075345,
+      1 => 1444460911,
     ),
   ),
-  'nocache_hash' => '405456039641e903c5-36043110',
+  'nocache_hash' => '192345618b97117d3d0-71114340',
   'function' => 
   array (
   ),
@@ -56,7 +56,7 @@ $_smarty_tpl->decodeProperties(array (
 			<div class="me_foe">
 				<form action="<?php echo smarty_function_write_url(array('url'=>$_smarty_tpl->getVariable('thisurl')->value,'go'=>'append'),$_smarty_tpl->smarty,$_smarty_tpl);?>
 " method="post">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="me_log">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="me_log mes">
 						<tr><th colspan="2" class="te">修改密码</th></tr>
 						<tr><th width="45%">编号</th><td><?php echo $_smarty_tpl->getVariable('show')->value['number'];?>
 </td></tr>
@@ -69,7 +69,7 @@ $_smarty_tpl->decodeProperties(array (
 						<tr><th>当前密码</th><td><input name="password" type="password" style="width:150px" /></td></tr>
 						<tr><th>新的密码</th><td><input name="oneP" type="password" style="width:150px" /></td></tr>
 						<tr><th>再次输入</th><td><input name="twoP" type="password" style="width:150px" /></td></tr>
-						<tr><td colspan="2" class="INP" align="center"><input value="修改密码" type="submit" /></td></tr>
+						<tr><td colspan="2" class="INP" style="text-align:center;"><input value="修改密码" type="submit" /></td></tr>
 					</table>
 				</form>
 			</div>

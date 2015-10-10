@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-b8, created on 2015-09-24 17:07:17
+<?php /* Smarty version Smarty3-b8, created on 2015-10-10 12:26:54
          compiled from "D:\www\shehuahk\wholesale/Template/me_info.html" */ ?>
-<?php /*%%SmartyHeaderCode:323575603bd458f7660-34468728%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:304905618938e486390-48258209%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9fa07e80bdc2d8b9912dce7a6d3df294ea6104c1' => 
     array (
       0 => 'D:\\www\\shehuahk\\wholesale/Template/me_info.html',
-      1 => 1443085576,
+      1 => 1444451127,
     ),
   ),
-  'nocache_hash' => '323575603bd458f7660-34468728',
+  'nocache_hash' => '304905618938e486390-48258209',
   'function' => 
   array (
   ),
@@ -58,7 +58,7 @@ $_smarty_tpl->decodeProperties(array (
         
 		<div class="me_Ys">
 			<div class="me_foe">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="me_log">
+				<!-- <table width="100%" border="0" cellspacing="0" cellpadding="0" class="me_log">
 					<tr><th colspan="2" class="te">我的资讯</th></tr>
 					<tr><th width="45%">编号</th><td><?php echo $_smarty_tpl->getVariable('show')->value['number'];?>
 </th></tr>
@@ -70,11 +70,11 @@ $_smarty_tpl->decodeProperties(array (
 </td></tr>
 					<tr><th>余款</th><td><?php echo $_smarty_tpl->getVariable('show')->value['money'];?>
  元</td></tr>
-					<!--<tr>
+					<tr>
 						<th>手机短信</th>
 						<td><?php if ($_smarty_tpl->getVariable('show')->value['is_SMS']=='Y'){?>开启<span style="color:#09F;margin:0 0 0 2em"><?php echo $_smarty_tpl->getVariable('proxy')->value['sms_price'];?>
  / 条</span><?php }else{ ?>关闭<?php }?></td>
-					</tr>-->
+					</tr>
 				   
 					<tr><th>Logo</th><td><img style="width:80px;height:50px;"  src="<?php echo $_smarty_tpl->getVariable('show')->value['company_logo'];?>
 " /><br/>*建议高宽：140*320px<br/><?php echo $_smarty_tpl->getVariable('show')->value['company_logo'];?>
@@ -124,9 +124,65 @@ if (count($_from) > 0){
 					<tr><th>上次登录时间</th><td><?php echo date('Y-m-d',$_smarty_tpl->getVariable('show')->value['login_time']);?>
 </td></tr>
 					
-					<!--<tr><td>备注</td><td><?php echo $_smarty_tpl->getVariable('show')->value['remark'];?>
-</td></tr>-->
-				</table>
+					<tr><td>备注</td><td><?php echo $_smarty_tpl->getVariable('show')->value['remark'];?>
+</td></tr>
+				</table> -->
+				<table width="100%" border="0" cellspacing="0" class="me_log">
+      <tr><th colspan="4" class="te">我的资讯</th></tr>
+      <tr>
+        <th>编号</th><td><?php echo $_smarty_tpl->getVariable('show')->value['number'];?>
+</td><th>账号</th><td><?php echo $_smarty_tpl->getVariable('show')->value['account'];?>
+</td>
+      </tr>
+       <tr>
+        <th>*真实姓名</th><td><?php echo $_smarty_tpl->getVariable('show')->value['name'];?>
+</td><th>*昵称</th><td><?php echo $_smarty_tpl->getVariable('show')->value['nickname'];?>
+</td>
+      </tr>
+        <tr>
+        <th>Logo</th>
+        <td colspan="3" class="text-left"><img style="width:80px;height:50px;"  src="<?php echo $_smarty_tpl->getVariable('show')->value['company_logo'];?>
+" /><br/>*建议高宽：140*320px<br/><?php echo $_smarty_tpl->getVariable('show')->value['company_logo'];?>
+</td>
+      </tr>
+       <tr>
+        <th>*公司名称</th><td><?php echo $_smarty_tpl->getVariable('show')->value['company_name'];?>
+</td><th>*公司地址</th><td><?php echo $_smarty_tpl->getVariable('show')->value['company_address'];?>
+</td>
+      </tr>
+        <tr><th>*通讯</th>
+        <td colspan="3" class="text-left">
+            <ul class="NAB" id="NAB">
+                                    <?php  $_smarty_tpl->tpl_vars['nB'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('Nab')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if (count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['nB']->key => $_smarty_tpl->tpl_vars['nB']->value){
+?>
+                                    <li><?php echo $_smarty_tpl->getVariable('nB')->value['type_name'];?>
+ - <?php echo $_smarty_tpl->getVariable('nB')->value['content'];?>
+ <?php if ($_smarty_tpl->getVariable('nB')->value['is_default']=='Y'){?><span style="color:#F00"> 接收 手机短信 号码</span><?php }?></li>
+                                    <?php }} ?>
+                                </ul>
+        </td></tr>
+        
+       <tr><th>品牌名称</th><td><?php echo $_smarty_tpl->getVariable('show')->value['brand_name'];?>
+</td><th>职务名称</th><td><?php echo $_smarty_tpl->getVariable('show')->value['position'];?>
+</td></tr>
+       <tr><th>经营区域</th><td><?php echo $_smarty_tpl->getVariable('show')->value['business_zone'];?>
+</td><th>经营范围</th><td><?php echo $_smarty_tpl->getVariable('show')->value['business_scope'];?>
+</td></tr>
+       <tr><th>上级业务</th><td><?php echo $_smarty_tpl->getVariable('show')->value['brand_name'];?>
+</td><th>上级客服</th><td><?php echo $_smarty_tpl->getVariable('show')->value['position'];?>
+</td></tr>
+       <tr><th>网站</th><td><?php echo $_smarty_tpl->getVariable('show')->value['home_page'];?>
+</td><th>开户日期</th><td><?php echo date('Y-m-d',$_smarty_tpl->getVariable('show')->value['start_date']);?>
+</td></tr>
+       <tr><th>位置</th><td><?php echo $_smarty_tpl->getVariable('show')->value['brand_name'];?>
+</td><th>性别</th><td><?php if ($_smarty_tpl->getVariable('show')->value['sex']=='privacy'){?>保密<?php }elseif($_smarty_tpl->getVariable('show')->value['sex']=='man'){?>男<?php }else{ ?>女<?php }?></td></tr>
+       <tr><th>*倍率</th><td><?php echo $_smarty_tpl->getVariable('show')->value['mag'];?>
+</td><th>上次登录时间</th><td><?php echo date('Y-m-d',$_smarty_tpl->getVariable('show')->value['login_time']);?>
+</td></tr>
+</table>
 			</div>
 		</div>
 		<i class="clear"></i>

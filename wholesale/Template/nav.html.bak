@@ -16,4 +16,5 @@
 	<li><a href="{write_url open='SP'}" {CLASS_COLOR SP=$get.open CLASS='this'}>每日特价</a></li>
 	<li><a href="{write_url open='Query'}" {CLASS_COLOR Query=$get.open CLASS='this'}>现货查询</a></li>
 	<li><a href="{write_url open='me'}" {CLASS_COLOR me=$get.open CLASS='this'}>我的专区</a></li>
+	<li><a href="../diamind/?open=home&action=search&page=1&token={$proxy.id}&nid={$proxy.number}" target="_blank">前往前台</a></li>
 </ul>

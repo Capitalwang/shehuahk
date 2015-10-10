@@ -90,7 +90,7 @@
 	.me_home .me_Ys table .te{
 		text-align:center;}
 	.me_home .me_Ys .mes td{
-		text-align:left;}
+		text-align:left !important;}
 	th{
 		width:12%;
 		min-width:84px;}

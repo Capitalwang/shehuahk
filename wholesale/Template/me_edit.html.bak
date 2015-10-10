@@ -87,7 +87,7 @@
 							</td>
 						</tr>
 						
-						<tr><td colspan="2" class="INP" style="text-align:center;"><input value="修改资料" type="submit" style="height:auto; line-height:normal" /></td></tr>
+						<tr><td colspan="2" class="INP" align="center"><input value="修改资料" type="submit" style="height:auto; line-height:normal" /></td></tr>
 					</table>
 				</form>
 			</div>

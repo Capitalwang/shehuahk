@@ -5,7 +5,7 @@
 			<a href="{write_url open='me' action='info'}" {CLASS_COLOR info=$get.action CLASS='this'}>我的资讯</a>
 			<a href="{write_url open='me' action='password'}" {CLASS_COLOR password=$get.action CLASS='this'}>修改密码</a>
 			<a href="{write_url open='me' action='edit'}" {CLASS_COLOR edit=$get.action CLASS='this'}>修改资料</a>
-			<!-- <a href="{write_url open='me' action='onDb'}" {CLASS_COLOR onDb=$get.action CLASS='this'}>修改倍率</a> -->
+			<a href="{write_url open='me' action='onDb'}" {CLASS_COLOR onDb=$get.action CLASS='this'}>修改倍率</a>
 		<!-- 	<a href="{write_url open='me' action='editbl'}" {CLASS_COLOR editbl=$get.action CLASS='this'}>编辑倍率</a> -->
 		
 		</span>

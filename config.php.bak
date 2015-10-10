@@ -1,0 +1,15 @@
+<?php
+	define('Host' , 'localhost');
+	define('Port' , '3306');
+	define('Database' , 'sh_pifa3');
+	define('UserName' , 'root');
+	define('Password' , 'J*6r3#tc@:Pv!b%');
+	define('Site_Name' , '奢华批发平台');
+	//define('DOMAIN' , 'http://localhost/MaylandLake/');
+	
+	//手机短信接口 - key
+	define('SMS_key' , '3SDK-EGD-0130-KJYOT');
+	
+	//手机短信接口 - 密码
+	define('SMS_password' , '010457');
+?>

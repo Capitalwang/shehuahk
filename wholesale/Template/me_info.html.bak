@@ -86,13 +86,13 @@
       </tr>
         <tr>
         <th>Logo</th>
-        <td colspan="3" class="text-left"><img style="width:80px;height:50px;"  src="{$show.company_logo}" /><br/>*建议高宽：140*320px<br/>{$show.company_logo}</td>
+        <td colspan="3"><img style="width:80px;height:50px;"  src="{$show.company_logo}" /><br/>*建议高宽：140*320px<br/>{$show.company_logo}</td>
       </tr>
        <tr>
         <th>*公司名称</th><td>{$show.company_name}</td><th>*公司地址</th><td>{$show.company_address}</td>
       </tr>
         <tr><th>*通讯</th>
-        <td colspan="3" class="text-left">
+        <td colspan="3">
             <ul class="NAB" id="NAB">
                                     {foreach item=nB from=$Nab}
                                     <li>{$nB.type_name} - {$nB.content} {if $nB.is_default == 'Y'}<span style="color:#F00"> 接收 手机短信 号码</span>{/if}</li>

@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-b8, created on 2015-09-25 17:19:59
+<?php /* Smarty version Smarty3-b8, created on 2015-10-10 15:09:47
          compiled from "D:\www\shehuahk\wholesale/Template/me_edit.html" */ ?>
-<?php /*%%SmartyHeaderCode:17227560511bfc2ac27-32791552%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:200695618b9bb15a824-17345857%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f8c88e2597e74b912c0cfa74a55a49745e6f66e9' => 
     array (
       0 => 'D:\\www\\shehuahk\\wholesale/Template/me_edit.html',
-      1 => 1443085605,
+      1 => 1444460982,
     ),
   ),
-  'nocache_hash' => '17227560511bfc2ac27-32791552',
+  'nocache_hash' => '200695618b9bb15a824-17345857',
   'function' => 
   array (
   ),
@@ -148,7 +148,7 @@ if (count($_from) > 0){
 							</td>
 						</tr>
 						
-						<tr><td colspan="2" class="INP" align="center"><input value="修改资料" type="submit" style="height:auto; line-height:normal" /></td></tr>
+						<tr><td colspan="2" class="INP" style="text-align:center;"><input value="修改资料" type="submit" style="height:auto; line-height:normal" /></td></tr>
 					</table>
 				</form>
 			</div>

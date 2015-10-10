@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty3-b8, created on 2015-09-24 14:32:56
+<?php /* Smarty version Smarty3-b8, created on 2015-10-10 10:36:22
          compiled from "D:\www\shehuahk\wholesale/Template/nav.html" */ ?>
-<?php /*%%SmartyHeaderCode:534356039918232131-86299464%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:8740561879a6e03125-56971241%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e6fbb4cf780e986009997744a5e97ce63a1a29ff' => 
     array (
       0 => 'D:\\www\\shehuahk\\wholesale/Template/nav.html',
-      1 => 1443076351,
+      1 => 1444444570,
     ),
   ),
-  'nocache_hash' => '534356039918232131-86299464',
+  'nocache_hash' => '8740561879a6e03125-56971241',
   'function' => 
   array (
   ),
@@ -40,9 +40,9 @@ if (!is_callable('smarty_function_CLASS_COLOR')) include 'D:\www\shehuahk\smarty
 	<li><a href="<?php echo smarty_function_write_url(array('open'=>'LD'),$_smarty_tpl->smarty,$_smarty_tpl);?>
 " <?php echo smarty_function_CLASS_COLOR(array('LD'=>$_smarty_tpl->getVariable('get')->value['open'],'CLASS'=>'this'),$_smarty_tpl->smarty,$_smarty_tpl);?>
 >LD集团</a></li>
-	<li><a href="<?php echo smarty_function_write_url(array('open'=>'news'),$_smarty_tpl->smarty,$_smarty_tpl);?>
+	<!-- <li><a href="<?php echo smarty_function_write_url(array('open'=>'news'),$_smarty_tpl->smarty,$_smarty_tpl);?>
 " <?php echo smarty_function_CLASS_COLOR(array('news'=>$_smarty_tpl->getVariable('get')->value['open'],'CLASS'=>'this'),$_smarty_tpl->smarty,$_smarty_tpl);?>
->全球资讯</a></li>
+>全球资讯</a></li> -->
 	<li><a id="ch" href="<?php echo smarty_function_write_url(array('open'=>'Quote'),$_smarty_tpl->smarty,$_smarty_tpl);?>
 " <?php echo smarty_function_CLASS_COLOR(array('Quote'=>$_smarty_tpl->getVariable('get')->value['open'],'CLASS'=>'this'),$_smarty_tpl->smarty,$_smarty_tpl);?>
 >国际报价</a></li>
